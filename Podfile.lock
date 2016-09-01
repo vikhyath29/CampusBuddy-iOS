@@ -1,0 +1,31 @@
+PODS:
+  - Crashlytics (3.7.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
+  - FMMosaicLayout (0.1.4)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - FMMosaicLayout
+  - GoogleMaps
+  - SDWebImage (~> 3.8)
+
+SPEC CHECKSUMS:
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  FMMosaicLayout: c0febf6876c987c425d7e2176d034fa7a2c98cb5
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 6cbc546369268e639378fc9c3cebd70256fd8993
+
+COCOAPODS: 1.0.1

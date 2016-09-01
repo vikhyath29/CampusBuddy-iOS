@@ -1,0 +1,618 @@
+[
+  {
+    "field1": "Head Of Deptt.",
+    "field2": 5242,
+    "field3": 0,
+    "field4": 0,
+    "field5": "hmied"
+  },
+  {
+    "field1": "P .K. Jain",
+    "field2": 5290,
+    "field3": 5350,
+    "field4": 0,
+    "field5": "pjainfme"
+  },
+  {
+    "field1": "Office   \nMohd. Nazim",
+    "field2": 4342,
+    "field3": 4872,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "FAX",
+    "field2": 5665,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "S. C. Sharma",
+    "field2": 5603,
+    "field3": 5289,
+    "field4": 0,
+    "field5": "sshmefme"
+  },
+  {
+    "field1": "Dinesh Kumar",
+    "field2": 5670,
+    "field3": 5309,
+    "field4": 276106,
+    "field5": "dinesfme"
+  },
+  {
+    "field1": "Akhilesh Gupta",
+    "field2": 5613,
+    "field3": 5192,
+    "field4": 276880,
+    "field5": "akhilfme"
+  },
+  {
+    "field1": "B.K. Mishra",
+    "field2": 5679,
+    "field3": 5295,
+    "field4": 270175,
+    "field5": "bhanufme"
+  },
+  {
+    "field1": "B.K. Gandhi",
+    "field2": 5544,
+    "field3": 5144,
+    "field4": 0,
+    "field5": "bkgmefme"
+  },
+  {
+    "field1": "Ravi Kumar",
+    "field2": 5740,
+    "field3": 5117,
+    "field4": 0,
+    "field5": "ravikfme"
+  },
+  {
+    "field1": "R. P. Gakkhar",
+    "field2": 5681,
+    "field3": 5693,
+    "field4": 0,
+    "field5": "gakhrfme"
+  },
+  {
+    "field1": "Anil Kumar",
+    "field2": 5696,
+    "field3": 5288,
+    "field4": 275011,
+    "field5": "anilkfme"
+  },
+  {
+    "field1": "Navneet Arora",
+    "field2": 5685,
+    "field3": 5667,
+    "field4": 271000,
+    "field5": "arorafme"
+  },
+  {
+    "field1": "P. K. Sahoo",
+    "field2": 5674,
+    "field3": 5643,
+    "field4": 0,
+    "field5": "sahoofme"
+  },
+  {
+    "field1": "D.K. Dwivedi",
+    "field2": 5826,
+    "field3": 5830,
+    "field4": 0,
+    "field5": "dkd04fme"
+  },
+  {
+    "field1": "V.H. Saran",
+    "field2": 5682,
+    "field3": 0,
+    "field4": 0,
+    "field5": "saranfme"
+  },
+  {
+    "field1": "K.M. Singh",
+    "field2": 5414,
+    "field3": 5497,
+    "field4": 0,
+    "field5": "singhfme"
+  },
+  {
+    "field1": "K. Murugesan",
+    "field2": 5635,
+    "field3": 5660,
+    "field4": 0,
+    "field5": "krimufme"
+  },
+  {
+    "field1": "A.K. Sharma",
+    "field2": 5421,
+    "field3": 5479,
+    "field4": 0,
+    "field5": "akshafme"
+  },
+  {
+    "field1": "P. M. Pathak",
+    "field2": 5608,
+    "field3": 5631,
+    "field4": 0,
+    "field5": "pushpfme"
+  },
+  {
+    "field1": "Indra Vir singh",
+    "field2": 5888,
+    "field3": 6888,
+    "field4": 0,
+    "field5": "indrafme"
+  },
+  {
+    "field1": "P. K. Jha",
+    "field2": 5871,
+    "field3": 6871,
+    "field4": 0,
+    "field5": "pkjhafme"
+  },
+  {
+    "field1": "S. P. Harsha",
+    "field2": 5891,
+    "field3": 6891,
+    "field4": 0,
+    "field5": "surajfme"
+  },
+  {
+    "field1": "Manish Mishra",
+    "field2": 5135,
+    "field3": 5176,
+    "field4": 0,
+    "field5": "mmishfme"
+  },
+  {
+    "field1": "S. Dutta",
+    "field2": 5410,
+    "field3": 5432,
+    "field4": 0,
+    "field5": "duttafme"
+  },
+  {
+    "field1": "D. B. Karunakar",
+    "field2": 5492,
+    "field3": 5741,
+    "field4": 0,
+    "field5": "bennyfme"
+  },
+  {
+    "field1": "Inderdeep Singh",
+    "field2": 5614,
+    "field3": 5177,
+    "field4": 0,
+    "field5": "inderfme"
+  },
+  {
+    "field1": "A. Tariq",
+    "field2": 5728,
+    "field3": 5514,
+    "field4": 0,
+    "field5": "tariqfme"
+  },
+  {
+    "field1": "M. M. Mahapatra",
+    "field2": 5518,
+    "field3": 5354,
+    "field4": 0,
+    "field5": "manasfme"
+  },
+  {
+    "field1": "Akshay Dwivedi",
+    "field2": 5428,
+    "field3": 5471,
+    "field4": 0,
+    "field5": "dvaksfme"
+  },
+  {
+    "field1": "S. H. Upadhayay",
+    "field2": 5520,
+    "field3": 5509,
+    "field4": 0,
+    "field5": "shumefme"
+  },
+  {
+    "field1": "Sudhakar  Subudhi",
+    "field2": 4763,
+    "field3": 6763,
+    "field4": 0,
+    "field5": "subudfme"
+  },
+  {
+    "field1": "D.K.Saxena",
+    "field2": 4768,
+    "field3": 6768,
+    "field4": 0,
+    "field5": "dhishfme"
+  },
+  {
+    "field1": "M.M.Joglekar",
+    "field2": 4769,
+    "field3": 6769,
+    "field4": 0,
+    "field5": "jogknfdm"
+  },
+  {
+    "field1": "C.P. Gupta \n( Distinguished Prof)",
+    "field2": 5668,
+    "field3": 0,
+    "field4": 279561,
+    "field5": 0
+  },
+  {
+    "field1": "Kaushik Pal",
+    "field2": 4761,
+    "field3": 6761,
+    "field4": 0,
+    "field5": "palkfme"
+  },
+  {
+    "field1": "Anil Kumar",
+    "field2": 5105,
+    "field3": 5061,
+    "field4": 0,
+    "field5": "anikrfme"
+  },
+  {
+    "field1": "R.S.Mulik",
+    "field2": 5761,
+    "field3": 5093,
+    "field4": 0,
+    "field5": "rsmulfme"
+  },
+  {
+    "field1": "A.K.Swain",
+    "field2": 5277,
+    "field3": 0,
+    "field4": 0,
+    "field5": "swainfme"
+  },
+  {
+    "field1": "A.Bansal",
+    "field2": 4781,
+    "field3": 6781,
+    "field4": 0,
+    "field5": "abansfme"
+  },
+  {
+    "field1": "Avinash Parashar",
+    "field2": 4801,
+    "field3": 6801,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "A.K.Das",
+    "field2": 4802,
+    "field3": 6424,
+    "field4": 0,
+    "field5": "akdasfme"
+  },
+  {
+    "field1": "S.Pal",
+    "field2": 4846,
+    "field3": 6846,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "K.B.Mishra",
+    "field2": 4857,
+    "field3": 6857,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "B. K. Ramaniya",
+    "field2": 5758,
+    "field3": 5757,
+    "field4": 0,
+    "field5": "kumarmme"
+  },
+  {
+    "field1": "D.K.Kapil",
+    "field2": 4473,
+    "field3": 4676,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Yashpal Singh",
+    "field2": 4852,
+    "field3": 6852,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "N.K. Mehta (E.F.)",
+    "field2": 5675,
+    "field3": 0,
+    "field4": 0,
+    "field5": "mehtafme"
+  },
+  {
+    "field1": "Guest Faculty",
+    "field2": 6564,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Research Scholars\nRoom",
+    "field2": 6596,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Adv. Manuf. \nProcess Lab.",
+    "field2": 6610,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Aerodynamics Lab.",
+    "field2": 6606,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "C.A .E. Lab. 1",
+    "field2": 4411,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "C.A. E. Lab. 2",
+    "field2": 6601,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "C.A. E. Lab East Wing",
+    "field2": 4992,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "C. F. D. Lab.",
+    "field2": 6612,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Foundry Engineering Lab.",
+    "field2": 6604,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "F.R.P. Lab.",
+    "field2": 6360,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Heat Transfer Lab.",
+    "field2": 6611,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Machine Tool Lab.",
+    "field2": 6600,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Machine Vibration  \n& Noise Lab.",
+    "field2": 6602,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Manufacturing \nSystems Lab.",
+    "field2": 6607,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Measurements Lab.",
+    "field2": 6599,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Mech. & Materials Lab.",
+    "field2": 6608,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Microwave Material\nprocessing Lab.",
+    "field2": 6620,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Refrigeration &  A / C Lab.",
+    "field2": 6603,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Robotics & Control Lab.",
+    "field2": 6618,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Steam Power Engg.  Lab.",
+    "field2": 6597,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Tribology Lab.",
+    "field2": 6609,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Vehicle Dynamics Lab.",
+    "field2": 6476,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Welding Engg. Lab.",
+    "field2": 6619,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Welding Met. Lab",
+    "field2": 6613,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Welding Research Lab.",
+    "field2": 6477,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Work Science Lab.",
+    "field2": 6615,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Fire Research Lab.",
+    "field2": 6630,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Committee Room-I",
+    "field2": 6483,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Committee Room-II",
+    "field2": 6479,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Drawing Office",
+    "field2": 6605,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Instrument Workshop",
+    "field2": 6480,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Machine Shop",
+    "field2": 6482,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Office (Industrial Engg.)",
+    "field2": 4231,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Office (Workshop)",
+    "field2": 4251,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Welding Shop",
+    "field2": 6484,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Workshop Gate",
+    "field2": 6478,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Auditorium",
+    "field2": 6598,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Caretaker",
+    "field2": 4481,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "Library",
+    "field2": 6475,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  },
+  {
+    "field1": "General",
+    "field2": 4460,
+    "field3": 0,
+    "field4": 0,
+    "field5": 0
+  }
+]

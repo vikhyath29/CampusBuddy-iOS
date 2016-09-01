@@ -1,0 +1,22 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '8.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+target 'RLandApp' do
+pod 'GoogleMaps'
+pod "FMMosaicLayout"
+pod 'SDWebImage', '~>3.8'
+pod 'Fabric'
+pod 'Crashlytics'
+
+end
+
+target 'RLandAppTests' do
+
+end
+
+target 'RLandAppUITests' do
+
+end
+

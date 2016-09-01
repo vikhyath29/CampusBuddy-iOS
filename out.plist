@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Latitude</key>
+		<real>29.865866</real>
+		<key>Location</key>
+		<string>Main Building Lawns</string>
+		<key>Longitude</key>
+		<real>77.896315999999999</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.866344999999999</real>
+		<key>Location</key>
+		<string>Swimming Pool</string>
+		<key>Longitude</key>
+		<real>77.897384000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.867038000000001</real>
+		<key>Location</key>
+		<string>Lawn Tennis Lawn</string>
+		<key>Longitude</key>
+		<real>77.898815999999997</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.866624000000002</real>
+		<key>Location</key>
+		<string>Institue Gym</string>
+		<key>Longitude</key>
+		<real>77.898381999999998</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.867083999999998</real>
+		<key>Location</key>
+		<string>OAT</string>
+		<key>Longitude</key>
+		<real>77.897507000000004</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.867294000000001</real>
+		<key>Location</key>
+		<string>LBS Stadium</string>
+		<key>Longitude</key>
+		<real>77.895629</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.865275</real>
+		<key>Location</key>
+		<string>MGCL</string>
+		<key>Longitude</key>
+		<real>77.895145999999997</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.864856</real>
+		<key>Location</key>
+		<string>LHC</string>
+		<key>Longitude</key>
+		<real>77.893848000000006</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.863171999999999</real>
+		<key>Location</key>
+		<string>Hobbies Club</string>
+		<key>Longitude</key>
+		<real>77.894920999999997</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.862287999999999</real>
+		<key>Location</key>
+		<string>Mechanical Dept.</string>
+		<key>Longitude</key>
+		<real>77.897281000000007</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.86347</real>
+		<key>Location</key>
+		<string>ECE Dept.</string>
+		<key>Longitude</key>
+		<real>77.896219000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.86307</real>
+		<key>Location</key>
+		<string>OP Jain Auditorium</string>
+		<key>Longitude</key>
+		<real>77.898859000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.862707</real>
+		<key>Location</key>
+		<string>Civil Dept.</string>
+		<key>Longitude</key>
+		<real>77.899244999999993</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.863395000000001</real>
+		<key>Location</key>
+		<string>Architecture</string>
+		<key>Longitude</key>
+		<real>77.899861999999999</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.86326</real>
+		<key>Location</key>
+		<string>CSE Dept.</string>
+		<key>Longitude</key>
+		<real>77.895731999999995</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.866776999999999</real>
+		<key>Location</key>
+		<string>Chemical Dept.</string>
+		<key>Longitude</key>
+		<real>77.893945000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.867201000000001</real>
+		<key>Location</key>
+		<string>Metallurgy Dept.</string>
+		<key>Longitude</key>
+		<real>77.893086999999994</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.868735999999998</real>
+		<key>Location</key>
+		<string>NIH</string>
+		<key>Longitude</key>
+		<real>77.894165000000001</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.865939999999998</real>
+		<key>Location</key>
+		<string>Dept. Of Earthquake Engineering</string>
+		<key>Longitude</key>
+		<real>77.901064000000005</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>77.894766000000004</real>
+		<key>Location</key>
+		<string>Dept. of Management Studies</string>
+		<key>Longitude</key>
+		<real>77.894766000000004</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.861436999999999</real>
+		<key>Location</key>
+		<string>KIH</string>
+		<key>Longitude</key>
+		<real>77.898650000000004</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.864321</real>
+		<key>Location</key>
+		<string>N C Nigam</string>
+		<key>Longitude</key>
+		<real>77.899180999999999</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.861874</real>
+		<key>Location</key>
+		<string>University Canteen</string>
+		<key>Longitude</key>
+		<real>77.898016999999996</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>77.890872000000002</real>
+		<key>Location</key>
+		<string>Convocation Hall</string>
+		<key>Longitude</key>
+		<real>77.890872000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.870498999999999</real>
+		<key>Location</key>
+		<string>Rajendra Bhawan</string>
+		<key>Longitude</key>
+		<real>77.893698999999998</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.871303999999999</real>
+		<key>Location</key>
+		<string>Ganga Bhawan</string>
+		<key>Longitude</key>
+		<real>77.894019999999998</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.871141000000001</real>
+		<key>Location</key>
+		<string>Cautley Bhawan</string>
+		<key>Longitude</key>
+		<real>77.896842000000007</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.869741000000001</real>
+		<key>Location</key>
+		<string>Rajiv Bhawan</string>
+		<key>Longitude</key>
+		<real>77.894889000000006</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.864962999999999</real>
+		<key>Location</key>
+		<string>Ravindra Bhawan</string>
+		<key>Longitude</key>
+		<real>77.892835000000005</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.865117000000001</real>
+		<key>Location</key>
+		<string>Azad Bhawan</string>
+		<key>Longitude</key>
+		<real>77.890979000000002</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.861567000000001</real>
+		<key>Location</key>
+		<string>Govind Bhawan</string>
+		<key>Longitude</key>
+		<real>77.894385</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.863814000000001</real>
+		<key>Location</key>
+		<string>Jawahar Bhawan</string>
+		<key>Longitude</key>
+		<real>77.901155000000003</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.867294000000001</real>
+		<key>Location</key>
+		<string>New Kasturba Bhawan</string>
+		<key>Longitude</key>
+		<real>77.901182000000006</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.865089000000001</real>
+		<key>Location</key>
+		<string>Sarojini Bhawan</string>
+		<key>Longitude</key>
+		<real>77.900183999999996</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.864391000000001</real>
+		<key>Location</key>
+		<string>Alpahar</string>
+		<key>Longitude</key>
+		<real>77.895977999999999</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.863776999999999</real>
+		<key>Location</key>
+		<string>Students Club</string>
+		<key>Longitude</key>
+		<real>77.894873000000004</real>
+	</dict>
+	<dict>
+		<key>Latitude</key>
+		<real>29.864242000000001</real>
+		<key>Location</key>
+		<string>Music Section</string>
+		<key>Longitude</key>
+		<real>77.896477000000004</real>
+	</dict>
+</array>
+</plist>
