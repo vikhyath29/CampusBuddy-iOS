@@ -5,6 +5,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Maps-->
@@ -713,84 +714,37 @@
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="143" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzr-gw-fqG">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <imageView userInteractionEnabled="NO" tag="143" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tzr-gw-fqG">
+                                            <rect key="frame" x="8" y="8" width="164" height="149"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="144" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfZ-TN-dYt">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="144" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfZ-TN-dYt">
+                                            <rect key="frame" x="8" y="158" width="164" height="28"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="13" y="0.0" width="154" height="21"/>
-                                            </variation>
                                         </label>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" tag="142" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jyh-v9-96W">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" tag="142" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jyh-v9-96W">
+                                            <rect key="frame" x="139" y="127" width="33" height="31"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="32" id="kt9-QS-4As"/>
-                                                <constraint firstAttribute="height" constant="31" id="m6d-da-OB6"/>
+                                                <constraint firstAttribute="width" secondItem="Jyh-v9-96W" secondAttribute="height" multiplier="19:18" id="ipx-Wq-qv0"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="kt9-QS-4As"/>
-                                                    <exclude reference="m6d-da-OB6"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="kt9-QS-4As"/>
-                                                    <include reference="m6d-da-OB6"/>
-                                                </mask>
-                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="centerX" secondItem="H8q-y3-GOp" secondAttribute="centerX" id="Kr4-hj-TRb"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Jyh-v9-96W" secondAttribute="bottom" constant="19" id="MwL-kw-n8x"/>
-                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="top" secondItem="KfZ-TN-dYt" secondAttribute="bottom" constant="-1" id="TnR-Z4-XnP"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Tzr-gw-fqG" secondAttribute="bottom" constant="13" id="V8X-SU-yR6"/>
-                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="leading" secondItem="H8q-y3-GOp" secondAttribute="leadingMargin" constant="5" id="c6m-d9-wsT"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Jyh-v9-96W" secondAttribute="trailing" constant="10" id="ecy-xQ-X8u"/>
-                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="centerY" secondItem="H8q-y3-GOp" secondAttribute="centerY" id="hZh-2H-XjY"/>
-                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="top" secondItem="H8q-y3-GOp" secondAttribute="topMargin" constant="12" id="haa-bT-6kl"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="KfZ-TN-dYt" secondAttribute="trailing" constant="5" id="k0u-9b-zw4"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Tzr-gw-fqG" secondAttribute="trailing" constant="5" id="sxQ-Ct-yqY"/>
-                                    <constraint firstItem="KfZ-TN-dYt" firstAttribute="leading" secondItem="H8q-y3-GOp" secondAttribute="leadingMargin" constant="5" id="tEW-Iu-B7W"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Jyh-v9-96W" secondAttribute="trailing" id="1CJ-6S-GfZ"/>
+                                    <constraint firstItem="KfZ-TN-dYt" firstAttribute="leading" secondItem="H8q-y3-GOp" secondAttribute="leadingMargin" id="1MO-DW-QKZ"/>
+                                    <constraint firstItem="Jyh-v9-96W" firstAttribute="width" secondItem="Tzr-gw-fqG" secondAttribute="width" multiplier="0.1999" id="9yh-oX-v9u"/>
+                                    <constraint firstItem="KfZ-TN-dYt" firstAttribute="bottom" secondItem="H8q-y3-GOp" secondAttribute="bottomMargin" id="Bya-yP-cdA"/>
+                                    <constraint firstItem="KfZ-TN-dYt" firstAttribute="top" secondItem="Jyh-v9-96W" secondAttribute="bottom" id="S4Y-Eq-2kc"/>
+                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="top" secondItem="H8q-y3-GOp" secondAttribute="topMargin" id="amM-N4-5Ev"/>
+                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="leading" secondItem="H8q-y3-GOp" secondAttribute="leadingMargin" id="dvX-a3-3Bz"/>
+                                    <constraint firstItem="KfZ-TN-dYt" firstAttribute="top" secondItem="Tzr-gw-fqG" secondAttribute="bottom" constant="1" id="gUG-yL-2H3"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="KfZ-TN-dYt" secondAttribute="trailing" id="r1g-7q-zbL"/>
+                                    <constraint firstItem="Tzr-gw-fqG" firstAttribute="trailing" secondItem="H8q-y3-GOp" secondAttribute="trailingMargin" id="xAW-HI-p8F"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="MwL-kw-n8x"/>
-                                        <exclude reference="ecy-xQ-X8u"/>
-                                        <exclude reference="Kr4-hj-TRb"/>
-                                        <exclude reference="TnR-Z4-XnP"/>
-                                        <exclude reference="V8X-SU-yR6"/>
-                                        <exclude reference="c6m-d9-wsT"/>
-                                        <exclude reference="hZh-2H-XjY"/>
-                                        <exclude reference="haa-bT-6kl"/>
-                                        <exclude reference="sxQ-Ct-yqY"/>
-                                        <exclude reference="k0u-9b-zw4"/>
-                                        <exclude reference="tEW-Iu-B7W"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="MwL-kw-n8x"/>
-                                        <include reference="ecy-xQ-X8u"/>
-                                        <include reference="Kr4-hj-TRb"/>
-                                        <include reference="TnR-Z4-XnP"/>
-                                        <include reference="V8X-SU-yR6"/>
-                                        <include reference="c6m-d9-wsT"/>
-                                        <include reference="hZh-2H-XjY"/>
-                                        <include reference="haa-bT-6kl"/>
-                                        <include reference="sxQ-Ct-yqY"/>
-                                        <include reference="k0u-9b-zw4"/>
-                                        <include reference="tEW-Iu-B7W"/>
-                                    </mask>
-                                </variation>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -803,7 +757,7 @@
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GZi-6q-6aL">
                             <rect key="frame" x="194" y="7" width="212" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Click me to get Facebook Feed"/>
+                            <state key="normal" title="Get Facebook Feed"/>
                             <connections>
                                 <action selector="showFeedAction:" destination="Liq-Wi-H8n" eventType="touchUpInside" id="rB9-oV-HqF"/>
                             </connections>
@@ -815,7 +769,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o80-9k-GKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3733.5" y="-605"/>
+            <point key="canvasLocation" x="3733" y="-605"/>
         </scene>
         <!--Page Content View Controller-->
         <scene sceneID="5ao-wB-obt">
@@ -1269,7 +1223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U0D-DE-HzK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U0D-DE-HzK">
                                 <rect key="frame" x="0.0" y="33" width="600" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f8H-6x-OJ7">

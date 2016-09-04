@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "FMMosaicLayout/FMMosaicLayout.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import "ListOfFbPostsViewController.h"
 
 @interface ChooseFbPageViewController : UICollectionViewController<UICollectionViewDelegate, UICollectionViewDataSource, FMMosaicLayoutDelegate >
 
-{
-    NSMutableDictionary *selectedProfilesDictionary;
-}
+
+
 
 
 - (IBAction)showFeedAction:(id)sender;

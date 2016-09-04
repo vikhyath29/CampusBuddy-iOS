@@ -62,29 +62,6 @@
 		C29E1B171C6F345000BBA29C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = C29E1B131C6F345000BBA29C /* page3.png */; };
 		C29E1B181C6F345000BBA29C /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = C29E1B141C6F345000BBA29C /* page4.png */; };
 		C2AD0E001C62B85900B77294 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AD0DFF1C62B85900B77294 /* MessageUI.framework */; };
-		C2AF5DEB1CDA89F300A3DD45 /* SDS Labs.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD41CDA89F300A3DD45 /* SDS Labs.png */; };
-		C2AF5DEC1CDA89F300A3DD45 /* Share iITR.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD51CDA89F300A3DD45 /* Share iITR.png */; };
-		C2AF5DED1CDA89F300A3DD45 /* Team Robocon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD61CDA89F300A3DD45 /* Team Robocon.png */; };
-		C2AF5DEE1CDA89F300A3DD45 /* Thomso.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD71CDA89F300A3DD45 /* Thomso.png */; };
-		C2AF5DEF1CDA89F300A3DD45 /* PAG.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD81CDA89F300A3DD45 /* PAG.png */; };
-		C2AF5DF01CDA89F300A3DD45 /* photography section.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DD91CDA89F300A3DD45 /* photography section.png */; };
-		C2AF5DF11CDA89F300A3DD45 /* Rhapsody.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDA1CDA89F300A3DD45 /* Rhapsody.png */; };
-		C2AF5DF21CDA89F300A3DD45 /* IITR Page.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDB1CDA89F300A3DD45 /* IITR Page.png */; };
-		C2AF5DF31CDA89F300A3DD45 /* IMG.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDC1CDA89F300A3DD45 /* IMG.png */; };
-		C2AF5DF41CDA89F300A3DD45 /* NCC IITR.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDD1CDA89F300A3DD45 /* NCC IITR.png */; };
-		C2AF5DF51CDA89F300A3DD45 /* Electronics Section.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDE1CDA89F300A3DD45 /* Electronics Section.png */; };
-		C2AF5DF61CDA89F300A3DD45 /* General Notice Board.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DDF1CDA89F300A3DD45 /* General Notice Board.png */; };
-		C2AF5DF71CDA89F300A3DD45 /* Group For Interactive Learning.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE01CDA89F300A3DD45 /* Group For Interactive Learning.png */; };
-		C2AF5DF81CDA89F300A3DD45 /* Anushruti.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE11CDA89F300A3DD45 /* Anushruti.png */; };
-		C2AF5DF91CDA89F300A3DD45 /* Ashrae.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE21CDA89F300A3DD45 /* Ashrae.png */; };
-		C2AF5DFA1CDA89F300A3DD45 /* Audio Section.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE31CDA89F300A3DD45 /* Audio Section.png */; };
-		C2AF5DFB1CDA89F300A3DD45 /* bookshelf.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE41CDA89F300A3DD45 /* bookshelf.png */; };
-		C2AF5DFC1CDA89F300A3DD45 /* Mobile Development Group.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE51CDA89F300A3DD45 /* Mobile Development Group.png */; };
-		C2AF5DFD1CDA89F300A3DD45 /* Sanskriti.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE61CDA89F300A3DD45 /* Sanskriti.png */; };
-		C2AF5DFE1CDA89F300A3DD45 /* Fine Arts.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE71CDA89F300A3DD45 /* Fine Arts.png */; };
-		C2AF5DFF1CDA89F300A3DD45 /* Cognizance.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE81CDA89F300A3DD45 /* Cognizance.png */; };
-		C2AF5E001CDA89F300A3DD45 /* CineSec.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DE91CDA89F300A3DD45 /* CineSec.png */; };
-		C2AF5E011CDA89F300A3DD45 /* Cinema Club.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5DEA1CDA89F300A3DD45 /* Cinema Club.png */; };
 		C2AF5E091CDA8AB000A3DD45 /* animal-element-7.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5E041CDA8AB000A3DD45 /* animal-element-7.png */; };
 		C2AF5E0A1CDA8AB000A3DD45 /* bell-7.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5E051CDA8AB000A3DD45 /* bell-7.png */; };
 		C2AF5E0B1CDA8AB000A3DD45 /* calendar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AF5E061CDA8AB000A3DD45 /* calendar-7.png */; };
@@ -204,29 +181,6 @@
 		C29E1B131C6F345000BBA29C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		C29E1B141C6F345000BBA29C /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		C2AD0DFF1C62B85900B77294 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		C2AF5DD41CDA89F300A3DD45 /* SDS Labs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SDS Labs.png"; path = "Facebook profile pics/SDS Labs.png"; sourceTree = "<group>"; };
-		C2AF5DD51CDA89F300A3DD45 /* Share iITR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Share iITR.png"; path = "Facebook profile pics/Share iITR.png"; sourceTree = "<group>"; };
-		C2AF5DD61CDA89F300A3DD45 /* Team Robocon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Team Robocon.png"; path = "Facebook profile pics/Team Robocon.png"; sourceTree = "<group>"; };
-		C2AF5DD71CDA89F300A3DD45 /* Thomso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Thomso.png; path = "Facebook profile pics/Thomso.png"; sourceTree = "<group>"; };
-		C2AF5DD81CDA89F300A3DD45 /* PAG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PAG.png; path = "Facebook profile pics/PAG.png"; sourceTree = "<group>"; };
-		C2AF5DD91CDA89F300A3DD45 /* photography section.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photography section.png"; path = "Facebook profile pics/photography section.png"; sourceTree = "<group>"; };
-		C2AF5DDA1CDA89F300A3DD45 /* Rhapsody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rhapsody.png; path = "Facebook profile pics/Rhapsody.png"; sourceTree = "<group>"; };
-		C2AF5DDB1CDA89F300A3DD45 /* IITR Page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IITR Page.png"; path = "Facebook profile pics/IITR Page.png"; sourceTree = "<group>"; };
-		C2AF5DDC1CDA89F300A3DD45 /* IMG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG.png; path = "Facebook profile pics/IMG.png"; sourceTree = "<group>"; };
-		C2AF5DDD1CDA89F300A3DD45 /* NCC IITR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "NCC IITR.png"; path = "Facebook profile pics/NCC IITR.png"; sourceTree = "<group>"; };
-		C2AF5DDE1CDA89F300A3DD45 /* Electronics Section.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Electronics Section.png"; path = "Facebook profile pics/Electronics Section.png"; sourceTree = "<group>"; };
-		C2AF5DDF1CDA89F300A3DD45 /* General Notice Board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "General Notice Board.png"; path = "Facebook profile pics/General Notice Board.png"; sourceTree = "<group>"; };
-		C2AF5DE01CDA89F300A3DD45 /* Group For Interactive Learning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Group For Interactive Learning.png"; path = "Facebook profile pics/Group For Interactive Learning.png"; sourceTree = "<group>"; };
-		C2AF5DE11CDA89F300A3DD45 /* Anushruti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Anushruti.png; path = "Facebook profile pics/Anushruti.png"; sourceTree = "<group>"; };
-		C2AF5DE21CDA89F300A3DD45 /* Ashrae.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ashrae.png; path = "Facebook profile pics/Ashrae.png"; sourceTree = "<group>"; };
-		C2AF5DE31CDA89F300A3DD45 /* Audio Section.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Audio Section.png"; path = "Facebook profile pics/Audio Section.png"; sourceTree = "<group>"; };
-		C2AF5DE41CDA89F300A3DD45 /* bookshelf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bookshelf.png; path = "Facebook profile pics/bookshelf.png"; sourceTree = "<group>"; };
-		C2AF5DE51CDA89F300A3DD45 /* Mobile Development Group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mobile Development Group.png"; path = "Facebook profile pics/Mobile Development Group.png"; sourceTree = "<group>"; };
-		C2AF5DE61CDA89F300A3DD45 /* Sanskriti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sanskriti.png; path = "Facebook profile pics/Sanskriti.png"; sourceTree = "<group>"; };
-		C2AF5DE71CDA89F300A3DD45 /* Fine Arts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Fine Arts.png"; path = "Facebook profile pics/Fine Arts.png"; sourceTree = "<group>"; };
-		C2AF5DE81CDA89F300A3DD45 /* Cognizance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cognizance.png; path = "Facebook profile pics/Cognizance.png"; sourceTree = "<group>"; };
-		C2AF5DE91CDA89F300A3DD45 /* CineSec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CineSec.png; path = "Facebook profile pics/CineSec.png"; sourceTree = "<group>"; };
-		C2AF5DEA1CDA89F300A3DD45 /* Cinema Club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Cinema Club.png"; path = "Facebook profile pics/Cinema Club.png"; sourceTree = "<group>"; };
 		C2AF5E041CDA8AB000A3DD45 /* animal-element-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "animal-element-7.png"; path = "Facebook profile pics/animal-element-7.png"; sourceTree = "<group>"; };
 		C2AF5E051CDA8AB000A3DD45 /* bell-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bell-7.png"; path = "Facebook profile pics/bell-7.png"; sourceTree = "<group>"; };
 		C2AF5E061CDA8AB000A3DD45 /* calendar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-7.png"; path = "Facebook profile pics/calendar-7.png"; sourceTree = "<group>"; };
@@ -393,7 +347,6 @@
 		C20D61F31C228AFE00F52991 /* Fb Posts */ = {
 			isa = PBXGroup;
 			children = (
-				C29B00DF1C68EBF200CDF296 /* Page Profile Pictures */,
 				C2D914D01C69EDC800925E1B /* checkmark.png */,
 				C27A8D901D774AEC00AB4042 /* ChooseFbPageViewController.h */,
 				C27A8D911D774AEC00AB4042 /* ChooseFbPageViewController.m */,
@@ -501,37 +454,6 @@
 				C2AF5E081CDA8AB000A3DD45 /* house-7.png */,
 			);
 			name = TabBarImages;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		C29B00DF1C68EBF200CDF296 /* Page Profile Pictures */ = {
-			isa = PBXGroup;
-			children = (
-				C2AF5DD41CDA89F300A3DD45 /* SDS Labs.png */,
-				C2AF5DD51CDA89F300A3DD45 /* Share iITR.png */,
-				C2AF5DD61CDA89F300A3DD45 /* Team Robocon.png */,
-				C2AF5DD71CDA89F300A3DD45 /* Thomso.png */,
-				C2AF5DD81CDA89F300A3DD45 /* PAG.png */,
-				C2AF5DD91CDA89F300A3DD45 /* photography section.png */,
-				C2AF5DDA1CDA89F300A3DD45 /* Rhapsody.png */,
-				C2AF5DDB1CDA89F300A3DD45 /* IITR Page.png */,
-				C2AF5DDC1CDA89F300A3DD45 /* IMG.png */,
-				C2AF5DDD1CDA89F300A3DD45 /* NCC IITR.png */,
-				C2AF5DDE1CDA89F300A3DD45 /* Electronics Section.png */,
-				C2AF5DDF1CDA89F300A3DD45 /* General Notice Board.png */,
-				C2AF5DE01CDA89F300A3DD45 /* Group For Interactive Learning.png */,
-				C2AF5DE11CDA89F300A3DD45 /* Anushruti.png */,
-				C2AF5DE21CDA89F300A3DD45 /* Ashrae.png */,
-				C2AF5DE31CDA89F300A3DD45 /* Audio Section.png */,
-				C2AF5DE41CDA89F300A3DD45 /* bookshelf.png */,
-				C2AF5DE51CDA89F300A3DD45 /* Mobile Development Group.png */,
-				C2AF5DE61CDA89F300A3DD45 /* Sanskriti.png */,
-				C2AF5DE71CDA89F300A3DD45 /* Fine Arts.png */,
-				C2AF5DE81CDA89F300A3DD45 /* Cognizance.png */,
-				C2AF5DE91CDA89F300A3DD45 /* CineSec.png */,
-				C2AF5DEA1CDA89F300A3DD45 /* Cinema Club.png */,
-			);
-			name = "Page Profile Pictures";
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -677,48 +599,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2AF5DED1CDA89F300A3DD45 /* Team Robocon.png in Resources */,
-				C2AF5DF71CDA89F300A3DD45 /* Group For Interactive Learning.png in Resources */,
 				C2AF5E091CDA8AB000A3DD45 /* animal-element-7.png in Resources */,
-				C2AF5DF21CDA89F300A3DD45 /* IITR Page.png in Resources */,
 				C27A8DA51D77520200AB4042 /* Prof icon.png in Resources */,
-				C2AF5DF31CDA89F300A3DD45 /* IMG.png in Resources */,
 				C2AF5E0D1CDA8AB000A3DD45 /* house-7.png in Resources */,
-				C2AF5DF11CDA89F300A3DD45 /* Rhapsody.png in Resources */,
-				C2AF5E011CDA89F300A3DD45 /* Cinema Club.png in Resources */,
-				C2AF5DF61CDA89F300A3DD45 /* General Notice Board.png in Resources */,
 				C22837761C5BC083000E97C2 /* IITRLocationsInfo.json in Resources */,
 				C20D61B11C21BEE500F52991 /* LaunchScreen.storyboard in Resources */,
-				C2AF5DF81CDA89F300A3DD45 /* Anushruti.png in Resources */,
-				C2AF5E001CDA89F300A3DD45 /* CineSec.png in Resources */,
-				C2AF5DFB1CDA89F300A3DD45 /* bookshelf.png in Resources */,
-				C2AF5DF91CDA89F300A3DD45 /* Ashrae.png in Resources */,
-				C2AF5DEF1CDA89F300A3DD45 /* PAG.png in Resources */,
 				C2AF5E0A1CDA8AB000A3DD45 /* bell-7.png in Resources */,
-				C2AF5DFE1CDA89F300A3DD45 /* Fine Arts.png in Resources */,
-				C2AF5DFC1CDA89F300A3DD45 /* Mobile Development Group.png in Resources */,
 				439C247C1D75DDE800440456 /* ProfessorContactatIItR.json in Resources */,
-				C2AF5DF51CDA89F300A3DD45 /* Electronics Section.png in Resources */,
 				C27A8D991D774BAA00AB4042 /* FBCustomWithPicTableViewCell.xib in Resources */,
-				C2AF5DFF1CDA89F300A3DD45 /* Cognizance.png in Resources */,
 				439C247A1D75DDE800440456 /* ContactInfoThumbnail.png in Resources */,
 				C29E1B181C6F345000BBA29C /* page4.png in Resources */,
-				C2AF5DEB1CDA89F300A3DD45 /* SDS Labs.png in Resources */,
-				C2AF5DF01CDA89F300A3DD45 /* photography section.png in Resources */,
 				C2AF5E0B1CDA8AB000A3DD45 /* calendar-7.png in Resources */,
 				C29E1B151C6F345000BBA29C /* page1.png in Resources */,
 				C20D61AE1C21BEE500F52991 /* Assets.xcassets in Resources */,
 				C29E1B161C6F345000BBA29C /* page2.png in Resources */,
 				C27A8D9A1D774BAA00AB4042 /* FBCustomNoPicTableViewCell.xib in Resources */,
-				C2AF5DEC1CDA89F300A3DD45 /* Share iITR.png in Resources */,
 				C29E1B171C6F345000BBA29C /* page3.png in Resources */,
-				C2AF5DFA1CDA89F300A3DD45 /* Audio Section.png in Resources */,
-				C2AF5DFD1CDA89F300A3DD45 /* Sanskriti.png in Resources */,
 				C2D914D11C69EDC800925E1B /* checkmark.png in Resources */,
 				439C247B1D75DDE800440456 /* 180.png in Resources */,
-				C2AF5DEE1CDA89F300A3DD45 /* Thomso.png in Resources */,
 				C20D61A91C21BEE500F52991 /* Main.storyboard in Resources */,
-				C2AF5DF41CDA89F300A3DD45 /* NCC IITR.png in Resources */,
 				C2AF5E0C1CDA8AB000A3DD45 /* compass-point-7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -45,27 +45,24 @@ NSString *const kPostURL = @"link";
     _unsortedPosts =[[NSMutableDictionary alloc]init];
     _feedOfEachPage = [[NSMutableArray alloc]init];
     
-
-    
+   
     
     [self.fbtable setHidden:YES];
-    //for adjustable row in tableview
+    //for adjustable row height in tableview
     _fbtable.rowHeight = UITableViewAutomaticDimension;
     _fbtable.estimatedRowHeight = 300;
     
     [self clickMe];
     [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
-    
-    
 }
+
+
 
 
 #pragma mark FbPosts Fetching Actions
 -(void) clickMe {
-    NSArray *arrids = @[@"272394492879208", @"754869404569818", @"418543801611643", @"240482462650426", @"231275190406200", @"100641016663545",@"217963184943488", @"666376426759997", @"567441813288417", @"671125706342859", @"146825225353259", @"415004402015833", @"353701311987", @"198343570325312", @"242919515859218", @"537723156291580", @"317158211638196", @"1410660759172170",  @"206783812798277", @"182484805131346",  @"292035034247", @"257702554250168", @"171774543014513"];
-    
-    
-    for(NSString *fbid in arrids ) {
+     
+    for(NSString *fbid in _selectedProfileIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"posts{message,created_time,id,full_picture, link},name,picture",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             
@@ -112,11 +109,6 @@ NSString *const kPostURL = @"link";
     
 }
 
-
-
-
-
-
 #pragma mark TableView
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 138;
@@ -124,68 +116,68 @@ NSString *const kPostURL = @"link";
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if(_sortedPosts.count && indexPath.row<_sortedPosts.count) {
+        if(self.sortedPosts[indexPath.row][kPostInfo][kFullPicture])
+            return [self cellWithPostPictureFrom:_sortedPosts atIndexPath:indexPath];
+            
+        else if(!_sortedPosts[indexPath.row][kFullPicture])
+            return [self cellWithNoPostPictureFrom:_sortedPosts atIndexPath:indexPath];
+    }
+        
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BackupCell"];
+    if(cell==nil)
+        cell = [[UITableViewCell alloc]init];
+    return cell;
+}
+
+
+//Next two methods are auxiliary for cellForRowAtIndexPath: method
+-(FBCustomWithPicTableViewCell *) cellWithPostPictureFrom:(NSArray *)sortedPosts atIndexPath:(NSIndexPath *)indexPath {
+    
     NSString * const cellIdentifier1 = @"FBCustomWithPicTableViewCell";
-    NSString* const cellIdentifier2 = @"FBCustomNoPicTableViewCell";
+    FBCustomWithPicTableViewCell *cellWithPic = [_fbtable dequeueReusableCellWithIdentifier:cellIdentifier1];
     
-    FBCustomWithPicTableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1];
-    FBCustomNoPicTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2];
-    
-    if(cell1 == nil) {
+    if(cellWithPic ==nil) {
         NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1
                                                           owner:self
                                                         options:nil];
-        cell1 = [nibViews objectAtIndex: 0];
+        cellWithPic = [nibViews objectAtIndex: 0];
     }
     
-    if(cell2 == nil) {
+    //configuring cell
+        cellWithPic.textLabe.text = _sortedPosts[indexPath.row][kPostInfo][kMessage];
+        cellWithPic.dateLabel.text = [self changeTimeFormatOf:_sortedPosts[indexPath.row][kPostInfo][kCreatedTime]];
+        cellWithPic.pageName.text = _sortedPosts[indexPath.row][kPageProfName];
+    
+    
+        [cellWithPic.pageProfilePic sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPageProfPicURL]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
+        [cellWithPic.imageVie sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPostInfo][kFullPicture]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
+    
+    
+    return cellWithPic;
+}
+
+-(FBCustomNoPicTableViewCell *) cellWithNoPostPictureFrom:(NSArray *)sortedPosts atIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString * const cellIdentifier2 = @"FBCustomNoPicTableViewCell";
+    FBCustomNoPicTableViewCell *cellWithNoPic = [_fbtable dequeueReusableCellWithIdentifier:cellIdentifier2];
+
+    if(cellWithNoPic == nil) {
         NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2
                                                           owner:self
                                                         options:nil];
-        cell2 = [nibViews objectAtIndex: 0];
+        cellWithNoPic = [nibViews objectAtIndex: 0];
     }
     
     
-    if(_sortedPosts.count && indexPath.row<_sortedPosts.count) {
-        if(self.sortedPosts[indexPath.row][kPostInfo][kFullPicture]) {
-            cell1.textLabe.text = _sortedPosts[indexPath.row][kPostInfo][kMessage];
-            cell1.dateLabel.text = [self changeTimeFormatOf:_sortedPosts[indexPath.row][kPostInfo][kCreatedTime]];
-            cell1.groupName.text = _sortedPosts[indexPath.row][kPageProfName];
-            [cell1.pageProfilePic sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPageProfPicURL]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
-            [cell1.imageVie sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPostInfo][kFullPicture]]
-                              placeholderImage:[UIImage imageNamed:@"sample.png"]];
-            
-            ////        cell1.imageVie.image = [UIImage imageNamed:@"sample.png"];
-            //    NSURL *url = [NSURL URLWithString:_sortedPosts[indexPath.row][kFullPicture]];
-            //    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            //        if (data) {
-            //            UIImage *image = [UIImage imageWithData:data];
-            //            if (image) {
-            //                dispatch_async(dispatch_get_main_queue(), ^{
-            //                    CustomCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-            //                    if (updateCell)
-            //                        updateCell.imageVie.image = image;
-            //                });
-            //            }
-            //        } //end of if(data)
-            //    }]; //end of task
-            //    [task resume];
-            return cell1;
-        } //end of if(_sortedPosts[indexPath.row][kFullPicture])
-        
-        else if(!_sortedPosts[indexPath.row][kFullPicture]) {
-            cell2.postMessage.text = _sortedPosts[indexPath.row][kPostInfo][kMessage];
-            [cell2.pageProfilePic sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPageProfPicURL]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
-            cell2.groupNameLabel.text = _sortedPosts[indexPath.row][kPageProfName];
-            cell2.dateLabel.text = [self changeTimeFormatOf:_sortedPosts[indexPath.row][kPostInfo][kCreatedTime]];
-            
-            
-            return cell2;
-        }
-    }
-    
-    return cell2;
-}
+        cellWithNoPic.postMessage.text = _sortedPosts[indexPath.row][kPostInfo][kMessage];
+        [cellWithNoPic.pageProfilePic sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPageProfPicURL]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
+        cellWithNoPic.pageName.text = _sortedPosts[indexPath.row][kPageProfName];
+        cellWithNoPic.dateLabel.text = [self changeTimeFormatOf:_sortedPosts[indexPath.row][kPostInfo][kCreatedTime]];
 
+    return cellWithNoPic;
+}
 
 
 
@@ -216,33 +208,36 @@ NSString *const kPostURL = @"link";
 #pragma mark Auxiliary Methods
 
 -(NSString *) changeTimeFormatOf:(NSString *)timestamp {
+    //configuring a dateformatter
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss+z"];
     [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT+0:00"]];
     
     NSDate *date = [df dateFromString:timestamp];
     
-    NSString *todayDateString = [df stringFromDate:[NSDate date]];
-    NSDate *todayDate = [df dateFromString:todayDateString];
-    
-    NSTimeInterval secondsBetween = [todayDate timeIntervalSinceDate:date];
-    int numberOfDays = secondsBetween / 86400;
-    
-    switch(numberOfDays) {
-        case 0:
-            [df setDateFormat:@"hh:mm a"];
-            return [NSString stringWithFormat:@"Today at %@",[df stringFromDate:date]];
-            break;
-            
-        case 1:
-            [df setDateFormat:@"hh:mm a"];
-            return [NSString stringWithFormat:@"Today at %@",[df stringFromDate:date]];
-            break;
-            
-        default:
-            [df setDateFormat:@"eee MMM dd, yyyy hh:mm a"];
-            return [df stringFromDate:date];
-    }
+//    NSDate *todayDate = [NSDate date];
+
+//    switch([todayDate compare:date]) {
+//        case NSOrderedAscending:
+//            NSLog(@"Ascending");
+//            [df setDateFormat:@"hh:mm a"];
+//            return [NSString stringWithFormat:@"Today at %@",[df stringFromDate:date]];
+//            break;
+//            
+//        case NSOrderedDescending:
+//            NSLog(@"Descending");
+//            [df setDateFormat:@"hh:mm a"];
+//            return [NSString stringWithFormat:@"Today at %@",[df stringFromDate:date]];
+//            break;
+//            
+//        default:
+//            [df setDateFormat:@"eee MMM dd, yyyy hh:mm a"];
+//            return [df stringFromDate:date];
+//    }
+
+    [df setDateFormat:@"eee MMM dd, yyyy hh:mm a"];
+    return [df stringFromDate:date];
+
 }
 
 

@@ -10,50 +10,57 @@
 
 @interface ChooseFbPageViewController ()
 {
-    NSArray *pageProfilePicsArr;
     NSArray *pageIds ;
+    NSMutableArray *pageProfilePicURLs, *pageProfileNames;
 }
+@property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary;
+
 
 @end
+
+/*TODO:
+    1. Sort the names alpha
+    2. Bind together names and pics
+ */
 
 @implementation ChooseFbPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    selectedProfilesDictionary= [[NSMutableDictionary alloc]init];
+    _selectedProfilesDictionary = [[NSMutableDictionary alloc]init];
+    pageProfileNames = [[NSMutableArray alloc]init];
+    pageProfilePicURLs = [[NSMutableArray alloc]init];
     
-    pageProfilePicsArr = @[@"Anushruti",
-                           @"Ashrae",
-                           @"Audio Section",
-                           @"bookshelf",
-                           @"Cinema Club",
-                           @"CineSec",
-                           @"Cognizance",
-                           @"Electronics Section",
-                           @"Fine Arts",
-                           @"General Notice Board",
-                           @"Group For Interactive Learning",
-                           @"IITR Page",
-                           @"IMG",
-                           @"Mobile Development Group",
-                           @"NCC IITR",
-                           @"PAG",
-                           @"photography section",
-                           @"Rhapsody",
-                           @"Sanskriti",
-                           @"SDS Labs",
-                           @"Share iITR",
-                           @"Team Robocon",
-                           @"Thomso"];
+
+    
+    pageIds = @[@"272394492879208",
+                @"754869404569818",
+                @"418543801611643",
+                @"240482462650426",
+                @"231275190406200",
+                @"100641016663545",
+                @"217963184943488",
+                @"666376426759997",
+                @"567441813288417",
+                @"671125706342859",
+                @"146825225353259",
+                @"415004402015833",
+                @"353701311987",
+                @"198343570325312",
+                @"242919515859218",
+                @"537723156291580",
+                @"317158211638196",
+                @"1410660759172170",
+                @"206783812798277",
+                @"182484805131346",
+                @"292035034247",
+                @"257702554250168",
+                @"171774543014513"];
     
     
-    
-    pageIds = @[@"272394492879208", @"754869404569818", @"418543801611643", @"240482462650426", @"231275190406200", @"100641016663545",@"217963184943488", @"666376426759997", @"567441813288417", @"671125706342859", @"146825225353259", @"415004402015833", @"353701311987", @"198343570325312",
-    @"242919515859218", @"537723156291580", @"317158211638196", @"1410660759172170",  @"206783812798277", @"182484805131346",  @"292035034247", @"257702554250168", @"171774543014513"];
-    
-    NSDictionary *myDict = [NSDictionary dictionaryWithObjects:pageProfilePicsArr forKeys:pageIds];
-    
+    [self getPageProfilePictures];
+    [self.collectionView reloadData];
 
     // Don't use the following shit if you are creating cells using storyboard
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -64,8 +71,14 @@
     
     self.collectionView.allowsMultipleSelection = YES;
     
+    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1];
+
 }
 
+
+-(void) showPosts {
+    [self.collectionView reloadData];
+}
 #pragma mark - CollectionView delegate methods
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -75,23 +88,39 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return [pageProfilePicsArr count];
+    return [pageIds count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.alpha=0;
-    UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
-    myImage.image = [UIImage imageNamed:[pageProfilePicsArr objectAtIndex:indexPath.row]];
     
-    UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
-    myLabel.text = [pageProfilePicsArr objectAtIndex:indexPath.row];
+    if(pageProfilePicURLs.count) {
+        
+        
+        UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
+        myLabel.text = [pageProfileNames objectAtIndex:indexPath.row];
+        
+    UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
+      //  myImage.image = [UIImage imageNamed:@"checkmark.png"];
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:pageProfilePicURLs[indexPath.item]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (data) {
+                UIImage *image = [UIImage imageWithData:data];
+                if (image)
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                            myImage.image = image;
+                       
+                    });
+                }
+    }];
+    [task resume];
+    
+    
     
     if (cell.selected){
         ((UIImageView *)[cell viewWithTag:142]).hidden = NO;
-        myImage.alpha=0.3; //Without this, tableview will do some reuse shit.once check out
-    }
+        myImage.alpha=0.3;     }
     else {
         ((UIImageView *)[cell viewWithTag:142]).hidden = YES;
         myImage.alpha=1.0;
@@ -111,7 +140,7 @@
             cell.alpha=1.0;
         }];
     });
-    
+    }
     
     return cell;
 }
@@ -124,7 +153,7 @@
     
 }
 
-//
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
 interitemSpacingForSectionAtIndex:(NSInteger)section
 {
@@ -149,8 +178,8 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     ((UIImageView *)[cell viewWithTag:143]).alpha=0.3;
     //can use highlightItemAtIndexPath..didn't try it. Maybe checkmark also gets highlighted and de-highlighted if we use this method
     
-    [selectedProfilesDictionary setValue:pageIds[indexPath.item] forKey:pageProfilePicsArr[indexPath.item]];
-    //make the prof pic array a dictionary with keys as ids
+    [_selectedProfilesDictionary setValue:pageIds[indexPath.item] forKey:pageIds[indexPath.item]];
+    //todo: make the prof pic array a dictionary with keys as ids
     
     
 }
@@ -162,48 +191,60 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     ((UIImageView *)[cell viewWithTag:142]).hidden=YES;
     ((UIImageView *)[cell viewWithTag:143]).alpha=1;
     
-    [selectedProfilesDictionary removeObjectForKey:pageProfilePicsArr[indexPath.item]];
+    [_selectedProfilesDictionary removeObjectForKey:pageIds[indexPath.item]];
     
 }
 
+-(void) getPageProfilePictures {
+    for(NSString *fbid in pageIds ) {
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"picture.type(normal), name",} HTTPMethod:@"GET"];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            
+            if (!error) {
+                [pageProfilePicURLs addObject:result[@"picture"][@"data"][@"url"]];
+                [pageProfileNames addObject:result[@"name"]];
+            }
+            else {
+                //TODO: Make an alertView
+            }
+            
+        }]; //end of request
+    } //end of for loop
+}
 
 
 
 - (IBAction)showFeedAction:(id)sender {
     
+    [_selectedProfilesDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
+     {
+         NSLog(@"key: %@, value: %@", key, obj);
+     }];
     
-    [self performSegueWithIdentifier:@"goToPosts" sender:nil];
-//    [selectedProfilesDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
-//     {
-//         NSLog(@"key: %@, value: %@", key, obj);
-//     }];
-//    
-//    if([selectedProfilesDictionary count])
-//    {
-//        [self performSegueWithIdentifier:@"goToPosts" sender:nil];
-//    }
-//    else {
-//            UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You got to select atleast one page!" preferredStyle:UIAlertControllerStyleAlert ];
-//        
-//        [self presentViewController:alertpopup animated:YES completion:nil];
-//                [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
-//                
-//            
-//        
-//    }
+    if([_selectedProfilesDictionary count])
+        [self performSegueWithIdentifier:@"goToPosts" sender:nil];
+    
+    else {
+            UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You got to select atleast one page!" preferredStyle:UIAlertControllerStyleAlert ];
+        
+        [self presentViewController:alertpopup animated:YES completion:nil];
+                [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
+    }
     
 }
 
 -(void) myDismissViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 #pragma mark-Segue
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"goToPosts"])
     {
-        
-        
+        ListOfFbPostsViewController *destin = [segue destinationViewController];
+        destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
     }
     
 }

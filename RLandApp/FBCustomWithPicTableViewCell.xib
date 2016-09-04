@@ -38,7 +38,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cc0-ee-f2C">
                         <rect key="frame" x="111" y="16" width="504" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOR-Rl-YBm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOR-Rl-YBm">
                                 <rect key="frame" x="0.0" y="0.0" width="504" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,8 +75,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="nWj-cD-sPK" id="aho-yf-LR2"/>
-                <outlet property="groupName" destination="wOR-Rl-YBm" id="A3z-7s-Mij"/>
                 <outlet property="imageVie" destination="3CE-Qk-C8r" id="kfm-FL-UAL"/>
+                <outlet property="pageName" destination="wOR-Rl-YBm" id="8rQ-Oi-26f"/>
                 <outlet property="pageProfilePic" destination="vx8-ba-EYu" id="D1l-BK-M5e"/>
                 <outlet property="textLabe" destination="bqK-PX-Xx1" id="udU-CV-Fiw"/>
             </connections>

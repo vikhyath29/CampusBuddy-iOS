@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *pageProfilePic;
-@property (weak, nonatomic) IBOutlet UILabel *groupName;
+@property (weak, nonatomic) IBOutlet UILabel *pageName;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageVie;
 

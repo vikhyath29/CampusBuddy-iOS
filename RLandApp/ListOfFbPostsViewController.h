@@ -13,6 +13,9 @@
 
 @interface ListOfFbPostsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+  @property(strong, nonatomic)  NSArray *selectedProfileIds;
+
+
 
 
 @end
