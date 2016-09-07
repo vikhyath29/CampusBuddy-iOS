@@ -11,16 +11,15 @@
 @interface ChooseFbPageViewController ()
 {
     NSArray *pageIds ;
-    NSMutableArray *pageProfilePicURLs, *pageProfileNames;
 }
-@property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary;
-
-
+@property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary, *pageProfileDetails;
+@property (strong, nonatomic) NSArray *sortedNames;
 @end
 
 /*TODO:
     1. Sort the names alpha
     2. Bind together names and pics
+ ^else wrong things happen
  */
 
 @implementation ChooseFbPageViewController
@@ -28,9 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _selectedProfilesDictionary = [[NSMutableDictionary alloc]init];
-    pageProfileNames = [[NSMutableArray alloc]init];
-    pageProfilePicURLs = [[NSMutableArray alloc]init];
+    self.selectedProfilesDictionary = [[NSMutableDictionary alloc]init];
+    self.pageProfileDetails = [[NSMutableDictionary alloc]init];
+    
     
 
     
@@ -60,7 +59,7 @@
     
     
     [self getPageProfilePictures];
-    [self.collectionView reloadData];
+    //[self sortByName];
 
     // Don't use the following shit if you are creating cells using storyboard
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -71,7 +70,8 @@
     
     self.collectionView.allowsMultipleSelection = YES;
     
-    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1];
+//    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1];
+    [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
 
 }
 
@@ -96,15 +96,15 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.alpha=0;
     
-    if(pageProfilePicURLs.count) {
+    if(_sortedNames.count) {
         
         
         UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
-        myLabel.text = [pageProfileNames objectAtIndex:indexPath.row];
+        myLabel.text = _sortedNames[indexPath.row];
         
     UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
       //  myImage.image = [UIImage imageNamed:@"checkmark.png"];
-    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:pageProfilePicURLs[indexPath.item]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (data) {
                 UIImage *image = [UIImage imageWithData:data];
                 if (image)
@@ -178,11 +178,9 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     ((UIImageView *)[cell viewWithTag:143]).alpha=0.3;
     //can use highlightItemAtIndexPath..didn't try it. Maybe checkmark also gets highlighted and de-highlighted if we use this method
     
-    [_selectedProfilesDictionary setValue:pageIds[indexPath.item] forKey:pageIds[indexPath.item]];
-    //todo: make the prof pic array a dictionary with keys as ids
-    
-    
-}
+    /* a dictionary is used to keep track of item at the time of de-selection */
+    [_selectedProfilesDictionary setObject:pageIds[indexPath.item] forKey:pageIds[indexPath.item]];
+ }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
@@ -195,23 +193,41 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     
 }
 
+#pragma mark - Facebook Fetch
 -(void) getPageProfilePictures {
     for(NSString *fbid in pageIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"picture.type(normal), name",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             
             if (!error) {
-                [pageProfilePicURLs addObject:result[@"picture"][@"data"][@"url"]];
-                [pageProfileNames addObject:result[@"name"]];
+                [self.pageProfileDetails setObject:@{
+                                                @"pageId"     : fbid,
+                                                @"profPicURL" : result[@"picture"][@"data"][@"url"]
+                                                }
+                                       forKey:result[@"name"]];
+                
+                
             }
             else {
-                //TODO: Make an alertView
+                UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"There seems an error! Try again later" preferredStyle:UIAlertControllerStyleAlert ];
+                
+                [self presentViewController:alertpopup animated:YES completion:nil];
+                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1.6];
             }
             
         }]; //end of request
     } //end of for loop
 }
 
+
+-(void) sortByName {
+    
+    _sortedNames = [[self.pageProfileDetails allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    
+    [self.collectionView reloadData];
+
+}
 
 
 - (IBAction)showFeedAction:(id)sender {
@@ -228,12 +244,13 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
             UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You got to select atleast one page!" preferredStyle:UIAlertControllerStyleAlert ];
         
         [self presentViewController:alertpopup animated:YES completion:nil];
-                [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
+                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1];
     }
     
 }
 
--(void) myDismissViewController {
+#pragma mark - dismiss AlertController
+-(void) dismissAlertController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

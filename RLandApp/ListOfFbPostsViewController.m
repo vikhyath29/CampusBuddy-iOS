@@ -72,7 +72,11 @@ NSString *const kPostURL = @"link";
                                              kPageProfName     :result[@"name"]
                                              }];
             else {
-                //TODO: Make an alertView
+                UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please try again later!" preferredStyle:UIAlertControllerStyleAlert ];
+                
+                [self presentViewController:alertpopup animated:YES completion:nil];
+                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1];
+
             }
             
         }]; //end of request
@@ -132,7 +136,7 @@ NSString *const kPostURL = @"link";
 }
 
 
-//Next two methods are auxiliary for cellForRowAtIndexPath: method
+//Next two are auxiliary methods for cellForRowAtIndexPath: method
 -(FBCustomWithPicTableViewCell *) cellWithPostPictureFrom:(NSArray *)sortedPosts atIndexPath:(NSIndexPath *)indexPath {
     
     NSString * const cellIdentifier1 = @"FBCustomWithPicTableViewCell";
@@ -240,7 +244,10 @@ NSString *const kPostURL = @"link";
 
 }
 
-
+#pragma mark - dismiss AlertController
+-(void) dismissAlertController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
