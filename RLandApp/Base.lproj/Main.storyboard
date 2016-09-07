@@ -725,6 +725,11 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="8Oo-OO-Kt5">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="dKo-OD-0cN">
+                            <connections>
+                                <action selector="refreshAction:" destination="Liq-Wi-H8n" id="J8h-5h-J0R"/>
+                            </connections>
+                        </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GZi-6q-6aL">
                             <rect key="frame" x="194" y="7" width="212" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

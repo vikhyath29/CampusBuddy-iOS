@@ -13,6 +13,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 
 @interface AppDelegate ()
@@ -31,6 +34,9 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     [GMSServices provideAPIKey:@"AIzaSyBv_SsKIrwG6wBPkEXYNdSTKn93Uy7uAQc"];
+    
+    
+    [Fabric with:@[[Crashlytics class]]];
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;

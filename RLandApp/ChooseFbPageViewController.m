@@ -7,6 +7,7 @@
 //
 
 #import "ChooseFbPageViewController.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface ChooseFbPageViewController ()
 {
@@ -93,7 +94,7 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.alpha=0;
     
-    if(_sortedNames.count) {
+    if(_sortedNames.count>indexPath.row) {
         UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
         myLabel.text = _sortedNames[indexPath.row];
         
@@ -258,6 +259,10 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
         destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
     }
     
+}
+- (IBAction)refreshAction:(id)sender {
+    [super viewDidLoad];
+    [self viewDidLoad];
 }
 
 

@@ -97,6 +97,13 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
+    
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>2b129f540612bb184eea342c8da87e673dc7036b</string>
+    </dict>
+    
     <key>LSRequiresIPhoneOS</key>
     <true/>
     
