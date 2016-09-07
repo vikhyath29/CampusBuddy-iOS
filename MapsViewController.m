@@ -238,14 +238,22 @@
 //      [alert addAction:ListOfPlaces];
 //      //  _listOfPlacesTableView.hidden=YES; //making sure it's hid in portrait mode. sometimes it;s malfunctionin
 //    }
+//    
+//    UIAlertAction* RotateDevice = [UIAlertAction actionWithTitle:@"List of Common Places" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//        
+//        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+//        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+//            }];
+//    [alert addAction:RotateDevice];
+//
     
-    UIAlertAction* RotateDevice = [UIAlertAction actionWithTitle:@"List of Common Places" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
+    }];
+    [alert addAction:ListOfPlaces];
+
         
-        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
-            }];
-    [alert addAction:RotateDevice];
-    
+        
     UIAlertAction* GoToMainBuilding = [UIAlertAction actionWithTitle:@"Restore the view to Main Building" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         
         mapView_.camera=[GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:16.1];
@@ -332,10 +340,10 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
-//        ListOfPlacesViewController *lopc = [segue destinationViewController];
-//        lopc.delegate =self;
-//    }
+    if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
+        ListOfPlacesViewController *lopc = [segue destinationViewController];
+        lopc.delegate =self;
+    }
 //    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
 //        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
 //        lopc2.delegate =self;

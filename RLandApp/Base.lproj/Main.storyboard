@@ -49,7 +49,7 @@
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="nD6-fM-OhH">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="p5s-Yf-2HR">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="p5s-Yf-2HR">
                                 <rect key="frame" x="-25" y="-15" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,6 +62,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="isTrackEnabled" destination="p5s-Yf-2HR" id="ASq-WY-5mL"/>
+                        <segue destination="o2N-px-OPg" kind="show" identifier="SegueToListOfPlaces" id="EKf-sO-bpC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0B-aL-6Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +83,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="59" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-7a-ehp">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Please enter the place name here" id="EQM-4K-xMB">
+                                <searchBar key="tableHeaderView" hidden="YES" contentMode="redraw" placeholder="Please enter the place name here" id="EQM-4K-xMB">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,9 +114,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="o2N-px-OPg" id="N6c-u7-ei1"/>
                                     <outlet property="delegate" destination="o2N-px-OPg" id="Jtd-LD-P67"/>
@@ -127,7 +125,9 @@
                             <constraint firstItem="ZFn-nI-CZN" firstAttribute="top" secondItem="MOP-7a-ehp" secondAttribute="bottom" id="4hV-k6-dBI"/>
                             <constraint firstItem="MOP-7a-ehp" firstAttribute="leading" secondItem="rME-Me-aoA" secondAttribute="leadingMargin" constant="-20" id="XgB-X9-BN4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MOP-7a-ehp" secondAttribute="trailing" constant="-20" id="YeJ-bJ-7PG"/>
-                            <constraint firstItem="MOP-7a-ehp" firstAttribute="top" secondItem="VFn-yg-bah" secondAttribute="bottom" constant="44" id="i7z-r9-HY8"/>
+                            <constraint firstItem="MOP-7a-ehp" firstAttribute="top" secondItem="VFn-yg-bah" secondAttribute="bottom" constant="44" id="i7z-r9-HY8">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -153,13 +153,18 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Select a Place" id="oaK-de-82l">
-                        <barButtonItem key="rightBarButtonItem" title="Haha" id="N2H-IR-fBj"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Select a Place" id="oaK-de-82l"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rA5-5l-1QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="eGM-rs-AK9"/>
+                <searchDisplayController id="eGM-rs-AK9">
+                    <connections>
+                        <outlet property="delegate" destination="o2N-px-OPg" id="2oc-81-8Vf"/>
+                        <outlet property="searchContentsController" destination="o2N-px-OPg" id="qby-5i-neg"/>
+                        <outlet property="searchResultsDataSource" destination="o2N-px-OPg" id="EHK-yn-zmm"/>
+                        <outlet property="searchResultsDelegate" destination="o2N-px-OPg" id="gU2-Sg-mRS"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="4108.5" y="219"/>
         </scene>

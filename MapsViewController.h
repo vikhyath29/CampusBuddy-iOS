@@ -10,7 +10,7 @@
 @import GoogleMaps;
 #import "ListOfPlacesViewController.h"
 
-@interface MapsViewController : UIViewController<GMSMapViewDelegate, ListOfPlacesViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MapsViewController : UIViewController<GMSMapViewDelegate, ListOfPlacesViewControllerDelegate>
 
 
 

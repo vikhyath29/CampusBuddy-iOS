@@ -17,6 +17,11 @@
 }
 @end
 
+/* To-Do:
+ 1. Connect search Bar to delegate in SB
+ 2. https://www.youtube.com/watch?v=lXTTgBQuw8M
+ */
+
 @implementation ListOfPlacesViewController
 
 - (void)viewDidLoad {
@@ -113,6 +118,8 @@
     else
         [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row];
     //above line takes back to MapsViewController with the selected item
+    [self.navigationController popViewControllerAnimated:YES];
+    
     
     
 }
