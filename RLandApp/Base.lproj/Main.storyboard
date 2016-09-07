@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r2-EO-XoL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -19,132 +18,77 @@
                     <view key="view" contentMode="scaleToFill" id="FD0-YJ-Mye">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlr-Xs-1ch">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="22" y="143" width="190" height="243"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="WcV-tB-k2y" kind="embed" identifier="SegueToListOfPlacesqq" id="7YQ-Pt-1dw"/>
-                                </connections>
-                            </containerView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4K-Vz-6jg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="7ZR-SV-57O">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="seo-X1-IsW">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="go3-l8-4IC">
-                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="15"/>
-                                                <state key="normal" title="More !">
-                                                    <color key="titleColor" red="1" green="0.20392156859999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="featuresAction:" destination="T1K-rc-mkg" eventType="touchUpInside" id="wAc-zg-3vC"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Cgn-2z-16A">
-                                            <rect key="frame" x="-60" y="-14" width="121" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Road View"/>
-                                                <segment title="Satellite View"/>
-                                            </segments>
-                                            <color key="tintColor" red="1" green="0.20392156859999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="toggleMapViewAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="h8H-08-vXi"/>
-                                            </connections>
-                                        </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="nD6-fM-OhH">
-                                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="p5s-Yf-2HR">
-                                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <connections>
-                                                    <action selector="trackEnableAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="ctY-4n-etx"/>
-                                                </connections>
-                                            </switch>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="z4K-Vz-6jg" firstAttribute="leading" secondItem="FD0-YJ-Mye" secondAttribute="leadingMargin" constant="-20" id="jka-uO-FY3"/>
-                            <constraint firstItem="z4K-Vz-6jg" firstAttribute="top" secondItem="zTx-RJ-WE0" secondAttribute="bottom" constant="-14" id="s5e-yV-19z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z4K-Vz-6jg" secondAttribute="trailing" constant="-20" id="t9i-7Z-UTE"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="mlr-Xs-1ch"/>
-                                <exclude reference="z4K-Vz-6jg"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="jka-uO-FY3"/>
-                                <exclude reference="s5e-yV-19z"/>
-                                <exclude reference="t9i-7Z-UTE"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="mlr-Xs-1ch"/>
-                                <include reference="z4K-Vz-6jg"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="jka-uO-FY3"/>
-                                <include reference="s5e-yV-19z"/>
-                                <include reference="t9i-7Z-UTE"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Maps" image="compass-point-7.png" id="UMD-K2-XkL">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="0.11764705882352941" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="7ZR-SV-57O">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="seo-X1-IsW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="go3-l8-4IC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="15"/>
+                                <state key="normal" title="More !">
+                                    <color key="titleColor" red="1" green="0.20392156859999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="featuresAction:" destination="T1K-rc-mkg" eventType="touchUpInside" id="wAc-zg-3vC"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Cgn-2z-16A">
+                            <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Road View"/>
+                                <segment title="Satellite View"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.20392156859999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="toggleMapViewAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="h8H-08-vXi"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="nD6-fM-OhH">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="p5s-Yf-2HR">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="trackEnableAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="ctY-4n-etx"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="isTrackEnabled" destination="p5s-Yf-2HR" id="ASq-WY-5mL"/>
-                        <outlet property="listOfPlacesTableView" destination="mlr-Xs-1ch" id="Bhl-ij-1Bt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0B-aL-6Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="219"/>
+            <point key="canvasLocation" x="3420" y="219"/>
         </scene>
-        <!--List Of Places-->
-        <scene sceneID="M9C-I8-vQy">
+        <!--Select a Place-->
+        <scene sceneID="DmS-cV-Vxb">
             <objects>
-                <viewController title="List Of Places" automaticallyAdjustsScrollViewInsets="NO" id="WcV-tB-k2y" customClass="ListOfPlacesViewController" sceneMemberID="viewController">
+                <viewController id="o2N-px-OPg" customClass="ListOfPlacesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VHq-2A-ZE3"/>
-                        <viewControllerLayoutGuide type="bottom" id="oqU-RU-MLy"/>
+                        <viewControllerLayoutGuide type="top" id="VFn-yg-bah"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZFn-nI-CZN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bKG-DY-khW">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <view key="view" contentMode="scaleToFill" id="rME-Me-aoA">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="59" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-7a-ehp">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="563" id="VWb-1T-uay"/>
-                                </constraints>
-                                <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Please enter the place name here" id="NNx-V9-ZBZ">
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Please enter the place name here" id="EQM-4K-xMB">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <outlet property="delegate" destination="WcV-tB-k2y" id="AUm-yN-z4c"/>
+                                        <outlet property="delegate" destination="eGM-rs-AK9" id="fkI-M6-o50"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
@@ -169,36 +113,31 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="VWb-1T-uay"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="VWb-1T-uay"/>
-                                    </mask>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
                                 </variation>
                                 <connections>
-                                    <outlet property="dataSource" destination="WcV-tB-k2y" id="MYf-bv-jnz"/>
-                                    <outlet property="delegate" destination="WcV-tB-k2y" id="pCq-VB-hR8"/>
+                                    <outlet property="dataSource" destination="o2N-px-OPg" id="N6c-u7-ei1"/>
+                                    <outlet property="delegate" destination="o2N-px-OPg" id="Jtd-LD-P67"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MOP-7a-ehp" firstAttribute="top" secondItem="VHq-2A-ZE3" secondAttribute="bottom" constant="43" id="7Bb-af-qrv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MOP-7a-ehp" secondAttribute="trailing" constant="-230" id="HHP-jl-czs"/>
-                            <constraint firstItem="MOP-7a-ehp" firstAttribute="leading" secondItem="bKG-DY-khW" secondAttribute="leadingMargin" constant="-20" id="ndd-qT-b75"/>
+                            <constraint firstItem="ZFn-nI-CZN" firstAttribute="top" secondItem="MOP-7a-ehp" secondAttribute="bottom" id="4hV-k6-dBI"/>
+                            <constraint firstItem="MOP-7a-ehp" firstAttribute="leading" secondItem="rME-Me-aoA" secondAttribute="leadingMargin" constant="-20" id="XgB-X9-BN4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MOP-7a-ehp" secondAttribute="trailing" constant="-20" id="YeJ-bJ-7PG"/>
+                            <constraint firstItem="MOP-7a-ehp" firstAttribute="top" secondItem="VFn-yg-bah" secondAttribute="bottom" constant="44" id="i7z-r9-HY8"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="MOP-7a-ehp"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7Bb-af-qrv"/>
-                                <exclude reference="HHP-jl-czs"/>
-                                <exclude reference="ndd-qT-b75"/>
+                                <exclude reference="XgB-X9-BN4"/>
+                                <exclude reference="YeJ-bJ-7PG"/>
+                                <exclude reference="i7z-r9-HY8"/>
+                                <exclude reference="4hV-k6-dBI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -206,30 +145,57 @@
                                 <include reference="MOP-7a-ehp"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="7Bb-af-qrv"/>
-                                <include reference="HHP-jl-czs"/>
-                                <include reference="ndd-qT-b75"/>
+                                <include reference="XgB-X9-BN4"/>
+                                <include reference="YeJ-bJ-7PG"/>
+                                <include reference="i7z-r9-HY8"/>
+                                <include reference="4hV-k6-dBI"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Select a Place" id="oaK-de-82l">
+                        <barButtonItem key="rightBarButtonItem" title="Haha" id="N2H-IR-fBj"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="FSg-Vb-pZt" id="5Mj-5k-Nbs"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uhq-1b-6Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rA5-5l-1QA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="eGM-rs-AK9"/>
+            </objects>
+            <point key="canvasLocation" x="4108.5" y="219"/>
+        </scene>
+        <!--List Of Places-->
+        <scene sceneID="M9C-I8-vQy">
+            <objects>
                 <searchDisplayController id="FSg-Vb-pZt">
                     <connections>
                         <outlet property="delegate" destination="WcV-tB-k2y" id="PpA-Go-zVr"/>
-                        <outlet property="searchBar" destination="NNx-V9-ZBZ" id="ct2-H0-AYT"/>
                         <outlet property="searchContentsController" destination="WcV-tB-k2y" id="pMX-vr-am3"/>
                         <outlet property="searchResultsDataSource" destination="WcV-tB-k2y" id="BJS-Hj-5cC"/>
                         <outlet property="searchResultsDelegate" destination="WcV-tB-k2y" id="TOo-uQ-Fyy"/>
                     </connections>
                 </searchDisplayController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhq-1b-6Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="List Of Places" automaticallyAdjustsScrollViewInsets="NO" id="WcV-tB-k2y" customClass="ListOfPlacesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VHq-2A-ZE3"/>
+                        <viewControllerLayoutGuide type="bottom" id="oqU-RU-MLy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bKG-DY-khW">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="6j0-lq-VKM">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="sip-md-G5n"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="FSg-Vb-pZt" id="5Mj-5k-Nbs"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="3319.5" y="200.5"/>
+            <point key="canvasLocation" x="4735.5" y="212"/>
         </scene>
         <!--Home-->
         <scene sceneID="GZ9-xg-QWq">
@@ -384,7 +350,7 @@
                         <segue destination="Bmm-Gj-9c0" kind="relationship" relationship="viewControllers" id="7Zl-BA-gS0"/>
                         <segue destination="eZl-9E-kfr" kind="relationship" relationship="viewControllers" id="qgI-fk-dVl"/>
                         <segue destination="9lL-ug-M46" kind="relationship" relationship="viewControllers" id="axu-0d-nzg"/>
-                        <segue destination="T1K-rc-mkg" kind="relationship" relationship="viewControllers" id="OGq-P2-VRE"/>
+                        <segue destination="kPg-xV-1Pq" kind="relationship" relationship="viewControllers" id="OGq-P2-VRE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3p-7s-KOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -535,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9O-eX-2uw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6033" y="604"/>
+            <point key="canvasLocation" x="6951" y="604"/>
         </scene>
         <!--Edit Event-->
         <scene sceneID="pQS-cI-DdM">
@@ -1273,6 +1239,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGy-Na-6pY" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4489.5" y="-605"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="MrU-ZL-lbX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kPg-xV-1Pq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Maps" image="compass-point-7.png" id="UMD-K2-XkL">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.11764705882352941" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kiG-oH-zlB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T1K-rc-mkg" kind="relationship" relationship="rootViewController" id="v7B-Oj-d4c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aJU-Fl-Oum" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2502" y="219"/>
         </scene>
     </scenes>
     <resources>

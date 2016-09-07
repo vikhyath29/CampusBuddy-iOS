@@ -14,14 +14,17 @@
 
 @interface ListOfFbPostsViewController ()
 
-
-
 @property (nonatomic) NSMutableArray *sortedPosts, *feedOfEachPage;
 @property (nonatomic) NSMutableDictionary *unsortedPosts;
-
 @property (weak, nonatomic) IBOutlet UITableView *fbtable;
 
 @end
+
+
+/*To-Do:
+ 1. Remove extra spacing at top of tableview
+ 2. Placeholder image
+ */
 
 
 @implementation ListOfFbPostsViewController

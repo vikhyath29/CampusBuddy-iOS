@@ -16,10 +16,8 @@
 @property (strong, nonatomic) NSArray *sortedNames;
 @end
 
-/*TODO:
-    1. Sort the names alpha
-    2. Bind together names and pics
- ^else wrong things happen
+/*To-Do:
+ 
  */
 
 @implementation ChooseFbPageViewController
@@ -59,7 +57,6 @@
     
     
     [self getPageProfilePictures];
-    //[self sortByName];
 
     // Don't use the following shit if you are creating cells using storyboard
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -70,7 +67,7 @@
     
     self.collectionView.allowsMultipleSelection = YES;
     
-//    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1];
+
     [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
 
 }
@@ -97,13 +94,12 @@
     cell.alpha=0;
     
     if(_sortedNames.count) {
-        
-        
         UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
         myLabel.text = _sortedNames[indexPath.row];
         
     UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
-      //  myImage.image = [UIImage imageNamed:@"checkmark.png"];
+        //todo: placeholder image
+        myImage.image = [UIImage imageNamed:@"checkmark.png"];
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (data) {
                 UIImage *image = [UIImage imageWithData:data];
@@ -125,9 +121,6 @@
         ((UIImageView *)[cell viewWithTag:142]).hidden = YES;
         myImage.alpha=1.0;
     }
-    
-    // NSLog(@"this is %@", myImage.image);
-    
     
     //    CGFloat randomBlue = drand48();
     //    CGFloat randomGreen = drand48();
@@ -195,6 +188,7 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 
 #pragma mark - Facebook Fetch
 -(void) getPageProfilePictures {
+    
     for(NSString *fbid in pageIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"picture.type(normal), name",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {

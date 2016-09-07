@@ -30,7 +30,7 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    [GMSServices provideAPIKey:@"AIzaSyDsq87UiD4E8BFF_KEIubT6MILgAucYOOY"];
+    [GMSServices provideAPIKey:@"AIzaSyBv_SsKIrwG6wBPkEXYNdSTKn93Uy7uAQc"];
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;

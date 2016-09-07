@@ -124,9 +124,9 @@
 		C20D61A21C21BEE500F52991 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C20D61A81C21BEE500F52991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C20D61AB1C21BEE500F52991 /* RLandApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RLandApp.xcdatamodel; sourceTree = "<group>"; };
-		C20D61AD1C21BEE500F52991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C20D61AD1C21BEE500F52991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RLandApp/Assets.xcassets; sourceTree = "<group>"; };
 		C20D61B01C21BEE500F52991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C20D61B21C21BEE500F52991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C20D61B21C21BEE500F52991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RLandApp/Info.plist; sourceTree = "<group>"; };
 		C20D61B71C21BEE500F52991 /* RLandAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RLandAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20D61BB1C21BEE500F52991 /* RLandAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLandAppTests.m; sourceTree = "<group>"; };
 		C20D61BD1C21BEE500F52991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				C20D619D1C21BEE500F52991 /* RLandApp */,
+				C20D61B21C21BEE500F52991 /* Info.plist */,
+				C20D61AD1C21BEE500F52991 /* Assets.xcassets */,
 				C28C19491C3FF8560088EEF4 /* Frameworks */,
 				C20D61DE1C21C0CC00F52991 /* Not Used Much */,
 				F42E68FEB7EBC53C46202EFC /* Pods */,
@@ -291,8 +293,6 @@
 				C20D61A11C21BEE500F52991 /* AppDelegate.h */,
 				C20D61A21C21BEE500F52991 /* AppDelegate.m */,
 				C20D61A71C21BEE500F52991 /* Main.storyboard */,
-				C20D61B21C21BEE500F52991 /* Info.plist */,
-				C20D61AD1C21BEE500F52991 /* Assets.xcassets */,
 				C27A8D891D77481C00AB4042 /* Tabbar */,
 				C27A8D871D7747C500AB4042 /* Walkthrough Page */,
 				C2C2EE931C5D2BBE006046E8 /* Maps */,

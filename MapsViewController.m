@@ -332,44 +332,41 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
-        ListOfPlacesViewController *lopc = [segue destinationViewController];
-        lopc.delegate =self;
-    }
-    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
-        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
-        lopc2.delegate =self;
-    }
+//    if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
+//        ListOfPlacesViewController *lopc = [segue destinationViewController];
+//        lopc.delegate =self;
+//    }
+//    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
+//        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
+//        lopc2.delegate =self;
+//    }
 
 }
 
 #pragma mark- Device Rotation Handlers
-//-(void)didRotateFromInterfaceOrientation(UIInterfaceOrientation)fromInterfaceOrientation
-//above method was not handy as things are getting updated AFTER rotation is done
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
+////-(void)didRotateFromInterfaceOrientation(UIInterfaceOrientation)fromInterfaceOrientation
+////above method was not handy as things are getting updated AFTER rotation is done
+//- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    CGRect screenRect = [[UIScreen mainScreen] bounds];
+//
+//    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)    {
+//        _listOfPlacesTableView.hidden=YES;
+//        
+//        [self.view endEditing:YES]; //else an opened keyboard in landscape doesn't disappear after toggling to portrait
+////[self resignFirstResponder]; doesn't work
+//    }
+//    else
+//    {   //   mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 0, screenRect.size.width/2, screenRect.size.height) camera:camera];
+//        //Implement the above line and you are totally fucked ! Segment controls nor tapping map works. But don't know how mapview is exactly getting halved on rotation without this line! :o
+//    _listOfPlacesTableView.frame=CGRectMake( screenRect.size.width/2,0, screenRect.size.width/2, screenRect.size.height);
+//        _listOfPlacesTableView.hidden=NO;
+//        
+//  
+//       }
+//}
 
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)    {
-        _listOfPlacesTableView.hidden=YES;
-        
-        [self.view endEditing:YES]; //else an opened keyboard in landscape doesn't disappear after toggling to portrait
-//[self resignFirstResponder]; doesn't work
-    }
-    else
-    {   //   mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 0, screenRect.size.width/2, screenRect.size.height) camera:camera];
-        //Implement the above line and you are totally fucked ! Segment controls nor tapping map works. But don't know how mapview is exactly getting halved on rotation without this line! :o
-    _listOfPlacesTableView.frame=CGRectMake( screenRect.size.width/2,0, screenRect.size.width/2, screenRect.size.height);
-        _listOfPlacesTableView.hidden=NO;
-        
-  
-       }
-}
 
-#pragma mark -to hide the status bar
--(BOOL)prefersStatusBarHidden{
-    return YES;
-}
 
 
 #pragma mark - IMP! Code to make markers
