@@ -1,14 +1,14 @@
 # RLand
 An iOS Utility App for students of IIT-R to make their life in R-Land easier! :-)
 
-# **FEATURES**
+# **Features**
 
 ### Facebook Notifications
-####  Choose Facebook Pages of groups in the campus 
-![alt tag](https://cloud.githubusercontent.com/assets/13807829/18309657/23a287ec-7518-11e6-819f-bff0a62c7671.png)
 
-####  View Notifications! :) 
-![alt tag](https://cloud.githubusercontent.com/assets/13807829/18309654/219368ea-7518-11e6-8719-3875d14fed4f.png)
+Choose FB Pages of groups           |  View Notifications! :)
+:-------------------------:|:-------------------------:
+![](https://cloud.githubusercontent.com/assets/13807829/18309657/23a287ec-7518-11e6-819f-bff0a62c7671.png)  |  ![](https://cloud.githubusercontent.com/assets/13807829/18309654/219368ea-7518-11e6-8719-3875d14fed4f.png)
+
 
 ###  Campus Map 
 ####  Find Places, Get shortest path between places... 
