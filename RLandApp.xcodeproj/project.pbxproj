@@ -25,7 +25,7 @@
 		C27625B11D8BABC200D01AAB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27625AD1D8BABC200D01AAB /* FBSDKShareKit.framework */; };
 		C27625BA1D8BAC7500D01AAB /* GoogleMapDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */; };
 		C27625BB1D8BAC7500D01AAB /* IITRLocationsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */; };
-		C27625BC1D8BAC7500D01AAB /* ListOfPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B71D8BAC7500D01AAB /* ListOfPlacesViewController.m */; };
+		C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */; };
 		C27625BD1D8BAC7500D01AAB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B91D8BAC7500D01AAB /* MapsViewController.m */; };
 		C27625CA1D8BAD5100D01AAB /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C01D8BAD5100D01AAB /* HomePageViewController.m */; };
 		C27625CB1D8BAD5100D01AAB /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C21D8BAD5100D01AAB /* PageContentViewController.m */; };
@@ -126,8 +126,8 @@
 		C27625B31D8BAC7500D01AAB /* GoogleMapDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapDirectionService.h; sourceTree = "<group>"; };
 		C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapDirectionService.m; sourceTree = "<group>"; };
 		C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IITRLocationsInfo.json; sourceTree = "<group>"; };
-		C27625B61D8BAC7500D01AAB /* ListOfPlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfPlacesViewController.h; sourceTree = "<group>"; };
-		C27625B71D8BAC7500D01AAB /* ListOfPlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfPlacesViewController.m; sourceTree = "<group>"; };
+		C27625B61D8BAC7500D01AAB /* ListOfPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfPlacesTableViewController.h; sourceTree = "<group>"; };
+		C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfPlacesTableViewController.m; sourceTree = "<group>"; };
 		C27625B81D8BAC7500D01AAB /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		C27625B91D8BAC7500D01AAB /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		C27625BF1D8BAD5100D01AAB /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -350,8 +350,8 @@
 				C27625B31D8BAC7500D01AAB /* GoogleMapDirectionService.h */,
 				C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */,
 				C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */,
-				C27625B61D8BAC7500D01AAB /* ListOfPlacesViewController.h */,
-				C27625B71D8BAC7500D01AAB /* ListOfPlacesViewController.m */,
+				C27625B61D8BAC7500D01AAB /* ListOfPlacesTableViewController.h */,
+				C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */,
 				C27625B81D8BAC7500D01AAB /* MapsViewController.h */,
 				C27625B91D8BAC7500D01AAB /* MapsViewController.m */,
 			);
@@ -786,7 +786,7 @@
 				C27626211D8BAF7900D01AAB /* CreateAlertViewController.m in Sources */,
 				C20D61A31C21BEE500F52991 /* AppDelegate.m in Sources */,
 				C27625CA1D8BAD5100D01AAB /* HomePageViewController.m in Sources */,
-				C27625BC1D8BAC7500D01AAB /* ListOfPlacesViewController.m in Sources */,
+				C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */,
 				C276260C1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift in Sources */,
 				C27625F61D8BAEB300D01AAB /* ListOfFbPostsViewController.m in Sources */,
 				C27626251D8BAF7900D01AAB /* EventsForACalendarViewController.m in Sources */,

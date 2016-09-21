@@ -1,19 +1,22 @@
 //
-//  ListOfPlacesViewController.m
+//  ListOfPlacesTableViewController.m
 //  RLandApp
 //
 //  Created by Vikhyath on 1/30/16.
 //  Copyright © 2016 Self. All rights reserved.
 
 
-#import "ListOfPlacesViewController.h"
+#import "ListOfPlacesTableViewController.h"
 @import GoogleMaps;
 
-@interface ListOfPlacesViewController ()
+@interface ListOfPlacesTableViewController ()
 {
-    NSMutableArray *LocationArray;
-    NSArray *searchResults;
     
+    NSMutableArray *searchResultsArray;
+    
+    NSMutableDictionary *LocationDictionary;
+    
+    NSArray *sortedArray;
 }
 @end
 
@@ -22,7 +25,7 @@
  2. https://www.youtube.com/watch?v=lXTTgBQuw8M
  */
 
-@implementation ListOfPlacesViewController
+@implementation ListOfPlacesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,11 +38,19 @@
     NSError *error;
     NSMutableArray *outsideArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
    
-    LocationArray = [[NSMutableArray alloc]init];
+    
+    LocationDictionary = [[NSMutableDictionary alloc]init];
     for(int i=0; i<[outsideArr count]; ++i)
-    [LocationArray addObject:[outsideArr[i] valueForKey:@"Location"]];
-    
-    
+        [LocationDictionary setObject:@{
+                                        @"Location" : [outsideArr[i] valueForKey:@"Location"],
+                                        @"type"     : [outsideArr[i] valueForKey:@"type"]
+                                        }
+                               forKey:[outsideArr[i] valueForKey:@"Location"]];
+
+    sortedArray = [[LocationDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    searchResultsArray = [[NSMutableArray alloc]init];
+
   //  self.searchDisplayController.searchBar.
   //  self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
 }
@@ -48,10 +59,10 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView == self.searchDisplayController.searchResultsTableView)
-     return [searchResults count];
+     return [searchResultsArray count];
     
     else
-    return [LocationArray count];
+    return [sortedArray count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,35 +76,49 @@
     
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
-    cell.textLabel.text= [searchResults objectAtIndex:indexPath.row];
-//        cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+    cell.textLabel.text= [searchResultsArray objectAtIndex:indexPath.row][@"Location"];
+//  cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+        
+        if([searchResultsArray[indexPath.row][@"type"] isEqualToString:@"general"])
+        {cell.textLabel.textColor = [UIColor redColor];
+            cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor redColor]];
+        }
+        
+        if([searchResultsArray[indexPath.row][@"type"] isEqualToString:@"bhawan"]) {
+            cell.textLabel.textColor = [UIColor brownColor];
+            cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor brownColor]];
+        }
+        
+        if([searchResultsArray[indexPath.row][@"type"] isEqualToString:@"department"]){
+            cell.textLabel.textColor = [UIColor colorWithRed:52.0/255.0 green:130.0/255.0 blue:230.0/255.0 alpha:1.0];
+            cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
+        }
+
     }
-    
-    
     
     else{
-        cell.textLabel.text = [LocationArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = [LocationDictionary valueForKey:sortedArray[indexPath.row]][@"Location"];
         //cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor yellowColor]];
-    }
     
-    if( indexPath.row>=0&& indexPath.row<18)
+    
+    if([[LocationDictionary valueForKey:sortedArray[indexPath.row]][@"type"] isEqualToString:@"general"])
     {cell.textLabel.textColor = [UIColor redColor];
-        cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor redColor]];
-        
+    cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor redColor]];
     }
     
-    if(indexPath.row>=18 && indexPath.row<28) {
+    if([[LocationDictionary valueForKey:sortedArray[indexPath.row]][@"type"] isEqualToString:@"bhawan"]) {
         cell.textLabel.textColor = [UIColor brownColor];
     cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor brownColor]];
     }
-    if(indexPath.row>=28){
+    
+    if([[LocationDictionary valueForKey:sortedArray[indexPath.row]][@"type"] isEqualToString:@"department"]){
         cell.textLabel.textColor = [UIColor colorWithRed:52.0/255.0 green:130.0/255.0 blue:230.0/255.0 alpha:1.0];
         cell.imageView.image = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
     }
+    }
     return cell;
-    
-    
 }
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -102,36 +127,54 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+
     if (tableView == self.searchDisplayController.searchResultsTableView){
         
-        for(int i=0; i<[LocationArray count]; ++i)
-            if(LocationArray[i]==[searchResults objectAtIndex:[self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row])
-            {
-                [self.delegate addItemViewController:self didFinishEnteringItem:i];
+        NSInteger indexToBePassed = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row;
+        
+        [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:[searchResultsArray objectAtIndex:indexToBePassed]]];
+        
 //                self.searchDisplayController.searchBar.text=@"";
 //                [self.searchDisplayController.searchBar resignFirstResponder];
-                [self.searchDisplayController setActive:NO]; //works like charm! replaces above two lines   
-                               break;
-            }
-        
+                [self.searchDisplayController setActive:NO]; //works like charm! replaces above two lines
     }
+
     else
         [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row];
-    //above line takes back to MapsViewController with the selected item
+    
+    
+   // if([[tableView indexPathsForSelectedRows] count] ==2)
     [self.navigationController popViewControllerAnimated:YES];
     
     
     
 }
 
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+
+}
+
+
 #pragma mark - methods for search feature
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    
+{   /* Custom method */
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"self contains[c] %@", searchText];
-    searchResults = [LocationArray filteredArrayUsingPredicate:resultPredicate];
- 
+    
+//    NSArray *locations = [LocationArray valueForKey:@"Location"]; //a neat trick to get all values for a particular key in an array of dictionaries
+    NSArray *locations = [LocationDictionary allKeys];
+   NSArray *searchResultNames = [locations filteredArrayUsingPredicate:resultPredicate];
+    
+    [searchResultsArray removeAllObjects]; //cleaning again
+    for(int i=0; i<searchResultNames.count; ++i)
+        [searchResultsArray addObject:@{
+                                        @"Location" : searchResultNames[i],
+                                        @"type"     : LocationDictionary[searchResultNames[i]][@"type"]
+                                        }];
 }
+ 
+
 
 
 //Asks the delegate if the table view should be reloaded for a given search string.

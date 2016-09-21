@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @import GoogleMaps;
-#import "ListOfPlacesViewController.h"
+#import "ListOfPlacesTableViewController.h"
 
-@interface MapsViewController : UIViewController<GMSMapViewDelegate, ListOfPlacesViewControllerDelegate>
+@interface MapsViewController : UIViewController<GMSMapViewDelegate, ListOfPlacesTableViewControllerDelegate>
 
 
 

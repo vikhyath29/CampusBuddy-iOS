@@ -13,14 +13,14 @@
 
 @interface MapsViewController ()
 {
-   NSMutableArray *jsonListOfPlacesArr;
+    NSMutableArray *jsonListOfPlacesArr;
     
     GMSMapView *mapView_;
     GMSCameraPosition *camera;
     GMSMarker *marker1, *marker2;
     GMSPolyline *polyline; //To use in addDirections: selector
     GoogleMapDirectionService *mds;
-
+    
     NSMutableArray *LocationArray;
     NSMutableArray *LongitudeArray, *LatitudeArray;
     NSMutableArray *waypoints_,*waypointStrings_;
@@ -47,8 +47,8 @@
     //directions API
     waypoints_ = [[NSMutableArray alloc]init];
     waypointStrings_ = [[NSMutableArray alloc]init];
-
-
+    
+    
     //Initializing the arrays and adding objects correspondingly
     LocationArray = [[NSMutableArray alloc]init];
     LongitudeArray = [[NSMutableArray alloc]init];
@@ -90,14 +90,14 @@
         _listOfPlacesTableView.hidden = YES;
     }
     
-
+    
 }
 
 #pragma mark - methods related to map
 // custom method to configure and add all the markers to the map
 -(void) configuringTheMap:(GMSMapView *)mapview
 {
-  camera = [GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:15.8];
+    camera = [GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:15.8];
     mapView_ = [GMSMapView mapWithFrame:[[UIScreen mainScreen]bounds] camera:camera];
     mapView_.myLocationEnabled = YES; //This property may not be immediately available - for example, if the user is prompted by "iOS" to allow access to this data. It will be nil in this case.
     mapView_.mapType = kGMSTypeNormal;
@@ -125,20 +125,20 @@
         sampleMarker.map = mapView_;
         
         if( i>=0&& i<18)
-        sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
-       if(i>=18 && i<28)
-        sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
+            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
+        if(i>=18 && i<28)
+            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
         if(i>=28)
-        sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
-            sampleMarker.icon = [self image:sampleMarker.icon scaledToSize:CGSizeMake(20.0f, 20.0f)];
+            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
+        sampleMarker.icon = [self image:sampleMarker.icon scaledToSize:CGSizeMake(20.0f, 20.0f)];
     }
-
+    
 }
 
 //One of the delegate(GMSMApViewDelegate) method
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-
+    
     if(_isTrackEnabled.on) {
         if(counter==0){
             marker1.map=nil;
@@ -213,47 +213,47 @@
 
 - (IBAction)toggleMapViewAction:(UISegmentedControl *)sender {
     if(sender.selectedSegmentIndex==1)
-    mapView_.mapType = kGMSTypeHybrid;
+        mapView_.mapType = kGMSTypeHybrid;
     
     else if(sender.selectedSegmentIndex==0)
         mapView_.mapType=kGMSTypeNormal;
-   // [self.view addSubview:mapView_]; this line is not needed
+    // [self.view addSubview:mapView_]; this line is not needed
     
     
 }
 
 - (IBAction)featuresAction:(UIButton *)sender {
-     
+    
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"More Feautres" message:@"Choose by selecting one" preferredStyle:UIAlertControllerStyleActionSheet];
     
     
     UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You've already enabled Directions" preferredStyle:UIAlertControllerStyleAlert ];
     
     
-//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    if(orientation==UIDeviceOrientationPortrait) {
-//    UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-//        [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
-//    }];
-//      [alert addAction:ListOfPlaces];
-//      //  _listOfPlacesTableView.hidden=YES; //making sure it's hid in portrait mode. sometimes it;s malfunctionin
-//    }
-//    
-//    UIAlertAction* RotateDevice = [UIAlertAction actionWithTitle:@"List of Common Places" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-//        
-//        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-//        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
-//            }];
-//    [alert addAction:RotateDevice];
-//
+    //    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    //    if(orientation==UIDeviceOrientationPortrait) {
+    //    UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    //        [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
+    //    }];
+    //      [alert addAction:ListOfPlaces];
+    //      //  _listOfPlacesTableView.hidden=YES; //making sure it's hid in portrait mode. sometimes it;s malfunctionin
+    //    }
+    //
+    //    UIAlertAction* RotateDevice = [UIAlertAction actionWithTitle:@"List of Common Places" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    //
+    //        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    //        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    //            }];
+    //    [alert addAction:RotateDevice];
+    //
     
     UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
     }];
     [alert addAction:ListOfPlaces];
-
-        
-        
+    
+    
+    
     UIAlertAction* GoToMainBuilding = [UIAlertAction actionWithTitle:@"Restore the view to Main Building" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         
         mapView_.camera=[GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:16.1];
@@ -265,9 +265,9 @@
         if(!_isTrackEnabled.on)[_isTrackEnabled setOn:YES animated:YES];
         else
         {
-        [self presentViewController:alertpopup animated:YES completion:nil];
-        [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
-
+            [self presentViewController:alertpopup animated:YES completion:nil];
+            [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
+            
         }
     }];
     [alert addAction:switchDetail];
@@ -293,7 +293,7 @@
 
 //custom delegate method to pass back data(i.e the row number of the selected place) from ListOfPlacesViewController to MapsViewController
 //Note that, in the following we can safely omit the controller parameter. It's not useful anywhere!
-- (void)addItemViewController:(ListOfPlacesViewController *)controller didFinishEnteringItem:(NSInteger)item
+- (void)addItemViewController:(ListOfPlacesTableViewController *)controller didFinishEnteringItem:(NSInteger)item
 {
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake([LatitudeArray[(int)item] doubleValue],
                                                                  [LongitudeArray[(int)item] doubleValue]); //Note that these are methods of CoreLocation
@@ -305,8 +305,8 @@
         if(counter==0) {
             marker1.map=nil;
         }
-    
-    
+        
+        
         [self AddMarkerAtPosition:position withPositionString:positionString];
         
         if(item==1)marker1.title = LocationArray[(int)item];
@@ -332,7 +332,7 @@
         [mapView_ animateToViewingAngle:22];
         
     }
-
+    
     
 }
 
@@ -341,14 +341,14 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
-        ListOfPlacesViewController *lopc = [segue destinationViewController];
+        ListOfPlacesTableViewController *lopc = [segue destinationViewController];
         lopc.delegate =self;
     }
-//    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
-//        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
-//        lopc2.delegate =self;
-//    }
-
+    //    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
+    //        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
+    //        lopc2.delegate =self;
+    //    }
+    
 }
 
 #pragma mark- Device Rotation Handlers
@@ -360,7 +360,7 @@
 //
 //    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)    {
 //        _listOfPlacesTableView.hidden=YES;
-//        
+//
 //        [self.view endEditing:YES]; //else an opened keyboard in landscape doesn't disappear after toggling to portrait
 ////[self resignFirstResponder]; doesn't work
 //    }
@@ -369,8 +369,8 @@
 //        //Implement the above line and you are totally fucked ! Segment controls nor tapping map works. But don't know how mapview is exactly getting halved on rotation without this line! :o
 //    _listOfPlacesTableView.frame=CGRectMake( screenRect.size.width/2,0, screenRect.size.width/2, screenRect.size.height);
 //        _listOfPlacesTableView.hidden=NO;
-//        
-//  
+//
+//
 //       }
 //}
 
@@ -381,47 +381,47 @@
 -(void)AddMarkerAtPosition:(CLLocationCoordinate2D )position withPositionString:(NSString *)positionString
 {
     counter++;
-        if(counter==3){
-            [waypoints_ removeAllObjects];
-            [waypointStrings_ removeAllObjects];
-            
-            marker1.map=nil;
-            marker2.map=nil;
-            polyline.map=nil;
-            
-            counter =1;
-        }
-    
-        [waypointStrings_ addObject:positionString];
-    
-        if(counter==1 )
-        {
-            marker1 = [GMSMarker markerWithPosition:position];
-            
-            marker1.icon = [GMSMarker markerImageWithColor:[UIColor orangeColor]];
-            marker1.map = mapView_;
-            [waypoints_ addObject:marker1];
-        }
+    if(counter==3){
+        [waypoints_ removeAllObjects];
+        [waypointStrings_ removeAllObjects];
         
-        if(counter==2)
-        {
-            marker2 = [GMSMarker markerWithPosition:position] ;
-            
-            marker2.icon = [GMSMarker markerImageWithColor:[UIColor orangeColor]];
-            marker2.map = mapView_;
-            [waypoints_ addObject:marker2];
-            
-            NSString *sensor = @"false";
-            NSArray *parameters = @[sensor, waypointStrings_];
-            NSArray *keys = @[@"sensor", @"waypoints"];
-            NSDictionary *query = [NSDictionary dictionaryWithObjects:parameters forKeys:keys];
-            
-            [mds setDirectionsQuery:query withSelector:selector withDelegate:self];
-        }
+        marker1.map=nil;
+        marker2.map=nil;
+        polyline.map=nil;
         
+        counter =1;
+    }
+    
+    [waypointStrings_ addObject:positionString];
+    
+    if(counter==1 )
+    {
+        marker1 = [GMSMarker markerWithPosition:position];
+        
+        marker1.icon = [GMSMarker markerImageWithColor:[UIColor orangeColor]];
+        marker1.map = mapView_;
+        [waypoints_ addObject:marker1];
+    }
+    
+    if(counter==2)
+    {
+        marker2 = [GMSMarker markerWithPosition:position] ;
+        
+        marker2.icon = [GMSMarker markerImageWithColor:[UIColor orangeColor]];
+        marker2.map = mapView_;
+        [waypoints_ addObject:marker2];
+        
+        NSString *sensor = @"false";
+        NSArray *parameters = @[sensor, waypointStrings_];
+        NSArray *keys = @[@"sensor", @"waypoints"];
+        NSDictionary *query = [NSDictionary dictionaryWithObjects:parameters forKeys:keys];
+        
+        [mds setDirectionsQuery:query withSelector:selector withDelegate:self];
+    }
     
     
-
+    
+    
 }
 
 

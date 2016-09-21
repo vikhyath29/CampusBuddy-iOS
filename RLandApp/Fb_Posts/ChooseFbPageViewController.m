@@ -67,7 +67,7 @@
     mosaicLayout.delegate=self;
     
     self.collectionView.allowsMultipleSelection = YES;
-    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
 
     [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
 
@@ -259,10 +259,6 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
         destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
     }
     
-}
-- (IBAction)refreshAction:(id)sender {
-    [super viewDidLoad];
-    [self viewDidLoad];
 }
 
 
