@@ -27,7 +27,6 @@
 		C27625BB1D8BAC7500D01AAB /* IITRLocationsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */; };
 		C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */; };
 		C27625BD1D8BAC7500D01AAB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B91D8BAC7500D01AAB /* MapsViewController.m */; };
-		C27625CA1D8BAD5100D01AAB /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C01D8BAD5100D01AAB /* HomePageViewController.m */; };
 		C27625CB1D8BAD5100D01AAB /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C21D8BAD5100D01AAB /* PageContentViewController.m */; };
 		C27625CC1D8BAD5100D01AAB /* ShowPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C41D8BAD5100D01AAB /* ShowPageViewController.m */; };
 		C27625CD1D8BAD5100D01AAB /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = C27625C61D8BAD5100D01AAB /* page1.png */; };
@@ -67,6 +66,7 @@
 		C27626231D8BAF7900D01AAB /* EditEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C276261B1D8BAF7900D01AAB /* EditEventViewController.m */; };
 		C27626241D8BAF7900D01AAB /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C276261D1D8BAF7900D01AAB /* EventManager.m */; };
 		C27626251D8BAF7900D01AAB /* EventsForACalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C276261F1D8BAF7900D01AAB /* EventsForACalendarViewController.m */; };
+		C2939B241D93A69300E0D903 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2939B231D93A69300E0D903 /* FBLoginViewController.m */; };
 		C2AD0E001C62B85900B77294 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AD0DFF1C62B85900B77294 /* MessageUI.framework */; };
 		D3A1BAAA9C16F886A5CAB0DD /* libPods-RLandApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0899A648476F571C8CDB19 /* libPods-RLandApp.a */; };
 		FE5EAA6DC50ED13A0170A699 /* libPods-RLandAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A0D9446344F3541E8A3538 /* libPods-RLandAppUITests.a */; };
@@ -130,8 +130,6 @@
 		C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfPlacesTableViewController.m; sourceTree = "<group>"; };
 		C27625B81D8BAC7500D01AAB /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		C27625B91D8BAC7500D01AAB /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
-		C27625BF1D8BAD5100D01AAB /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
-		C27625C01D8BAD5100D01AAB /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		C27625C11D8BAD5100D01AAB /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		C27625C21D8BAD5100D01AAB /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		C27625C31D8BAD5100D01AAB /* ShowPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPageViewController.h; sourceTree = "<group>"; };
@@ -187,6 +185,8 @@
 		C276261E1D8BAF7900D01AAB /* EventsForACalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsForACalendarViewController.h; sourceTree = "<group>"; };
 		C276261F1D8BAF7900D01AAB /* EventsForACalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsForACalendarViewController.m; sourceTree = "<group>"; };
 		C276262A1D8BB56A00D01AAB /* RLandApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RLandApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2939B221D93A69300E0D903 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
+		C2939B231D93A69300E0D903 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
 		C2AD0DFF1C62B85900B77294 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D04D52161C6EFEEA46B10004 /* Pods-RLandApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RLandApp/Pods-RLandApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E0CF91F2798AE9BEC8D870DB /* Pods-RLandAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RLandAppTests/Pods-RLandAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -361,8 +361,6 @@
 		C27625BE1D8BAD5100D01AAB /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
-				C27625BF1D8BAD5100D01AAB /* HomePageViewController.h */,
-				C27625C01D8BAD5100D01AAB /* HomePageViewController.m */,
 				C27625C11D8BAD5100D01AAB /* PageContentViewController.h */,
 				C27625C21D8BAD5100D01AAB /* PageContentViewController.m */,
 				C27625C31D8BAD5100D01AAB /* ShowPageViewController.h */,
@@ -408,6 +406,8 @@
 		C27625E01D8BAEB300D01AAB /* Fb_Posts */ = {
 			isa = PBXGroup;
 			children = (
+				C2939B221D93A69300E0D903 /* FBLoginViewController.h */,
+				C2939B231D93A69300E0D903 /* FBLoginViewController.m */,
 				C27625E11D8BAEB300D01AAB /* checkmark.png */,
 				C27625E21D8BAEB300D01AAB /* ChooseFbPageViewController.h */,
 				C27625E31D8BAEB300D01AAB /* ChooseFbPageViewController.m */,
@@ -785,7 +785,6 @@
 			files = (
 				C27626211D8BAF7900D01AAB /* CreateAlertViewController.m in Sources */,
 				C20D61A31C21BEE500F52991 /* AppDelegate.m in Sources */,
-				C27625CA1D8BAD5100D01AAB /* HomePageViewController.m in Sources */,
 				C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */,
 				C276260C1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift in Sources */,
 				C27625F61D8BAEB300D01AAB /* ListOfFbPostsViewController.m in Sources */,
@@ -805,6 +804,7 @@
 				C27626221D8BAF7900D01AAB /* DatePickerViewController.m in Sources */,
 				C276260E1D8BAF2A00D01AAB /* DepartmentTableViewCell.swift in Sources */,
 				C27626201D8BAF7900D01AAB /* CalendarsViewController.m in Sources */,
+				C2939B241D93A69300E0D903 /* FBLoginViewController.m in Sources */,
 				C276260A1D8BAF2A00D01AAB /* ContactInfoViewController.swift in Sources */,
 				C27625BD1D8BAC7500D01AAB /* MapsViewController.m in Sources */,
 				C27626231D8BAF7900D01AAB /* EditEventViewController.m in Sources */,

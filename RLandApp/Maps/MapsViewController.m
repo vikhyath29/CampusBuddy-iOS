@@ -13,7 +13,7 @@
 
 @interface MapsViewController ()
 {
-    NSMutableArray *jsonListOfPlacesArr;
+    
     
     GMSMapView *mapView_;
     GMSCameraPosition *camera;
@@ -28,10 +28,17 @@
     SEL selector;
     int counter;
     
-    
+    NSMutableArray *allDetailsArray;
+    NSArray *sortedArray;
 }
 
 @end
+
+/* ToDo:
+    1. Pass sorted Array to ListofPlacesTVC rather than sorting again there
+    2. Remove Longitude, Latitude and few other unnecessary arrays
+    3. Seems like a problem with Govind Bhawan
+*/
 
 @implementation MapsViewController
 
@@ -42,23 +49,42 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"IITRLocationsInfo" ofType:@"json"];
     NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
     NSError *error;
-    jsonListOfPlacesArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+    NSArray *jsonListOfPlacesArr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
     
     //directions API
     waypoints_ = [[NSMutableArray alloc]init];
     waypointStrings_ = [[NSMutableArray alloc]init];
     
     
+ 
+    
+    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc]init];
+    for(int i=0; i<[jsonListOfPlacesArr count]; ++i) {
+        [tempDict setObject:@{
+                            @"Location":[jsonListOfPlacesArr[i] valueForKey:@"Location"],
+                            @"Longitude" :[jsonListOfPlacesArr[i] valueForKey:@"Longitude"],
+                            @"Latitude" : [jsonListOfPlacesArr[i] valueForKey:@"Latitude"]
+                            }
+              forKey:jsonListOfPlacesArr[i][@"Location"]];
+    }
+    
+    sortedArray = [[tempDict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    
+    allDetailsArray = [[NSMutableArray alloc]init];
+    for(int i=0; i<sortedArray.count; ++i) {
+        [allDetailsArray addObject:[tempDict valueForKey:sortedArray[i]]];
+    }
+    
     //Initializing the arrays and adding objects correspondingly
     LocationArray = [[NSMutableArray alloc]init];
     LongitudeArray = [[NSMutableArray alloc]init];
     LatitudeArray = [[NSMutableArray alloc]init];
-    
-    for(int i=0; i<[jsonListOfPlacesArr count]; ++i)
+    for(int i=0; i<[allDetailsArray count]; ++i)
     {
-        [LocationArray addObject:[jsonListOfPlacesArr[i] valueForKey:@"Location"]];
-        [LongitudeArray addObject:(NSString *)[jsonListOfPlacesArr[i] valueForKey:@"Longitude"]];
-        [LatitudeArray addObject:(NSString *)[jsonListOfPlacesArr[i] valueForKey:@"Latitude"]];
+        [LocationArray addObject:[allDetailsArray[i] valueForKey:@"Location"]];
+        [LongitudeArray addObject:(NSString *)[allDetailsArray[i] valueForKey:@"Longitude"]];
+        [LatitudeArray addObject:(NSString *)[allDetailsArray[i] valueForKey:@"Latitude"]];
     }
     
     //to configure and add all the markers to the map
@@ -115,23 +141,24 @@
     marker.map = mapView_;
     
     //creates a set of markers on the mapview which were collected from the json array
-    for(int i=0; i<[jsonListOfPlacesArr count]; ++i)
-    {
-        
-        GMSMarker *sampleMarker = [[GMSMarker alloc]init];
-        sampleMarker.position = CLLocationCoordinate2DMake([LatitudeArray[i] doubleValue], [LongitudeArray[i] doubleValue]);
-        sampleMarker.title = LocationArray[i];
-        sampleMarker.snippet = @"IIT Roorkee" ;
-        sampleMarker.map = mapView_;
-        
-        if( i>=0&& i<18)
-            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
-        if(i>=18 && i<28)
-            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
-        if(i>=28)
-            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
-        sampleMarker.icon = [self image:sampleMarker.icon scaledToSize:CGSizeMake(20.0f, 20.0f)];
-    }
+    /* HIDDEN THE MARKERS */
+//    for(int i=0; i<[allDetailsArray count]; ++i)
+//    {
+//        
+//        GMSMarker *sampleMarker = [[GMSMarker alloc]init];
+//        sampleMarker.position = CLLocationCoordinate2DMake([LatitudeArray[i] doubleValue], [LongitudeArray[i] doubleValue]);
+//        sampleMarker.title = LocationArray[i];
+//        sampleMarker.snippet = @"IIT Roorkee" ;
+//        sampleMarker.map = mapView_;
+//        
+//        if( i>=0&& i<18)
+//            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
+//        if(i>=18 && i<28)
+//            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
+//        if(i>=28)
+//            sampleMarker.icon = [GMSMarker markerImageWithColor:[UIColor cyanColor]];
+//        sampleMarker.icon = [self image:sampleMarker.icon scaledToSize:CGSizeMake(20.0f, 20.0f)];
+//    }
     
 }
 
@@ -247,10 +274,10 @@
     //    [alert addAction:RotateDevice];
     //
     
-    UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
-    }];
-    [alert addAction:ListOfPlaces];
+//    UIAlertAction* ListOfPlaces = [UIAlertAction actionWithTitle:@"List of Common Places in IITR" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//        [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
+//    }];
+//    [alert addAction:ListOfPlaces];
     
     
     
@@ -261,16 +288,16 @@
     }];
     [alert addAction:GoToMainBuilding];
     
-    UIAlertAction* switchDetail = [UIAlertAction actionWithTitle:@"Toggle the switch on top to enable Directions" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        if(!_isTrackEnabled.on)[_isTrackEnabled setOn:YES animated:YES];
-        else
-        {
-            [self presentViewController:alertpopup animated:YES completion:nil];
-            [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
-            
-        }
-    }];
-    [alert addAction:switchDetail];
+//    UIAlertAction* switchDetail = [UIAlertAction actionWithTitle:@"Toggle the switch on top to enable Directions" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//        if(!_isTrackEnabled.on)[_isTrackEnabled setOn:YES animated:YES];
+//        else
+//        {
+//            [self presentViewController:alertpopup animated:YES completion:nil];
+//            [self performSelector:@selector(myDismissViewController) withObject:self afterDelay:1];
+//            
+//        }
+//    }];
+//    [alert addAction:switchDetail];
     
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
@@ -424,6 +451,12 @@
     
 }
 
+
+- (IBAction)goToListOfPlaces:(id)sender {
+
+    [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
+
+}
 
 
 

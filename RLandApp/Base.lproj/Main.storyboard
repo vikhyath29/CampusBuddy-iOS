@@ -24,7 +24,7 @@
                     <navigationItem key="navigationItem" id="7ZR-SV-57O">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="seo-X1-IsW">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="go3-l8-4IC">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="go3-l8-4IC">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="15"/>
@@ -48,20 +48,14 @@
                                 <action selector="toggleMapViewAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="h8H-08-vXi"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="nD6-fM-OhH">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="p5s-Yf-2HR">
-                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="trackEnableAction:" destination="T1K-rc-mkg" eventType="valueChanged" id="ctY-4n-etx"/>
-                                </connections>
-                            </switch>
+                        <barButtonItem key="rightBarButtonItem" title="Directions" id="Ohd-G8-BtN">
+                            <connections>
+                                <action selector="goToListOfPlaces:" destination="T1K-rc-mkg" id="owM-BH-7Wp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="isTrackEnabled" destination="p5s-Yf-2HR" id="ASq-WY-5mL"/>
                         <segue destination="NJI-LH-j4Q" kind="show" identifier="SegueToListOfPlaces" id="J26-hs-Dhv"/>
                     </connections>
                 </viewController>
@@ -127,48 +121,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="4185" y="219"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="GZ9-xg-QWq">
-            <objects>
-                <viewController title="Home" id="Bmm-Gj-9c0" customClass="HomePageViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8v2-gQ-ZgW"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bvm-VN-mmY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="glg-jO-0rA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUJ-VD-6hI">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
-                                <state key="normal" title="Login"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="168" y="255" width="38" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="testAction:" destination="Bmm-Gj-9c0" eventType="touchUpInside" id="2NH-VU-sad"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="BUJ-VD-6hI"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="BUJ-VD-6hI"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house-7.png" id="RAQ-Yn-E7h"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b2a-dQ-P5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1315.5" y="-593"/>
         </scene>
         <!--Events for a Calendar-->
         <scene sceneID="plu-br-Wds">
@@ -278,10 +230,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Bmm-Gj-9c0" kind="relationship" relationship="viewControllers" id="7Zl-BA-gS0"/>
                         <segue destination="eZl-9E-kfr" kind="relationship" relationship="viewControllers" id="qgI-fk-dVl"/>
-                        <segue destination="9lL-ug-M46" kind="relationship" relationship="viewControllers" id="axu-0d-nzg"/>
                         <segue destination="kPg-xV-1Pq" kind="relationship" relationship="viewControllers" id="OGq-P2-VRE"/>
+                        <segue destination="Pg5-oG-vi6" kind="relationship" relationship="viewControllers" id="gvp-ay-zoW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3p-7s-KOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +245,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Azg-5J-udR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG5-Re-Cnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474" y="-507"/>
+            <point key="canvasLocation" x="-624" y="-403"/>
         </scene>
         <!--Show Page View Controller-->
         <scene sceneID="udf-w8-enu">
@@ -571,24 +522,29 @@
             </objects>
             <point key="canvasLocation" x="1261.5" y="1925"/>
         </scene>
-        <!--Notifications-->
-        <scene sceneID="ueb-OX-pux">
+        <!--Login View Controller-->
+        <scene sceneID="2uS-z2-isI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9lL-ug-M46" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="bell-7.png" id="MQ3-GY-q65"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T7s-Py-myx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Liq-Wi-H8n" kind="relationship" relationship="rootViewController" id="BsR-vk-k8y"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pqz-Eq-kvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="uxo-Pc-ybp" customClass="FBLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5zi-oF-gBY"/>
+                        <viewControllerLayoutGuide type="bottom" id="4nd-Pc-w21"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jz6-RA-Co4">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aJy-3Y-AsB">
+                        <barButtonItem key="rightBarButtonItem" title="Show" id="AAg-sK-DXB">
+                            <connections>
+                                <segue destination="Liq-Wi-H8n" kind="show" id="Kxs-2j-kCh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aC7-Ls-iVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2992.5" y="-599"/>
+            <point key="canvasLocation" x="3861" y="-605"/>
         </scene>
         <!--Select Pages-->
         <scene sceneID="ZQ0-zw-Rwh">
@@ -662,7 +618,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o80-9k-GKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3732" y="-605"/>
+            <point key="canvasLocation" x="4650" y="-605"/>
         </scene>
         <!--Page Content View Controller-->
         <scene sceneID="5ao-wB-obt">
@@ -1165,7 +1121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGy-Na-6pY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4489.5" y="-605"/>
+            <point key="canvasLocation" x="5407.5" y="-605"/>
         </scene>
         <!--Maps-->
         <scene sceneID="MrU-ZL-lbX">
@@ -1192,6 +1148,25 @@
             </objects>
             <point key="canvasLocation" x="2502" y="219"/>
         </scene>
+        <!--Notifications-->
+        <scene sceneID="FTC-ko-TEp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pg5-oG-vi6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notifications" image="bell-7.png" id="dCm-xJ-WNA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FZT-g1-InH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uxo-Pc-ybp" kind="relationship" relationship="rootViewController" id="zOp-Bw-kGA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUB-5S-vrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2943" y="-605"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ContactInfoThumbnail.png" width="375" height="375"/>
@@ -1199,6 +1174,5 @@
         <image name="calendar-7.png" width="30" height="30"/>
         <image name="checkmark.png" width="225" height="225"/>
         <image name="compass-point-7.png" width="30" height="30"/>
-        <image name="house-7.png" width="30" height="30"/>
     </resources>
 </document>

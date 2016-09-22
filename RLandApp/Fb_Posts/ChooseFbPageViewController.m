@@ -62,14 +62,17 @@
     // Don't use the following shit if you are creating cells using storyboard
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
+    
+
     FMMosaicLayout *mosaicLayout = [[FMMosaicLayout alloc] init];
     self.collectionView.collectionViewLayout = mosaicLayout;
     mosaicLayout.delegate=self;
     
     self.collectionView.allowsMultipleSelection = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
-
+    
     [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
+
 
 }
 
@@ -260,6 +263,9 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     }
     
 }
+//- (IBAction)refreshAction:(id)sender {
+//    [self viewDidLoad];
+//}
 
 
 @end

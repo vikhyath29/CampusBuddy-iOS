@@ -21,8 +21,8 @@
 @end
 
 /* To-Do:
- 1. Connect search Bar to delegate in SB
  2. https://www.youtube.com/watch?v=lXTTgBQuw8M
+ 3. Wrong Places: DOMS, 
  */
 
 @implementation ListOfPlacesTableViewController
@@ -131,19 +131,18 @@
 
     if (tableView == self.searchDisplayController.searchResultsTableView){
         
-        NSInteger indexToBePassed = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row;
-        
-        [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:[searchResultsArray objectAtIndex:indexToBePassed]]];
-        
+        // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
+
+        [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:searchResultsArray[indexPath.row][@"Location"]]];
+     
 //                self.searchDisplayController.searchBar.text=@"";
 //                [self.searchDisplayController.searchBar resignFirstResponder];
                 [self.searchDisplayController setActive:NO]; //works like charm! replaces above two lines
     }
 
-    else
+    else {
         [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row];
-    
-    
+    }
    // if([[tableView indexPathsForSelectedRows] count] ==2)
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -190,14 +189,4 @@
     return YES;
 }
 
-
-
-
-
-
-
-
-//- (IBAction)backAction:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 @end

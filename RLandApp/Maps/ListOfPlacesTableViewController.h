@@ -23,6 +23,6 @@
 @interface ListOfPlacesTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) id <ListOfPlacesTableViewControllerDelegate> delegate;
-- (IBAction)backAction:(id)sender;
+
 
 @end
