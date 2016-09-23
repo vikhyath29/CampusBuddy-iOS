@@ -22,7 +22,7 @@
 
 /* To-Do:
  2. https://www.youtube.com/watch?v=lXTTgBQuw8M
- 3. Wrong Places: DOMS, 
+ 3. Wrong Places: DOMS,Govind Bhawan, Convocation Hall
  */
 
 @implementation ListOfPlacesTableViewController
@@ -122,18 +122,27 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Select any two places to get the route";
+    if(_searchFeatureSwitch.on)
+        return @"Select any two places to get the route";
+    else
+        return @"Select a place to locate it";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-
+{//TO-DO: [Modify] can reduce the code
+    //One Place Selection Switch
+    if(!_searchFeatureSwitch.on) {
     if (tableView == self.searchDisplayController.searchResultsTableView){
+        
+        //selection in searchtableview
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        //selection also in normaltableview
+        NSInteger rowSelectedInNormalTableView = [sortedArray indexOfObject:searchResultsArray[indexPath.row][@"Location"]];
+        [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowSelectedInNormalTableView inSection:0]].accessoryType = UITableViewCellAccessoryCheckmark;
         
         // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
 
-        [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:searchResultsArray[indexPath.row][@"Location"]]];
+        [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:searchResultsArray[indexPath.row][@"Location"]] withIsTrackEnabled:NO];
      
 //                self.searchDisplayController.searchBar.text=@"";
 //                [self.searchDisplayController.searchBar resignFirstResponder];
@@ -141,17 +150,44 @@
     }
 
     else {
-        [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row];
+        [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row withIsTrackEnabled:_searchFeatureSwitch.on];
     }
-   // if([[tableView indexPathsForSelectedRows] count] ==2)
-    [self.navigationController popViewControllerAnimated:YES];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    //Two Places Selection Switch
+    else if(_searchFeatureSwitch.on) {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+
+        if (tableView == self.searchDisplayController.searchResultsTableView){
+            
+            // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
+            
+            [self.delegate addItemViewController:self didFinishEnteringItem:[sortedArray indexOfObject:searchResultsArray[indexPath.row][@"Location"]] withIsTrackEnabled:YES];
+            
+            //                self.searchDisplayController.searchBar.text=@"";
+            //                [self.searchDisplayController.searchBar resignFirstResponder];
+            [self.searchDisplayController setActive:NO]; //works like charm! replaces above two lines
+        }
+        
+        else {
+            [self.delegate addItemViewController:self didFinishEnteringItem:indexPath.row withIsTrackEnabled:_searchFeatureSwitch.on];
+        }
+        
+        if([[tableView indexPathsForSelectedRows] count] ==2 )
+        [self.navigationController popViewControllerAnimated:YES];
+    
+    }
+    
     
     
     
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    
+    [self.tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 
 }
 
@@ -189,4 +225,10 @@
     return YES;
 }
 
+- (IBAction)searchFeatureSwitchAction:(id)sender {
+    //reloads the section-0; since this has only one section, no difference with [tv reloadData]
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    
+}
 @end

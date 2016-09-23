@@ -13,10 +13,14 @@
 
 
 @interface ListOfFbPostsViewController ()
-
+{
+    int numberOfPosts;
+}
 @property (nonatomic) NSMutableArray *sortedPosts, *feedOfEachPage;
 @property (nonatomic) NSMutableDictionary *unsortedPosts;
 @property (weak, nonatomic) IBOutlet UITableView *fbtable;
+
+
 
 @end
 
@@ -44,12 +48,15 @@ NSString *const kPostURL = @"link";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    numberOfPosts = 0;
+    
     _sortedPosts =[[NSMutableArray alloc]init];
     _unsortedPosts =[[NSMutableDictionary alloc]init];
     _feedOfEachPage = [[NSMutableArray alloc]init];
     
    
-    
+    self.fbtable.tableHeaderView = nil;
     [self.fbtable setHidden:YES];
     //for adjustable row height in tableview
     _fbtable.rowHeight = UITableViewAutomaticDimension;
@@ -68,6 +75,8 @@ NSString *const kPostURL = @"link";
     for(NSString *fbid in _selectedProfileIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"posts{message,created_time,id,full_picture, link},name,picture",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            
+            numberOfPosts++;
             
             if (!error)
                 [_feedOfEachPage addObject:@{@"posts"          :result[@"posts"][@"data"],
@@ -118,7 +127,7 @@ NSString *const kPostURL = @"link";
 
 #pragma mark TableView
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 138;
+    return 30;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -195,6 +204,7 @@ NSString *const kPostURL = @"link";
  */
 
 
+    
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
