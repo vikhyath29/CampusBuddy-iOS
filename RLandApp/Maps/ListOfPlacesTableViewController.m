@@ -22,7 +22,7 @@
 
 /* To-Do:
  2. https://www.youtube.com/watch?v=lXTTgBQuw8M
- 3. Wrong Places: DOMS,Govind Bhawan, Convocation Hall
+ 3. Wrong Places: DOMS, Convocation Hall
  */
 
 @implementation ListOfPlacesTableViewController
