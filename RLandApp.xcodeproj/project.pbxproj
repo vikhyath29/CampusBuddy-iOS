@@ -28,7 +28,6 @@
 		C27625B11D8BABC200D01AAB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27625AD1D8BABC200D01AAB /* FBSDKShareKit.framework */; };
 		C27625BA1D8BAC7500D01AAB /* GoogleMapDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */; };
 		C27625BB1D8BAC7500D01AAB /* IITRLocationsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */; };
-		C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */; };
 		C27625BD1D8BAC7500D01AAB /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625B91D8BAC7500D01AAB /* MapsViewController.m */; };
 		C27625CB1D8BAD5100D01AAB /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C21D8BAD5100D01AAB /* PageContentViewController.m */; };
 		C27625CC1D8BAD5100D01AAB /* ShowPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625C41D8BAD5100D01AAB /* ShowPageViewController.m */; };
@@ -132,8 +131,6 @@
 		C27625B31D8BAC7500D01AAB /* GoogleMapDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapDirectionService.h; sourceTree = "<group>"; };
 		C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapDirectionService.m; sourceTree = "<group>"; };
 		C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IITRLocationsInfo.json; sourceTree = "<group>"; };
-		C27625B61D8BAC7500D01AAB /* ListOfPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfPlacesTableViewController.h; sourceTree = "<group>"; };
-		C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfPlacesTableViewController.m; sourceTree = "<group>"; };
 		C27625B81D8BAC7500D01AAB /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		C27625B91D8BAC7500D01AAB /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		C27625C11D8BAD5100D01AAB /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -362,8 +359,6 @@
 				C27625B31D8BAC7500D01AAB /* GoogleMapDirectionService.h */,
 				C27625B41D8BAC7500D01AAB /* GoogleMapDirectionService.m */,
 				C27625B51D8BAC7500D01AAB /* IITRLocationsInfo.json */,
-				C27625B61D8BAC7500D01AAB /* ListOfPlacesTableViewController.h */,
-				C27625B71D8BAC7500D01AAB /* ListOfPlacesTableViewController.m */,
 				C27625B81D8BAC7500D01AAB /* MapsViewController.h */,
 				C27625B91D8BAC7500D01AAB /* MapsViewController.m */,
 			);
@@ -423,11 +418,11 @@
 				C27625E11D8BAEB300D01AAB /* checkmark.png */,
 				C27625E21D8BAEB300D01AAB /* ChooseFbPageViewController.h */,
 				C27625E31D8BAEB300D01AAB /* ChooseFbPageViewController.m */,
-				C27625E41D8BAEB300D01AAB /* DetailFbPostViewController.h */,
-				C27625E51D8BAEB300D01AAB /* DetailFbPostViewController.m */,
 				C27625E61D8BAEB300D01AAB /* Fb_Cells */,
 				C27625ED1D8BAEB300D01AAB /* ListOfFbPostsViewController.h */,
 				C27625EE1D8BAEB300D01AAB /* ListOfFbPostsViewController.m */,
+				C27625E41D8BAEB300D01AAB /* DetailFbPostViewController.h */,
+				C27625E51D8BAEB300D01AAB /* DetailFbPostViewController.m */,
 			);
 			path = Fb_Posts;
 			sourceTree = "<group>";
@@ -797,7 +792,6 @@
 			files = (
 				C27626211D8BAF7900D01AAB /* CreateAlertViewController.m in Sources */,
 				C20D61A31C21BEE500F52991 /* AppDelegate.m in Sources */,
-				C27625BC1D8BAC7500D01AAB /* ListOfPlacesTableViewController.m in Sources */,
 				C276260C1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift in Sources */,
 				C27625F61D8BAEB300D01AAB /* ListOfFbPostsViewController.m in Sources */,
 				C27626251D8BAF7900D01AAB /* EventsForACalendarViewController.m in Sources */,
@@ -965,6 +959,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -973,7 +968,7 @@
 				);
 				INFOPLIST_FILE = RLandApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.RLandApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -986,6 +981,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -993,7 +989,7 @@
 				);
 				INFOPLIST_FILE = RLandApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.RLandApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
 			};

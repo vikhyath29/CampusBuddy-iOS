@@ -18,18 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
     self.delegate=self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-
-//Without this tab, if you re-select the already selected tabbar, it pops to rootview
+//Without this tab, if you re-select the current selected tabbar, it pops to rootview
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     //Here viewController=The view controller belonging to the tab that was tapped by the user.

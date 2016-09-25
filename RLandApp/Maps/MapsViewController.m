@@ -45,7 +45,7 @@
 @end
 
 /* ToDo:
-    1. Pass sorted Array to ListofPlacesTVC rather than sorting again there
+    1. Handle Deselection
     2. Remove Longitude, Latitude and few other unnecessary arrays
     3. Remove isTrackEnabled IBOutlet and update the argument in our delegate method addItemVC..
     
@@ -144,7 +144,7 @@
 // custom method to configure and add all the markers to the map
 -(void) configuringTheMap:(GMSMapView *)mapview
 {
-    camera = [GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:15.8];
+    camera = [GMSCameraPosition cameraWithLatitude:29.8644 longitude:77.8964 zoom:16.2];
     mapView_ = [GMSMapView mapWithFrame:[[UIScreen mainScreen]bounds] camera:camera];
     mapView_.myLocationEnabled = YES; //This property may not be immediately available - for example, if the user is prompted by "iOS" to allow access to this data. It will be nil in this case.
     mapView_.mapType = kGMSTypeNormal;
@@ -187,6 +187,7 @@
     
     
     UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You've already enabled Directions" preferredStyle:UIAlertControllerStyleAlert ];
+    
 
     
     UIAlertAction* GoToMainBuilding = [UIAlertAction actionWithTitle:@"Restore the view to Main Building" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -264,44 +265,6 @@ else {
 }
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier]isEqualToString:@"SegueToListOfPlaces"]){
-        ListOfPlacesTableViewController *lopc = [segue destinationViewController];
-        lopc.delegate =self;
-    }
-    //    if([[segue identifier]isEqualToString:@"SegueToListOfPlacesqq"]){
-    //        ListOfPlacesViewController *lopc2 = [segue destinationViewController];
-    //        lopc2.delegate =self;
-    //    }
-    
-}
-
-#pragma mark- Device Rotation Handlers
-////-(void)didRotateFromInterfaceOrientation(UIInterfaceOrientation)fromInterfaceOrientation
-////above method was not handy as things are getting updated AFTER rotation is done
-//- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-//{
-//    CGRect screenRect = [[UIScreen mainScreen] bounds];
-//
-//    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)    {
-//        _listOfPlacesTableView.hidden=YES;
-//
-//        [self.view endEditing:YES]; //else an opened keyboard in landscape doesn't disappear after toggling to portrait
-////[self resignFirstResponder]; doesn't work
-//    }
-//    else
-//    {   //   mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 0, screenRect.size.width/2, screenRect.size.height) camera:camera];
-//        //Implement the above line and you are totally fucked ! Segment controls nor tapping map works. But don't know how mapview is exactly getting halved on rotation without this line! :o
-//    _listOfPlacesTableView.frame=CGRectMake( screenRect.size.width/2,0, screenRect.size.width/2, screenRect.size.height);
-//        _listOfPlacesTableView.hidden=NO;
-//
-//
-//       }
-//}
-
-
-
 
 #pragma mark - IMP! Code to make markers
 -(void)AddMarkerAtPosition:(CLLocationCoordinate2D )position withPositionString:(NSString *)positionString
@@ -351,11 +314,6 @@ else {
 }
 
 
-- (IBAction)goToListOfPlaces:(id)sender {
-
-    [self performSegueWithIdentifier:@"SegueToListOfPlaces" sender:nil];
-
-}
 
 
 /* Search Part for Maps */
@@ -432,25 +390,17 @@ else {
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {//TO-DO: [Modify] can reduce the code
+    
     //One Place Selection Switch
     if(!_searchFeatureSwitch.on) {
         if (tableView == self.searchDisplayController.searchResultsTableView){
             
-            //selection in searchtableview
-           // [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-            //selection also in normaltableview
-          //  NSInteger rowSelectedInNormalTableView = [sortedArray indexOfObject:searchedLocationsDetailsArray[indexPath.row][@"Location"]];
-          //  [_placesTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:rowSelectedInNormalTableView inSection:0]].accessoryType = UITableViewCellAccessoryCheckmark;
-            
-            // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
-            
             [self addItemViewControllerdidFinishEnteringItem:[sortedArray indexOfObject:searchedLocationsDetailsArray[indexPath.row][@"Location"]] withIsTrackEnabled:NO];
-            
             [self.searchDisplayController setActive:NO];
         }
         
-        else
-            [self addItemViewControllerdidFinishEnteringItem:indexPath.row withIsTrackEnabled:_searchFeatureSwitch.on];
+     //   else
+     //       [self addItemViewControllerdidFinishEnteringItem:indexPath.row withIsTrackEnabled:_searchFeatureSwitch.on];
         
         
     }
@@ -459,7 +409,6 @@ else {
     else if(_searchFeatureSwitch.on) {
         
         if (tableView == self.searchDisplayController.searchResultsTableView){
-           // searchedLocationsDetailsArray[indexPath.row][@"isSelectionChecked"] = @YES;
             
             NSString *selectedLocationName = [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"];
             
@@ -477,13 +426,13 @@ else {
             
  
             if(selectedLocationNames.count==2 ) {
-                NSLog(@"List of all selected names are");
-                for(int i=0; i<selectedLocationNames.count; ++i)
-                    NSLog(@"%@", [sortedDictionaryFinal valueForKey:selectedLocationNames[i]]);
+//                NSLog(@"List of all selected names are");
+//                for(int i=0; i<selectedLocationNames.count; ++i)
+//                    NSLog(@"%@", [sortedDictionaryFinal valueForKey:selectedLocationNames[i]]);
                 
                 
                 [sortedDictionaryFinal valueForKey:selectedLocationNames[0]][@"isSelectionChecked"] = @NO;
-                 [sortedDictionaryFinal valueForKey:selectedLocationNames[1]][@"isSelectionChecked"] = @NO;
+                [sortedDictionaryFinal valueForKey:selectedLocationNames[1]][@"isSelectionChecked"] = @NO;
                 [selectedLocationNames removeAllObjects];
                 
             [self.searchDisplayController setActive:NO];
@@ -493,16 +442,19 @@ else {
     }
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    NSString *selectedLocationName = [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"];
+//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//if (tableView == self.searchDisplayController.searchResultsTableView){
+//
+//    NSString *selectedLocationName = searchedLocationsDetailsArray[indexPath.row][@"Location"];
 //    [sortedDictionaryFinal valueForKey:selectedLocationName][@"isSelectionChecked"] = @NO;
+//    NSLog(@"Deselected Row is %@", [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"]);
+//    
+//    [selectedLocationNames removeObject:selectedLocationName];
 //    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-    if (tableView == self.searchDisplayController.searchResultsTableView){
-
- //   NSLog(@"Deselected Row is %@", [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"]);
-    }
-}
+//    
+//    
+//    }
+//}
 
 
 #pragma mark - methods for search feature
@@ -532,15 +484,6 @@ else {
 //You might implement this method if you want to perform an asynchronous search. You would initiate the search in this method, then return NO. You would reload the table when you have results.
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    //not working to display tableview when no text is written in search
-//    if([searchString isEqualToString:@""]) {
-//        [searchedLocationsDetailsArray removeAllObjects];
-//        [searchedLocationsDetailsArray addObjectsFromArray:[LocationDictionary allValues]];
-//
-//        
-//        return YES;
-//    }
-    
     [self filterContentForSearchText:searchString
                                scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
                                       objectAtIndex:[self.searchDisplayController.searchBar
@@ -559,13 +502,6 @@ else {
     return YES;
 }
 
-
-- (IBAction)searchFeatureSwitchAction:(id)sender {
-    //reloads the section-0; since this has only one section, no difference with [tv reloadData]
-    [_placesTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    
-}
 
 
 

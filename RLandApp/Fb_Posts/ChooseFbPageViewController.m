@@ -8,6 +8,8 @@
 
 #import "ChooseFbPageViewController.h"
 #import <Crashlytics/Crashlytics.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface ChooseFbPageViewController ()
 {
@@ -103,18 +105,9 @@
         
     UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
         //todo: placeholder image
-        myImage.image = [UIImage imageNamed:@"checkmark.png"];
-    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data) {
-                UIImage *image = [UIImage imageWithData:data];
-                if (image)
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                            myImage.image = image;
-                       
-                    });
-                }
-    }];
-    [task resume];
+    myImage.image = [UIImage imageNamed:@"checkmark.png"];
+    [myImage sd_setImageWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] placeholderImage:[UIImage imageNamed:@"checkmark.png"]];
+
     
     
     

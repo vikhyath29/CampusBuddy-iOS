@@ -8,21 +8,9 @@
 
 #import <UIKit/UIKit.h>
 @import GoogleMaps;
-#import "ListOfPlacesTableViewController.h"
-
-@interface MapsViewController : UIViewController<GMSMapViewDelegate, ListOfPlacesTableViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
-
-
-//@property (weak, nonatomic) IBOutlet UISwitch *isTrackEnabled;
+@interface MapsViewController : UIViewController<GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *searchFeatureSwitch;
-
 @property (weak, nonatomic) IBOutlet UITableView *placesTableView;
-
-- (IBAction)trackEnableAction:(UISwitch *)sender;
-- (IBAction)toggleMapViewAction:(UISegmentedControl *)sender;
-- (IBAction)featuresAction:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIView *listOfPlacesTableView;
-
 @end

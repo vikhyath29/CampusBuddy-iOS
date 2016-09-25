@@ -18,95 +18,40 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>googlechromes</string>
-        <string>comgooglemaps</string>
-    </array>
-    
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1733864486848901</string>
+				<string>fb772744622840259</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    <key>FacebookAppID</key>
-    <string>1740242512877765</string>
-    <key>FacebookDisplayName</key>
-    <string>RLandApp</string>
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb1740242512877765</string>
-            </array>
-        </dict>
-    </array>
-    
-    
-
-    
-    <!--
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>2b129f540612bb184eea342c8da87e673dc7036b</string>
+	</dict>
+	<key>FacebookAppID</key>
+	<string>772744622840259</string>
+	<key>FacebookDisplayName</key>
+	<string>CampusBuddy</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>akamaihd.net</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>facebook.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>fbcdn.net</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
-    -->
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <!--Include to allow all connections (DANGER)-->
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
-    <key>Fabric</key>
-    <dict>
-        <key>APIKey</key>
-        <string>2b129f540612bb184eea342c8da87e673dc7036b</string>
-    </dict>
-    
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -118,8 +63,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

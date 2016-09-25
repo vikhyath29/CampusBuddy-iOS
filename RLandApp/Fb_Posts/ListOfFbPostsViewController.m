@@ -15,6 +15,8 @@
 @interface ListOfFbPostsViewController ()
 {
     int numberOfPosts;
+    
+    UIRefreshControl *refreshControl;
 }
 @property (nonatomic) NSMutableArray *sortedPosts, *feedOfEachPage;
 @property (nonatomic) NSMutableDictionary *unsortedPosts;
@@ -64,6 +66,14 @@ NSString *const kPostURL = @"link";
     
     [self clickMe];
     [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
+    
+    //refreshControl
+    refreshControl = [[UIRefreshControl alloc]init];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing, Please Wait.."];
+    
+    [self.fbtable addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    
 }
 
 
@@ -71,7 +81,7 @@ NSString *const kPostURL = @"link";
 
 #pragma mark FbPosts Fetching Actions
 -(void) clickMe {
-     
+    NSLog(@"clickMe called :)");
     for(NSString *fbid in _selectedProfileIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"posts{message,created_time,id,full_picture, link},name,picture",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -262,6 +272,15 @@ NSString *const kPostURL = @"link";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Refresh TableView
+- (void)refreshTable {
+    //TODO: refresh your data
+    [self clickMe];
+    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
+    NSLog(@"Refresh called");
+    [refreshControl endRefreshing];
+    [self.fbtable reloadData];
+}
 
 
 
