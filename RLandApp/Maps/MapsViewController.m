@@ -72,23 +72,24 @@
     
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc]init];
     for(int i=0; i<[jsonListOfPlacesArr count]; ++i) {
-//        [tempDictionary setObject:@{
-//                            @"Location":[jsonListOfPlacesArr[i] valueForKey:@"Location"],
-//                            @"Longitude" :[jsonListOfPlacesArr[i] valueForKey:@"Longitude"],
-//                            @"Latitude" : [jsonListOfPlacesArr[i] valueForKey:@"Latitude"],
-//                             @"type"     : [jsonListOfPlacesArr[i] valueForKey:@"type"],
-//                            @"isSelectionChecked" : @NO
-//                            }
-//              forKey:jsonListOfPlacesArr[i][@"Location"]];
+        [tempDictionary setObject:@{
+                            @"Location":[jsonListOfPlacesArr[i] valueForKey:@"Location"],
+                            @"Longitude" :[jsonListOfPlacesArr[i] valueForKey:@"Longitude"],
+                            @"Latitude" : [jsonListOfPlacesArr[i] valueForKey:@"Latitude"],
+                             @"type"     : [jsonListOfPlacesArr[i] valueForKey:@"type"],
+                            @"isSelectionChecked" : @NO
+                            }
+              forKey:jsonListOfPlacesArr[i][@"Location"]];
         
-        [tempDictionary setObject:[NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                  @"Location":[jsonListOfPlacesArr[i] valueForKey:@"Location"],
-                                                                                  @"Longitude" :[jsonListOfPlacesArr[i] valueForKey:@"Longitude"],
-                                                                                  @"Latitude" : [jsonListOfPlacesArr[i] valueForKey:@"Latitude"],
-                                                                                  @"type"     : [jsonListOfPlacesArr[i] valueForKey:@"type"],
-                                                                                  @"isSelectionChecked" : @NO
-                                                                                  }
-                                   ] forKey:jsonListOfPlacesArr[i][@"Location"]];
+//        [tempDictionary setObject:[NSMutableDictionary dictionaryWithDictionary:@{
+//                                                                                  @"Location":[jsonListOfPlacesArr[i] valueForKey:@"Location"],
+//                                                                                  @"Longitude" :[jsonListOfPlacesArr[i] valueForKey:@"Longitude"],
+//                                                                                  @"Latitude" : [jsonListOfPlacesArr[i] valueForKey:@"Latitude"],
+//                                                                                  @"type"     : [jsonListOfPlacesArr[i] valueForKey:@"type"],
+//                                                                                  @"isSelectionChecked" : @NO
+//                                                                                  }
+//                                   ] forKey:jsonListOfPlacesArr[i][@"Location"]];
+
     }
     
     

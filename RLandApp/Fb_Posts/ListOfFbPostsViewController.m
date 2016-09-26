@@ -17,11 +17,14 @@
     int numberOfPosts;
     
     UIRefreshControl *refreshControl;
+    
 }
 @property (nonatomic) NSMutableArray *sortedPosts, *feedOfEachPage;
 @property (nonatomic) NSMutableDictionary *unsortedPosts;
 @property (weak, nonatomic) IBOutlet UITableView *fbtable;
 
+@property (strong, nonatomic) UIImageView *tappedImageView;
+@property (strong, nonatomic) UIView *expandedFbPostView;
 
 
 @end
@@ -64,24 +67,45 @@ NSString *const kPostURL = @"link";
     _fbtable.rowHeight = UITableViewAutomaticDimension;
     _fbtable.estimatedRowHeight = 300;
     
-    [self clickMe];
+    [self sendRequestToFb];
     [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
     
     //refreshControl
     refreshControl = [[UIRefreshControl alloc]init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing, Please Wait.."];
+    refreshControl.tintColor = [UIColor blueColor];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing, Please Wait.."
+                                                                    attributes:@{
+                                                                                 NSFontAttributeName : [UIFont fontWithName:@"Arial" size:16.0],
+                                                                        NSForegroundColorAttributeName : [UIColor blueColor]
+                                                                                 }
+                                      ];
     
     [self.fbtable addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
+    
+    //
+    _expandedFbPostView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    _expandedFbPostView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
+    _expandedFbPostView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *removeExpandedViewGestureRecognizer =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(removeExpandedFbPost:)];
+    removeExpandedViewGestureRecognizer.numberOfTapsRequired = 1;
+    [_expandedFbPostView addGestureRecognizer:removeExpandedViewGestureRecognizer];
+    [self.view addSubview:_expandedFbPostView];
+
+    _tappedImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark.png"]];
+    [_expandedFbPostView addSubview:_tappedImageView];
+    _tappedImageView.frame = CGRectMake(0, _tappedImageView.superview.frame.size.height*1/16, _tappedImageView.superview.frame.size.width, _tappedImageView.superview.frame.size.height*3/4);
+    
+    _expandedFbPostView.hidden = YES;
 }
 
 
-
-
 #pragma mark FbPosts Fetching Actions
--(void) clickMe {
-    NSLog(@"clickMe called :)");
+-(void) sendRequestToFb {
+    
     for(NSString *fbid in _selectedProfileIds ) {
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"posts{message,created_time,id,full_picture, link},name,picture",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -179,7 +203,13 @@ NSString *const kPostURL = @"link";
     
         [cellWithPic.pageProfilePic sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPageProfPicURL]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
         [cellWithPic.imageVie sd_setImageWithURL:[NSURL URLWithString:_sortedPosts[indexPath.row][kPostInfo][kFullPicture]] placeholderImage:[UIImage imageNamed:@"sample.png"]];
+    // _tappedImageView = cellWithPic.imageVie;
     
+    //Handling Tap
+    cellWithPic.imageVie.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showExpandedFbPost:)];
+    tapped.numberOfTapsRequired = 1;
+    [cellWithPic.imageVie addGestureRecognizer:tapped];
     
     return cellWithPic;
 }
@@ -274,12 +304,26 @@ NSString *const kPostURL = @"link";
 
 #pragma mark - Refresh TableView
 - (void)refreshTable {
-    //TODO: refresh your data
-    [self clickMe];
+    //refresh data
+    [self sendRequestToFb];
     [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
-    NSLog(@"Refresh called");
+    
     [refreshControl endRefreshing];
     [self.fbtable reloadData];
+}
+
+#pragma mark - Gesture Recognizer methods
+
+-(void) showExpandedFbPost:(UITapGestureRecognizer *)sender {
+    self.navigationController.navigationBarHidden = YES;
+    //    _tappedImageView = (UIImageView *)sender.view;
+    _tappedImageView.image =  [(UIImageView *)sender.view image];
+    _expandedFbPostView.hidden = NO;
+}
+
+-(void) removeExpandedFbPost:(UITapGestureRecognizer *)sender {
+    self.navigationController.navigationBarHidden = NO;
+    _expandedFbPostView.hidden = YES;
 }
 
 

@@ -18,7 +18,7 @@
 
 
 
-
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *getFeedButton;
 - (IBAction)showFeedAction:(id)sender;
 
 @end

@@ -14,6 +14,8 @@
 @interface ChooseFbPageViewController ()
 {
     NSArray *pageIds ;
+    UIRefreshControl *refreshControl;
+    NSMutableArray *navigationBarButtons;
 }
 @property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary, *pageProfileDetails;
 @property (strong, nonatomic) NSArray *sortedNames;
@@ -75,7 +77,16 @@
     
     [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
 
+    navigationBarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+    [navigationBarButtons removeObject:self.getFeedButton];
+    [self.navigationItem setRightBarButtonItems:navigationBarButtons];
 
+    //Refresh Control
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor grayColor];
+    [refreshControl addTarget:self action:@selector(refreshCollection) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
 }
 
 
@@ -170,6 +181,15 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     
     /* a dictionary is used to keep track of item at the time of de-selection */
     [_selectedProfilesDictionary setObject:pageIds[indexPath.item] forKey:pageIds[indexPath.item]];
+    
+    if([_selectedProfilesDictionary count] && ![navigationBarButtons containsObject:self.getFeedButton]) {
+        [navigationBarButtons addObject:self.getFeedButton];
+        [self.navigationItem setRightBarButtonItems:navigationBarButtons];
+    }
+    
+        
+ 
+    
  }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -181,6 +201,10 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     
     [_selectedProfilesDictionary removeObjectForKey:pageIds[indexPath.item]];
     
+    if(![_selectedProfilesDictionary count]) {
+    [navigationBarButtons removeObject:self.getFeedButton];
+    [self.navigationItem setRightBarButtonItems:navigationBarButtons];
+    }
 }
 
 #pragma mark - Facebook Fetch
@@ -207,15 +231,13 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
             }
             
         }]; //end of request
-    } //end of for loop
+    }; //end of for loop
 }
 
 
 -(void) sortByName {
     
     _sortedNames = [[self.pageProfileDetails allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
-    
     [self.collectionView reloadData];
 
 }
@@ -225,19 +247,12 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     
     [_selectedProfilesDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
      {
-         NSLog(@"key: %@, value: %@", key, obj);
+         NSLog(@"key: %@, value: %@", key, obj); 
      }];
     
-    if([_selectedProfilesDictionary count])
-        [self performSegueWithIdentifier:@"goToPosts" sender:nil];
     
-    else {
-            UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Yo!" message:@"You got to select atleast one page!" preferredStyle:UIAlertControllerStyleAlert ];
-        
-        [self presentViewController:alertpopup animated:YES completion:nil];
-                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1];
-    }
-    
+    [self performSegueWithIdentifier:@"goToPosts" sender:nil];
+
 }
 
 #pragma mark - dismiss AlertController
@@ -260,5 +275,14 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 //    [self viewDidLoad];
 //}
 
+
+-(void) refreshCollection {
+    //refresh data
+    [self getPageProfilePictures];
+    [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
+    
+    [refreshControl endRefreshing];
+    [self.collectionView reloadData];
+}
 
 @end
