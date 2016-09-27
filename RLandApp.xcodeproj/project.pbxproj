@@ -49,19 +49,6 @@
 		C27625F41D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625EB1D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.m */; };
 		C27625F51D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27625EC1D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.xib */; };
 		C27625F61D8BAEB300D01AAB /* ListOfFbPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27625EE1D8BAEB300D01AAB /* ListOfFbPostsViewController.m */; };
-		C27626061D8BAF2A00D01AAB /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = C27625F81D8BAF2A00D01AAB /* 180.png */; };
-		C27626071D8BAF2A00D01AAB /* ContactInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625F91D8BAF2A00D01AAB /* ContactInfoTableViewCell.swift */; };
-		C27626081D8BAF2A00D01AAB /* ContactInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625FA1D8BAF2A00D01AAB /* ContactInfoTableViewController.swift */; };
-		C27626091D8BAF2A00D01AAB /* ContactInfoThumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = C27625FB1D8BAF2A00D01AAB /* ContactInfoThumbnail.png */; };
-		C276260A1D8BAF2A00D01AAB /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625FC1D8BAF2A00D01AAB /* ContactInfoViewController.swift */; };
-		C276260B1D8BAF2A00D01AAB /* DepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625FD1D8BAF2A00D01AAB /* DepartmentCell.swift */; };
-		C276260C1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625FE1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift */; };
-		C276260D1D8BAF2A00D01AAB /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27625FF1D8BAF2A00D01AAB /* DepartmentsTableViewController.swift */; };
-		C276260E1D8BAF2A00D01AAB /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27626001D8BAF2A00D01AAB /* DepartmentTableViewCell.swift */; };
-		C276260F1D8BAF2A00D01AAB /* Prof icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C27626011D8BAF2A00D01AAB /* Prof icon.png */; };
-		C27626101D8BAF2A00D01AAB /* ProfContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27626021D8BAF2A00D01AAB /* ProfContactCell.swift */; };
-		C27626111D8BAF2A00D01AAB /* ProfContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27626031D8BAF2A00D01AAB /* ProfContactTableViewCell.swift */; };
-		C27626121D8BAF2A00D01AAB /* ProfessorContactatIItR.json in Resources */ = {isa = PBXBuildFile; fileRef = C27626041D8BAF2A00D01AAB /* ProfessorContactatIItR.json */; };
 		C27626201D8BAF7900D01AAB /* CalendarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27626151D8BAF7900D01AAB /* CalendarsViewController.m */; };
 		C27626211D8BAF7900D01AAB /* CreateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27626171D8BAF7900D01AAB /* CreateAlertViewController.m */; };
 		C27626221D8BAF7900D01AAB /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27626191D8BAF7900D01AAB /* DatePickerViewController.m */; };
@@ -70,6 +57,22 @@
 		C27626251D8BAF7900D01AAB /* EventsForACalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C276261F1D8BAF7900D01AAB /* EventsForACalendarViewController.m */; };
 		C2939B241D93A69300E0D903 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2939B231D93A69300E0D903 /* FBLoginViewController.m */; };
 		C2AD0E001C62B85900B77294 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AD0DFF1C62B85900B77294 /* MessageUI.framework */; };
+		C2ECE37E1D9AB2A200A9B505 /* ContactInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE36D1D9AB2A200A9B505 /* ContactInfoTableViewCell.swift */; };
+		C2ECE37F1D9AB2A200A9B505 /* ContactInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE36E1D9AB2A200A9B505 /* ContactInfoTableViewController.swift */; };
+		C2ECE3801D9AB2A200A9B505 /* department.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE36F1D9AB2A200A9B505 /* department.png */; };
+		C2ECE3811D9AB2A200A9B505 /* DepartmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3701D9AB2A200A9B505 /* DepartmentCell.swift */; };
+		C2ECE3821D9AB2A200A9B505 /* DepartmentProfTableViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3711D9AB2A200A9B505 /* DepartmentProfTableViewControllerTableViewController.swift */; };
+		C2ECE3831D9AB2A200A9B505 /* DepartmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3721D9AB2A200A9B505 /* DepartmentsTableViewController.swift */; };
+		C2ECE3841D9AB2A200A9B505 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3731D9AB2A200A9B505 /* DepartmentTableViewCell.swift */; };
+		C2ECE3851D9AB2A200A9B505 /* FB-f-Logo__white_100.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE3741D9AB2A200A9B505 /* FB-f-Logo__white_100.png */; };
+		C2ECE3861D9AB2A200A9B505 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3751D9AB2A200A9B505 /* FooterView.swift */; };
+		C2ECE3871D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE3761D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png */; };
+		C2ECE3881D9AB2A200A9B505 /* GitHub-Mark-Light-32px.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE3771D9AB2A200A9B505 /* GitHub-Mark-Light-32px.png */; };
+		C2ECE3891D9AB2A200A9B505 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE3781D9AB2A200A9B505 /* person.png */; };
+		C2ECE38A1D9AB2A200A9B505 /* ProfContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE3791D9AB2A200A9B505 /* ProfContactCell.swift */; };
+		C2ECE38B1D9AB2A200A9B505 /* ProfContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE37A1D9AB2A200A9B505 /* ProfContactTableViewCell.swift */; };
+		C2ECE38C1D9AB2A200A9B505 /* ProfessorContactatIItR.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ECE37B1D9AB2A200A9B505 /* ProfessorContactatIItR.json */; };
+		C2ECE38D1D9AB2A200A9B505 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECE37D1D9AB2A200A9B505 /* SettingsTableViewController.swift */; };
 		D3A1BAAA9C16F886A5CAB0DD /* libPods-RLandApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0899A648476F571C8CDB19 /* libPods-RLandApp.a */; };
 		FE5EAA6DC50ED13A0170A699 /* libPods-RLandAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A0D9446344F3541E8A3538 /* libPods-RLandAppUITests.a */; };
 /* End PBXBuildFile section */
@@ -161,20 +164,7 @@
 		C27625EC1D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FBCustomWithPicTableViewCell.xib; sourceTree = "<group>"; };
 		C27625ED1D8BAEB300D01AAB /* ListOfFbPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFbPostsViewController.h; sourceTree = "<group>"; };
 		C27625EE1D8BAEB300D01AAB /* ListOfFbPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFbPostsViewController.m; sourceTree = "<group>"; };
-		C27625F81D8BAF2A00D01AAB /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
-		C27625F91D8BAF2A00D01AAB /* ContactInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewCell.swift; sourceTree = "<group>"; };
-		C27625FA1D8BAF2A00D01AAB /* ContactInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewController.swift; sourceTree = "<group>"; };
-		C27625FB1D8BAF2A00D01AAB /* ContactInfoThumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContactInfoThumbnail.png; sourceTree = "<group>"; };
-		C27625FC1D8BAF2A00D01AAB /* ContactInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
-		C27625FD1D8BAF2A00D01AAB /* DepartmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentCell.swift; sourceTree = "<group>"; };
-		C27625FE1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentProfTableViewControllerTableViewController.swift; sourceTree = "<group>"; };
-		C27625FF1D8BAF2A00D01AAB /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
-		C27626001D8BAF2A00D01AAB /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
-		C27626011D8BAF2A00D01AAB /* Prof icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Prof icon.png"; sourceTree = "<group>"; };
-		C27626021D8BAF2A00D01AAB /* ProfContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfContactCell.swift; sourceTree = "<group>"; };
-		C27626031D8BAF2A00D01AAB /* ProfContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfContactTableViewCell.swift; sourceTree = "<group>"; };
-		C27626041D8BAF2A00D01AAB /* ProfessorContactatIItR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfessorContactatIItR.json; sourceTree = "<group>"; };
-		C27626051D8BAF2A00D01AAB /* RLandApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLandApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		C27626051D8BAF2A00D01AAB /* RLandApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RLandApp-Bridging-Header.h"; path = "Contacts/RLandApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		C27626141D8BAF7900D01AAB /* CalendarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarsViewController.h; sourceTree = "<group>"; };
 		C27626151D8BAF7900D01AAB /* CalendarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarsViewController.m; sourceTree = "<group>"; };
 		C27626161D8BAF7900D01AAB /* CreateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAlertViewController.h; sourceTree = "<group>"; };
@@ -191,6 +181,22 @@
 		C2939B221D93A69300E0D903 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
 		C2939B231D93A69300E0D903 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
 		C2AD0DFF1C62B85900B77294 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C2ECE36D1D9AB2A200A9B505 /* ContactInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewCell.swift; sourceTree = "<group>"; };
+		C2ECE36E1D9AB2A200A9B505 /* ContactInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewController.swift; sourceTree = "<group>"; };
+		C2ECE36F1D9AB2A200A9B505 /* department.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = department.png; sourceTree = "<group>"; };
+		C2ECE3701D9AB2A200A9B505 /* DepartmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentCell.swift; sourceTree = "<group>"; };
+		C2ECE3711D9AB2A200A9B505 /* DepartmentProfTableViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentProfTableViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		C2ECE3721D9AB2A200A9B505 /* DepartmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentsTableViewController.swift; sourceTree = "<group>"; };
+		C2ECE3731D9AB2A200A9B505 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
+		C2ECE3741D9AB2A200A9B505 /* FB-f-Logo__white_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__white_100.png"; sourceTree = "<group>"; };
+		C2ECE3751D9AB2A200A9B505 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		C2ECE3761D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-Light-120px-plus.png"; sourceTree = "<group>"; };
+		C2ECE3771D9AB2A200A9B505 /* GitHub-Mark-Light-32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GitHub-Mark-Light-32px.png"; sourceTree = "<group>"; };
+		C2ECE3781D9AB2A200A9B505 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		C2ECE3791D9AB2A200A9B505 /* ProfContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfContactCell.swift; sourceTree = "<group>"; };
+		C2ECE37A1D9AB2A200A9B505 /* ProfContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfContactTableViewCell.swift; sourceTree = "<group>"; };
+		C2ECE37B1D9AB2A200A9B505 /* ProfessorContactatIItR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfessorContactatIItR.json; sourceTree = "<group>"; };
+		C2ECE37D1D9AB2A200A9B505 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		D04D52161C6EFEEA46B10004 /* Pods-RLandApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RLandApp/Pods-RLandApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E0CF91F2798AE9BEC8D870DB /* Pods-RLandAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RLandAppTests/Pods-RLandAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8C5DD7B9A38BF4D41B61AD5 /* Pods-RLandApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RLandApp/Pods-RLandApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -287,7 +293,8 @@
 				C27625BE1D8BAD5100D01AAB /* Walkthrough */,
 				C27625B21D8BAC7500D01AAB /* Maps */,
 				C27625E01D8BAEB300D01AAB /* Fb_Posts */,
-				C27625F71D8BAF2A00D01AAB /* Contacts (Swift) */,
+				C27626051D8BAF2A00D01AAB /* RLandApp-Bridging-Header.h */,
+				C2ECE36C1D9AB2A200A9B505 /* Contacts */,
 				C27626131D8BAF7900D01AAB /* Events_and_Reminders */,
 			);
 			path = RLandApp;
@@ -440,28 +447,6 @@
 			path = Fb_Cells;
 			sourceTree = "<group>";
 		};
-		C27625F71D8BAF2A00D01AAB /* Contacts (Swift) */ = {
-			isa = PBXGroup;
-			children = (
-				C27625F81D8BAF2A00D01AAB /* 180.png */,
-				C27625F91D8BAF2A00D01AAB /* ContactInfoTableViewCell.swift */,
-				C27625FA1D8BAF2A00D01AAB /* ContactInfoTableViewController.swift */,
-				C27625FB1D8BAF2A00D01AAB /* ContactInfoThumbnail.png */,
-				C27625FC1D8BAF2A00D01AAB /* ContactInfoViewController.swift */,
-				C27625FD1D8BAF2A00D01AAB /* DepartmentCell.swift */,
-				C27625FE1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift */,
-				C27625FF1D8BAF2A00D01AAB /* DepartmentsTableViewController.swift */,
-				C27626001D8BAF2A00D01AAB /* DepartmentTableViewCell.swift */,
-				C27626011D8BAF2A00D01AAB /* Prof icon.png */,
-				C27626021D8BAF2A00D01AAB /* ProfContactCell.swift */,
-				C27626031D8BAF2A00D01AAB /* ProfContactTableViewCell.swift */,
-				C27626041D8BAF2A00D01AAB /* ProfessorContactatIItR.json */,
-				C27626051D8BAF2A00D01AAB /* RLandApp-Bridging-Header.h */,
-			);
-			name = "Contacts (Swift)";
-			path = Contacts;
-			sourceTree = "<group>";
-		};
 		C27626131D8BAF7900D01AAB /* Events_and_Reminders */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +464,29 @@
 				C276261F1D8BAF7900D01AAB /* EventsForACalendarViewController.m */,
 			);
 			path = Events_and_Reminders;
+			sourceTree = "<group>";
+		};
+		C2ECE36C1D9AB2A200A9B505 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECE36D1D9AB2A200A9B505 /* ContactInfoTableViewCell.swift */,
+				C2ECE36E1D9AB2A200A9B505 /* ContactInfoTableViewController.swift */,
+				C2ECE36F1D9AB2A200A9B505 /* department.png */,
+				C2ECE3701D9AB2A200A9B505 /* DepartmentCell.swift */,
+				C2ECE3711D9AB2A200A9B505 /* DepartmentProfTableViewControllerTableViewController.swift */,
+				C2ECE3721D9AB2A200A9B505 /* DepartmentsTableViewController.swift */,
+				C2ECE3731D9AB2A200A9B505 /* DepartmentTableViewCell.swift */,
+				C2ECE3741D9AB2A200A9B505 /* FB-f-Logo__white_100.png */,
+				C2ECE3751D9AB2A200A9B505 /* FooterView.swift */,
+				C2ECE3761D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png */,
+				C2ECE3771D9AB2A200A9B505 /* GitHub-Mark-Light-32px.png */,
+				C2ECE3781D9AB2A200A9B505 /* person.png */,
+				C2ECE3791D9AB2A200A9B505 /* ProfContactCell.swift */,
+				C2ECE37A1D9AB2A200A9B505 /* ProfContactTableViewCell.swift */,
+				C2ECE37B1D9AB2A200A9B505 /* ProfessorContactatIItR.json */,
+				C2ECE37D1D9AB2A200A9B505 /* SettingsTableViewController.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		F42E68FEB7EBC53C46202EFC /* Pods */ = {
@@ -613,23 +621,25 @@
 				C27625BB1D8BAC7500D01AAB /* IITRLocationsInfo.json in Resources */,
 				C27625F51D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.xib in Resources */,
 				C27625F31D8BAEB300D01AAB /* FBCustomNoPicTableViewCell.xib in Resources */,
-				C27626121D8BAF2A00D01AAB /* ProfessorContactatIItR.json in Resources */,
+				C2ECE3851D9AB2A200A9B505 /* FB-f-Logo__white_100.png in Resources */,
 				C20D61B11C21BEE500F52991 /* LaunchScreen.storyboard in Resources */,
+				C2ECE3871D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png in Resources */,
+				C2ECE3891D9AB2A200A9B505 /* person.png in Resources */,
 				C27625DD1D8BADCA00D01AAB /* compass-point-7.png in Resources */,
 				C27625DC1D8BADCA00D01AAB /* calendar-7.png in Resources */,
-				C276260F1D8BAF2A00D01AAB /* Prof icon.png in Resources */,
 				C27625D01D8BAD5100D01AAB /* page4.png in Resources */,
-				C27626091D8BAF2A00D01AAB /* ContactInfoThumbnail.png in Resources */,
 				C27625DA1D8BADCA00D01AAB /* animal-element-7.png in Resources */,
 				C27625CE1D8BAD5100D01AAB /* page2.png in Resources */,
 				C20D61AE1C21BEE500F52991 /* Assets.xcassets in Resources */,
 				C27625CD1D8BAD5100D01AAB /* page1.png in Resources */,
 				C27625CF1D8BAD5100D01AAB /* page3.png in Resources */,
-				C27626061D8BAF2A00D01AAB /* 180.png in Resources */,
+				C2ECE38C1D9AB2A200A9B505 /* ProfessorContactatIItR.json in Resources */,
 				C27625DB1D8BADCA00D01AAB /* bell-7.png in Resources */,
 				C27625DE1D8BADCA00D01AAB /* house-7.png in Resources */,
 				C20D61A91C21BEE500F52991 /* Main.storyboard in Resources */,
+				C2ECE3801D9AB2A200A9B505 /* department.png in Resources */,
 				C27625EF1D8BAEB300D01AAB /* checkmark.png in Resources */,
+				C2ECE3881D9AB2A200A9B505 /* GitHub-Mark-Light-32px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,35 +800,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ECE37F1D9AB2A200A9B505 /* ContactInfoTableViewController.swift in Sources */,
 				C27626211D8BAF7900D01AAB /* CreateAlertViewController.m in Sources */,
 				C20D61A31C21BEE500F52991 /* AppDelegate.m in Sources */,
-				C276260C1D8BAF2A00D01AAB /* DepartmentProfTableViewControllerTableViewController.swift in Sources */,
+				C2ECE3861D9AB2A200A9B505 /* FooterView.swift in Sources */,
 				C27625F61D8BAEB300D01AAB /* ListOfFbPostsViewController.m in Sources */,
 				C27626251D8BAF7900D01AAB /* EventsForACalendarViewController.m in Sources */,
-				C27626081D8BAF2A00D01AAB /* ContactInfoTableViewController.swift in Sources */,
-				C27626111D8BAF2A00D01AAB /* ProfContactTableViewCell.swift in Sources */,
 				C27625BA1D8BAC7500D01AAB /* GoogleMapDirectionService.m in Sources */,
+				C2ECE3821D9AB2A200A9B505 /* DepartmentProfTableViewControllerTableViewController.swift in Sources */,
 				C27625F21D8BAEB300D01AAB /* FBCustomNoPicTableViewCell.m in Sources */,
 				C27625F41D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.m in Sources */,
-				C27626071D8BAF2A00D01AAB /* ContactInfoTableViewCell.swift in Sources */,
-				C27626101D8BAF2A00D01AAB /* ProfContactCell.swift in Sources */,
-				C276260B1D8BAF2A00D01AAB /* DepartmentCell.swift in Sources */,
 				C27626241D8BAF7900D01AAB /* EventManager.m in Sources */,
 				C27625CC1D8BAD5100D01AAB /* ShowPageViewController.m in Sources */,
 				C27625F11D8BAEB300D01AAB /* DetailFbPostViewController.m in Sources */,
 				C20D61A01C21BEE500F52991 /* main.m in Sources */,
+				C2ECE3841D9AB2A200A9B505 /* DepartmentTableViewCell.swift in Sources */,
 				C27626221D8BAF7900D01AAB /* DatePickerViewController.m in Sources */,
-				C276260E1D8BAF2A00D01AAB /* DepartmentTableViewCell.swift in Sources */,
 				C27626201D8BAF7900D01AAB /* CalendarsViewController.m in Sources */,
 				C2939B241D93A69300E0D903 /* FBLoginViewController.m in Sources */,
-				C276260A1D8BAF2A00D01AAB /* ContactInfoViewController.swift in Sources */,
 				C27625BD1D8BAC7500D01AAB /* MapsViewController.m in Sources */,
+				C2ECE38A1D9AB2A200A9B505 /* ProfContactCell.swift in Sources */,
+				C2ECE3831D9AB2A200A9B505 /* DepartmentsTableViewController.swift in Sources */,
 				C27626231D8BAF7900D01AAB /* EditEventViewController.m in Sources */,
 				C27625DF1D8BADCA00D01AAB /* theTabBarViewController.m in Sources */,
 				C27625CB1D8BAD5100D01AAB /* PageContentViewController.m in Sources */,
-				C276260D1D8BAF2A00D01AAB /* DepartmentsTableViewController.swift in Sources */,
 				C27625F01D8BAEB300D01AAB /* ChooseFbPageViewController.m in Sources */,
 				C20D61AC1C21BEE500F52991 /* RLandApp.xcdatamodeld in Sources */,
+				C2ECE38D1D9AB2A200A9B505 /* SettingsTableViewController.swift in Sources */,
+				C2ECE38B1D9AB2A200A9B505 /* ProfContactTableViewCell.swift in Sources */,
+				C2ECE37E1D9AB2A200A9B505 /* ContactInfoTableViewCell.swift in Sources */,
+				C2ECE3811D9AB2A200A9B505 /* DepartmentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,7 +979,7 @@
 				);
 				INFOPLIST_FILE = RLandApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -989,7 +1000,7 @@
 				);
 				INFOPLIST_FILE = RLandApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
 			};

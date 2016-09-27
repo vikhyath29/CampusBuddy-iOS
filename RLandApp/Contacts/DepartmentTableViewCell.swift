@@ -10,10 +10,11 @@ import UIKit
 
 class DepartmentTableViewCell: UITableViewCell {
 
-    @IBOutlet var DepartmentName: UILabel!
-    @IBOutlet var DepartmentPic: UIWebView!
+    @IBOutlet var Title: UILabel!
     
     @IBOutlet var DepartmentIamegView: UIImageView!
+    
+    @IBOutlet var Subtitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

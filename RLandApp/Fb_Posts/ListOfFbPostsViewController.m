@@ -118,11 +118,16 @@ NSString *const kPostURL = @"link";
                                              kPageProfName     :result[@"name"]
                                              }];
             else {
-                UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please try again later!" preferredStyle:UIAlertControllerStyleAlert ];
-                
-                [self presentViewController:alertpopup animated:YES completion:nil];
-                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1];
+                UIAlertController* alertPopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please try again later!" preferredStyle:UIAlertControllerStyleAlert ];
+                [self presentViewController:alertPopup animated:YES completion:nil];
 
+                double delayInSeconds = 1.6;
+                dispatch_time_t popoutTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popoutTime, dispatch_get_main_queue(), ^{
+                    // code executed on main queues after delay
+                    [alertPopup dismissViewControllerAnimated:YES completion:nil];
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
             }
             
         }]; //end of request
@@ -255,7 +260,7 @@ NSString *const kPostURL = @"link";
 
 - (IBAction)scrollToTopAction:(id)sender {
     [self.fbtable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-}
+     }
 
 
 
@@ -297,10 +302,6 @@ NSString *const kPostURL = @"link";
 
 }
 
-#pragma mark - dismiss AlertController
--(void) dismissAlertController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 #pragma mark - Refresh TableView
 - (void)refreshTable {

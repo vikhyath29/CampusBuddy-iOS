@@ -17,7 +17,8 @@ class ProfContactCell
     var phoneBSNL = String?()
     var email = String?()
     var profilePic = String?()
-    init (namedata: String?,designationdata: String?,officedata: String?,residencedata: String?,phoneBSNLdata: String?,emaildata: String?,profilePicdata: String?){
+    var profdepartment = String?()
+    init (namedata: String?,designationdata: String?,officedata: String?,residencedata: String?,phoneBSNLdata: String?,emaildata: String?,profilePicdata: String?,department: String?){
         
         self.name = namedata
         if ( designationdata == nil )
@@ -64,6 +65,7 @@ class ProfContactCell
          self.profilePic = profilePicdata
             
         }
+        self.profdepartment = department
         
         
         

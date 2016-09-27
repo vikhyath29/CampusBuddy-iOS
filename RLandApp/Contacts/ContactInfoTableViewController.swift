@@ -25,32 +25,51 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
     var bsnltocall = ""
     var imagdata = UIImage?()
     var imagrurldata = ""
+    var departmentname = ""
+    var cells = [String]()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor(red:248.0/255.0 , green: 150.0/255.0, blue: 34.0/255.0, alpha: 1)
-        self.navigationController?.navigationBar.backgroundColor = UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Default
-        
+         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.navigationController?.navigationBarHidden = false
-        self.navigationItem.title = namedata
-
+        
+       
+        self.navigationItem.title = "Contact Info"
+        
+        
+        cells.append("Name")
+        
+        
+        if(officemobiledata != "")
+        {
+            cells.append((resdoffstdcode + officemobiledata).removeWhitespace())
+        }
+        if(residancemobiledata  != "")
+        {
+            cells.append((resdoffstdcode + residancemobiledata).removeWhitespace())
+        }
         
         if ( LandlineorMobiledata != "" )
-        {
+           {
             if (String(LandlineorMobiledata[LandlineorMobiledata.startIndex]) == "9" ||  String(LandlineorMobiledata[LandlineorMobiledata.startIndex]) == "8") {
                 bsnlPhone = "Mobile: " + LandlineorMobiledata
                 bsnltocall = LandlineorMobiledata
+                
             }
-            else {
+            else
+            {
                 bsnlPhone = "BSNL: " + std_code_bsnl + LandlineorMobiledata
                 bsnltocall = std_code_bsnl + LandlineorMobiledata
             }
             
+            cells.append((resdoffstdcode + LandlineorMobiledata).removeWhitespace())
             
         }
+        cells.append("Send Message")
+        cells.append("Save to Contacts")
+        cells.append("Mail ")
         
         func contactViewController(viewController: CNContactViewController, didCompleteWithContact contact: CNContact?) {
             defer{navigationController?.popViewControllerAnimated(true)}
@@ -84,7 +103,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return cells.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -98,267 +117,766 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
             cello.ProfDesignatonLabel.text = designationData
             cello.ProfNameLabel.text = namedata
             cello.ProfNameLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+            cello.ProfDepartmentLabel.text = departmentname
+            
             // Check if internet is available before proceeding further
-            if Reachability.isConnectedToNetwork() {
+//            if Reachability.isConnectedToNetwork() {
+//                
+//                
+//                cello.WebView.loadRequest(NSURLRequest(URL: NSURL(string: imagrurldata)!))
+//                cello.WebView.scalesPageToFit = true
+//                cello.WebView.contentMode = .ScaleAspectFit
+//                cello.WebView.hidden = false
+//                cello.ImageView.hidden = true
+//                
+//                
+//            }
+//            else
+//            {
+            
                 
-                
-                cello.WebView.loadRequest(NSURLRequest(URL: NSURL(string: imagrurldata)!))
-                cello.WebView.scalesPageToFit = true
-                cello.WebView.contentMode = .ScaleAspectFit
-                cello.WebView.hidden = false
-                cello.ImageView.hidden = true
-                
-                
-            }
-            else
-            {
-                
-                cello.WebView.hidden = true
                 cello.ImageView.hidden = false
-                cello.ImageView.image = UIImage(named: "ContactInfoThumbnail.png")
+                cello.ImageView.image = UIImage(named: "person.png")
                 
-            }
+            
 
             return cello
             
-            
-            
         }
-        
-        cell = tableView.dequeueReusableCellWithIdentifier("SaveCell", forIndexPath: indexPath)
 
-        if (indexPath.row == 1)
-            
+        
+        
+        if ((cells.count == 5 && (indexPath.row == 1)) || (cells.count == 6 && (indexPath.row == 1 || indexPath.row == 2)) || (cells.count == 7 && (indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3)))
         {
-            
-            cell.textLabel?.text = "Save to Contacts"
-            
-            return cell
-        }
-        else if (indexPath.row == 2)
-            
-        {
-            if (officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
-            {
-                
-            cell.textLabel?.text = "Call"
-                
-            
-            }
-            else
-            {
-            cell.textLabel?.text = "No Number to Call"
-            cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
-            cell.userInteractionEnabled = false
-            }
-            
-            
-            
-             return cell
-            
+            cell = tableView.dequeueReusableCellWithIdentifier("CallCell", forIndexPath: indexPath)
             
         }
-        else if (indexPath.row == 3)
+        else
+        
+        { cell = tableView.dequeueReusableCellWithIdentifier("SaveCell", forIndexPath: indexPath) }
+        
+      
+        
+        if (cells.count == 5)
         {
             
-            
-            
-            if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+        
+            if (indexPath.row == 1)
+                
             {
-                cell.textLabel?.text = "Send Message"
+                
+                switch cells[1]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                break
+                }
+                
+                cell.detailTextLabel?.text = cells[1]
+              
             }
-            else
+            else if (indexPath.row == 2)
+                
             {
-                cell.textLabel?.text = "No Number to Send Message"
-                cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
-                cell.userInteractionEnabled = false
+                
+                
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Send Message"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Number to Send Message"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+             
+
+                
+            }
+            else if (indexPath.row == 3)
+            {
+                
+                
+                
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Save to Contacts"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Contact found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+               
+            }
+                
+            else if (indexPath.row == 4)
+            {
+                if ( emaildata != "")
+                {
+                    cell.textLabel?.text = "Mail " + emaildata + "@iitr.ac.in"
+                }
+                else {
+                    
+                    cell.textLabel?.text = "No Email found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+          
+                
+            }
+           
+            
+  
+                
+                return cell
+            
+        }
+        else if (cells.count == 6)
+        {
+           
+            
+            if (indexPath.row == 1)
+                
+            {
+                
+                switch cells[1]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                    break
+                }
+                
+                cell.detailTextLabel?.text = cells[1]
+                
+                return cell
+            }
+            else if (indexPath.row == 2)
+                
+            {
+                
+                switch cells[2]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                    break
+                }
+                
+                cell.detailTextLabel?.text = cells[2]
+                
+                return cell
+                
+            }
+            else if (indexPath.row == 3)
+            {
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Send Message"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Number to Send Message"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
+                
+
+                
+               
+            }
+                
+            else if (indexPath.row == 4)
+            {
+                
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Save to Contacts"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Contact found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
                 
             }
             
-             return cell
-        }
-            
-        else if (indexPath.row == 4)
-        {
-            if ( emaildata != "")
+            else if (indexPath.row == 5)
             {
-                cell.textLabel?.text = "Mail " + emaildata + "@iitr.ac.in"
+            
+                if ( emaildata != "")
+                {
+                    cell.textLabel?.text = "Mail " + emaildata + "@iitr.ac.in"
+                }
+                else {
+                    
+                    cell.textLabel?.text = "No Email found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
+
+            
             }
+            
+            
+            
             else {
                 
-                cell.textLabel?.text = "No Email to Mail"
-                cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
-                cell.userInteractionEnabled = false
+                return cell
+            }
+            
+        }
+        else if (cells.count == 7)
+        {
+            if (indexPath.row == 1)
                 
+            {
+                            switch cells[1]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                    break
                 }
+                
+                cell.detailTextLabel?.text = cells[1]
+                
+                return cell
+            }
+            else if (indexPath.row == 2)
+                
+            {
+                
+                switch cells[2]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                    break
+                }
+                
+                cell.detailTextLabel?.text = cells[2]
+                
+                return cell
+                
+            }
+            else if ( indexPath.row == 3)
+                
+            {
+                
+                switch cells[3]
+                {
+                case (resdoffstdcode + officemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Office"
+                case (resdoffstdcode + residancemobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Residance"
+                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                    cell.textLabel?.text = "Phone"
+                default :
+                    cell.textLabel?.text = "Office"
+                    
+                    break
+                }
+                
+                cell.detailTextLabel?.text = cells[3]
+                
+                return cell
+            
+            }
+            else if (indexPath.row == 4)
+            {
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Send Message"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Number to Send Message"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
+                
+                
+                
+                
+            }
+                
+            else if (indexPath.row == 5)
+            {
+                
+                if ( officemobiledata != "" || bsnltocall != "" || residancemobiledata != "")
+                {
+                    cell.textLabel?.text = "Save to Contacts"
+                }
+                else
+                {
+                    cell.textLabel?.text = "No Contact found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
+                
+            }
+                
+            else if (indexPath.row == 6)
+            {
+                
+                if ( emaildata != "")
+                {
+                    cell.textLabel?.text = "Mail " + emaildata + "@iitr.ac.in"
+                }
+                else {
+                    
+                    cell.textLabel?.text = "No Email found"
+                    cell.textLabel?.textColor = UIColor.init(red: CGFloat(128.0/255.0), green:CGFloat(128.0/255.0), blue:CGFloat(128.0/255.0), alpha: CGFloat(1.0))
+                    cell.userInteractionEnabled = false
+                    
+                }
+                
+                return cell
+                
+            }
+        
+        else {
             
             return cell
-            
+        }
+
         }
         else {
-        
+            
             return cell
-         }
+        }
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if ( indexPath.row == 0) {
-        
-        }
-        if ( indexPath.row == 1)
+        if (cells.count == 5)
         {
-            
-            contact.givenName = namedata
-            let workemail = CNLabeledValue(label: CNLabelWork, value: emaildata + "@iitr.ac.in")
-            contact.emailAddresses = [workemail]
-            var phonenumbers = [CNLabeledValue]()
-            let OfficeNumber = CNLabeledValue(
-                label:CNLabelWork,
-                value:CNPhoneNumber(stringValue:resdoffstdcode + officemobiledata))
-            
-            if (officemobiledata != ""){
-                phonenumbers.append(OfficeNumber)
-            }
-            let HomeNumber = CNLabeledValue(
-                label:CNLabelHome,
-                value:CNPhoneNumber(stringValue:resdoffstdcode + residancemobiledata))
-            
-            if (residancemobiledata != ""){
-                phonenumbers.append(HomeNumber)
-            }
-            phonenumbers.append(CNLabeledValue(
-                label:CNLabelPhoneNumberMain,
-                value:CNPhoneNumber(stringValue:bsnltocall)))
-            
-            contact.phoneNumbers = phonenumbers
-            let store = CNContactStore()
-            
-            
-            
-            let controller = CNContactViewController(forContact: contact)
-            
-            controller.contactStore = store
-            
-            
-            controller.delegate = self
-            
-            
-            navigationController?.pushViewController(controller, animated: true)
-            
-        
-        }
-        else if (indexPath.row == 2)
-        {
-            let CallAlertView = UIAlertController( title: "Call", message: "Choose any number to call", preferredStyle: .ActionSheet)
-            
-            
-            
-            let offcieaction = UIAlertAction(title: "Office: " + (resdoffstdcode + officemobiledata).removeWhitespace(), style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.callProf((self.resdoffstdcode + self.officemobiledata).removeWhitespace())
-            })
-            let residenceaction = UIAlertAction(title: "Residence: " + (resdoffstdcode + residancemobiledata).removeWhitespace() , style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.callProf((self.resdoffstdcode + self.residancemobiledata).removeWhitespace())
+            if ( indexPath.row == 0)
+            {
                 
-            })
-            
-            let mobileaction = UIAlertAction(title: bsnlPhone.removeWhitespace(), style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.callProf(self.bsnltocall.removeWhitespace())
-            })
-            let cancelaction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
-            })
-            
-            if(officemobiledata != "")
-            {
-                CallAlertView.addAction(offcieaction)
             }
-            if(residancemobiledata  != "")
+            if ( indexPath.row == 1)
             {
-                CallAlertView.addAction(residenceaction)
+                self.callProf(cells[1])
+
+            
             }
-            if(LandlineorMobiledata != "")
+            if ( indexPath.row == 2)
             {
-                CallAlertView.addAction(mobileaction)
-            }
-            CallAlertView.addAction(cancelaction)
-            
-            self.presentViewController(CallAlertView, animated: true, completion: nil)
-            
-        }
-        else if (indexPath.row == 3)
-        {
-            let MessageAlertView = UIAlertController( title: "Send Message", message: "Choose any number to text", preferredStyle: .ActionSheet)
-            let number = resdoffstdcode + officemobiledata
-            
-            let offcieaction = UIAlertAction(title: "Office: " + resdoffstdcode + officemobiledata, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.messageProf(number)
-            })
-            let residenceaction = UIAlertAction(title: "Residence: " + resdoffstdcode + residancemobiledata , style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.messageProf(self.resdoffstdcode + self.residancemobiledata)
+                let MessageAlertView = UIAlertController( title: "Send Message", message: "Choose any number to text", preferredStyle: .ActionSheet)
+                let number = resdoffstdcode + officemobiledata
                 
-            })
+                let offcieaction = UIAlertAction(title: "Office: " + resdoffstdcode + officemobiledata, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(number)
+                })
+                let residenceaction = UIAlertAction(title: "Residence: " + resdoffstdcode + residancemobiledata , style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.resdoffstdcode + self.residancemobiledata)
+                    
+                })
+                
+                let mobileaction = UIAlertAction(title: bsnlPhone, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.bsnltocall)
+                })
+                let cancelaction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
+                })
+                
+                if(officemobiledata != "")
+                {
+                    MessageAlertView.addAction(offcieaction)
+                }
+                if(residancemobiledata  != "")
+                {
+                    MessageAlertView.addAction(residenceaction)
+                }
+                if(LandlineorMobiledata != "")
+                {
+                    MessageAlertView.addAction(mobileaction)
+                }
+                MessageAlertView.addAction(cancelaction)
+                
+                self.presentViewController(MessageAlertView, animated: true, completion: nil)
             
-            let mobileaction = UIAlertAction(title: bsnlPhone, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
-                self.messageProf(self.bsnltocall)
-            })
-            let cancelaction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
-            })
-            
-            if(officemobiledata != "")
-            {
-                MessageAlertView.addAction(offcieaction)
             }
-            if(residancemobiledata  != "")
+            if ( indexPath.row == 3)
             {
-                MessageAlertView.addAction(residenceaction)
+            
+                contact.givenName = namedata
+                let workemail = CNLabeledValue(label: CNLabelWork, value: emaildata + "@iitr.ac.in")
+                contact.emailAddresses = [workemail]
+                
+                var phonenumbers = [CNLabeledValue]()
+                
+                let OfficeNumber = CNLabeledValue(
+                    label:CNLabelWork,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + officemobiledata))
+                
+                if (officemobiledata != ""){
+                    phonenumbers.append(OfficeNumber)
+                }
+                let HomeNumber = CNLabeledValue(
+                    label:CNLabelHome,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + residancemobiledata))
+                
+                if (residancemobiledata != ""){
+                    phonenumbers.append(HomeNumber)
+                }
+                phonenumbers.append(CNLabeledValue(
+                    label:CNLabelPhoneNumberMain,
+                    value:CNPhoneNumber(stringValue:bsnltocall)))
+                
+                contact.phoneNumbers = phonenumbers
+                let store = CNContactStore()
+                
+                
+                
+                let controller = CNContactViewController(forContact: contact)
+                
+                controller.contactStore = store
+                
+                
+                controller.delegate = self.self
+                
+                
+                navigationController?.pushViewController(controller, animated: true)
+                
+
+            
             }
-            if(LandlineorMobiledata != "")
+            if ( indexPath.row == 4)
             {
-                MessageAlertView.addAction(mobileaction)
+                let mailViewController = MFMailComposeViewController()
+                let recipent = [emaildata+"@iitr.ac.in"]
+                mailViewController.mailComposeDelegate = self
+                mailViewController.setToRecipients(recipent)
+                self.presentViewController(mailViewController, animated: true, completion: nil)
             }
-            MessageAlertView.addAction(cancelaction)
             
-            self.presentViewController(MessageAlertView, animated: true, completion: nil)
-        }
-        else if (indexPath.row == 4)
-        {
-            let mailViewController = MFMailComposeViewController()
-            let recipent = [emaildata+"@iitr.ac.in"]
-            mailViewController.mailComposeDelegate = self
-            mailViewController.setToRecipients(recipent)
-            self.presentViewController(mailViewController, animated: true, completion: nil)
-            
-            
-            
-        }
         
+        }
+        if (cells.count == 6)
+        {
+        
+            if ( indexPath.row == 0)
+            {
+                
+            }
+            if ( indexPath.row == 1)
+            {
+                self.callProf(cells[1])
+
+            }
+            if ( indexPath.row == 2)
+            {
+                self.callProf(cells[2])
+                
+                
+            }
+            if ( indexPath.row == 3)
+            {
+                let MessageAlertView = UIAlertController( title: "Send Message", message: "Choose any number to text", preferredStyle: .ActionSheet)
+                let number = resdoffstdcode + officemobiledata
+                
+                let offcieaction = UIAlertAction(title: "Office: " + resdoffstdcode + officemobiledata, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(number)
+                })
+                let residenceaction = UIAlertAction(title: "Residence: " + resdoffstdcode + residancemobiledata , style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.resdoffstdcode + self.residancemobiledata)
+                    
+                })
+                
+                let mobileaction = UIAlertAction(title: bsnlPhone, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.bsnltocall)
+                })
+                let cancelaction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
+                })
+                
+                if(officemobiledata != "")
+                {
+                    MessageAlertView.addAction(offcieaction)
+                }
+                if(residancemobiledata  != "")
+                {
+                    MessageAlertView.addAction(residenceaction)
+                }
+                if(LandlineorMobiledata != "")
+                {
+                    MessageAlertView.addAction(mobileaction)
+                }
+                MessageAlertView.addAction(cancelaction)
+                
+                self.presentViewController(MessageAlertView, animated: true, completion: nil)
+                
+            }
+            if ( indexPath.row == 4)
+            {
+                
+                contact.givenName = namedata
+                let workemail = CNLabeledValue(label: CNLabelWork, value: emaildata + "@iitr.ac.in")
+                contact.emailAddresses = [workemail]
+                
+                var phonenumbers = [CNLabeledValue]()
+                
+                let OfficeNumber = CNLabeledValue(
+                    label:CNLabelWork,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + officemobiledata))
+                
+                if (officemobiledata != ""){
+                    phonenumbers.append(OfficeNumber)
+                }
+                let HomeNumber = CNLabeledValue(
+                    label:CNLabelHome,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + residancemobiledata))
+                
+                if (residancemobiledata != ""){
+                    phonenumbers.append(HomeNumber)
+                }
+                phonenumbers.append(CNLabeledValue(
+                    label:CNLabelPhoneNumberMain,
+                    value:CNPhoneNumber(stringValue:bsnltocall)))
+                
+                contact.phoneNumbers = phonenumbers
+                let store = CNContactStore()
+                
+                
+                
+                let controller = CNContactViewController(forContact: contact)
+                
+                controller.contactStore = store
+                
+                
+                controller.delegate = self
+                
+                
+                navigationController?.pushViewController(controller, animated: true)
+                
+                
+                
+            }
+            if ( indexPath.row == 5)
+            {
+                let mailViewController = MFMailComposeViewController()
+                let recipent = [emaildata+"@iitr.ac.in"]
+                mailViewController.mailComposeDelegate = self
+                mailViewController.setToRecipients(recipent)
+                self.presentViewController(mailViewController, animated: true, completion: nil)
+            }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+        if (cells.count == 7)
+        {
+            
+            if ( indexPath.row == 0)
+            {
+                
+            }
+            if ( indexPath.row == 1)
+            {
+                self.callProf(cells[1])
+                
+            }
+            if ( indexPath.row == 2)
+            {
+                self.callProf(cells[2])
+                
+                
+            }
+            if ( indexPath.row == 3)
+            {
+                self.callProf(cells[3])
+                
+                
+            }
+            if ( indexPath.row == 4)
+            {
+                let MessageAlertView = UIAlertController( title: "Send Message", message: "Choose any number to text", preferredStyle: .ActionSheet)
+                let number = resdoffstdcode + officemobiledata
+                
+                let offcieaction = UIAlertAction(title: "Office: " + resdoffstdcode + officemobiledata, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(number)
+                })
+                let residenceaction = UIAlertAction(title: "Residence: " + resdoffstdcode + residancemobiledata , style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.resdoffstdcode + self.residancemobiledata)
+                    
+                })
+                
+                let mobileaction = UIAlertAction(title: bsnlPhone, style: .Default, handler: { (alert: UIAlertAction!) -> Void in
+                    self.messageProf(self.bsnltocall)
+                })
+                let cancelaction = UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
+                })
+                
+                if(officemobiledata != "")
+                {
+                    MessageAlertView.addAction(offcieaction)
+                }
+                if(residancemobiledata  != "")
+                {
+                    MessageAlertView.addAction(residenceaction)
+                }
+                if(LandlineorMobiledata != "")
+                {
+                    MessageAlertView.addAction(mobileaction)
+                }
+                MessageAlertView.addAction(cancelaction)
+                
+                self.presentViewController(MessageAlertView, animated: true, completion: nil)
+                
+            }
+            if ( indexPath.row == 5)
+            {
+                
+                contact.givenName = namedata
+                let workemail = CNLabeledValue(label: CNLabelWork, value: emaildata + "@iitr.ac.in")
+                contact.emailAddresses = [workemail]
+                
+                var phonenumbers = [CNLabeledValue]()
+                
+                let OfficeNumber = CNLabeledValue(
+                    label:CNLabelWork,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + officemobiledata))
+                
+                if (officemobiledata != ""){
+                    phonenumbers.append(OfficeNumber)
+                }
+                let HomeNumber = CNLabeledValue(
+                    label:CNLabelHome,
+                    value:CNPhoneNumber(stringValue:resdoffstdcode + residancemobiledata))
+                
+                if (residancemobiledata != ""){
+                    phonenumbers.append(HomeNumber)
+                }
+                phonenumbers.append(CNLabeledValue(
+                    label:CNLabelPhoneNumberMain,
+                    value:CNPhoneNumber(stringValue:bsnltocall)))
+                
+                contact.phoneNumbers = phonenumbers
+                let store = CNContactStore()
+                
+                
+                
+                let controller = CNContactViewController(forContact: contact)
+                
+                controller.contactStore = store
+                
+                
+                controller.delegate = self
+                
+                
+                navigationController?.pushViewController(controller, animated: true)
+                
+                
+                
+            }
+            if ( indexPath.row == 6)
+            {
+                let mailViewController = MFMailComposeViewController()
+                let recipent = [emaildata+"@iitr.ac.in"]
+                mailViewController.mailComposeDelegate = self
+                mailViewController.setToRecipients(recipent)
+                self.presentViewController(mailViewController, animated: true, completion: nil)
+            }
+            
+            
+            
+            
+        }
         
         
     }
     
-    
+    //Choose your custom row height
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if(indexPath.row == 0) {
             return 100
         }
+        else if ((cells.count == 5 && (indexPath.row == 1)) || (cells.count == 6 && (indexPath.row == 1 || indexPath.row == 2)) || (cells.count == 7 && (indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3)))
+        {
+            
+        return 54.0;
+            
+        }
+       
         else {
-        return 44.0;
-        }//Choose your custom row height
+         return 44.0;
+        
+        }
+        
     }
+    
 
-    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.selectionStyle = UITableViewCellSelectionStyle.None
-    }
+
+    // Call Function
     
-    
-    
-    
-    
-    
-    func callProf(number: String){
+    func callProf(number: String)
+    {
         UIApplication.sharedApplication().openURL(NSURL(string: "tel://" + number)!)
     }
+    //Message Function
     func messageProf(number: String){
         let messageViewontroller = MFMessageComposeViewController()
         let recipents = [number]
@@ -368,41 +886,13 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
         
         
     }
+    
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        switch result.rawValue {
-        case MFMailComposeResultSent.rawValue:
-            print("sent")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultSaved.rawValue:
-            print("saved")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultFailed.rawValue:
-            print("failed")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultCancelled.rawValue:
-            print("cancelled")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        default:break
-            
-        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         
-        switch result.rawValue {
-        case MFMailComposeResultSent.rawValue:
-            print("sent")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultSaved.rawValue:
-            print("saved")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultFailed.rawValue:
-            print("failed")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultCancelled.rawValue:
-            print("cancelled")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        default:break
-        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
   

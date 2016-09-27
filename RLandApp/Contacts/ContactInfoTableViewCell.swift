@@ -10,7 +10,7 @@ import UIKit
 
 class ContactInfoTableViewCell: UITableViewCell {
     
-    @IBOutlet var WebView: UIWebView!
+
 
     @IBOutlet var ImageView: UIImageView!
     
@@ -18,6 +18,7 @@ class ContactInfoTableViewCell: UITableViewCell {
     
     @IBOutlet var ProfNameLabel: UILabel!
     
+    @IBOutlet var ProfDepartmentLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

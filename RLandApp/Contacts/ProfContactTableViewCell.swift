@@ -11,7 +11,6 @@ import UIKit
 class ProfContactTableViewCell: UITableViewCell {
 
     
-    @IBOutlet var ProfPicWebView: UIWebView!
     @IBOutlet var ProfessorName: UILabel!
     
     @IBOutlet var Profdesignation: UILabel!

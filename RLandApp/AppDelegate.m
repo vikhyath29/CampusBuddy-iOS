@@ -33,7 +33,7 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    [GMSServices provideAPIKey:@"AIzaSyBv_SsKIrwG6wBPkEXYNdSTKn93Uy7uAQc"];
+    [GMSServices provideAPIKey:@"AIzaSyDnCTdue2MfTDssSKJP4bBs3JgZX-r01C8"];
     
     
     [Fabric with:@[[Crashlytics class]]];

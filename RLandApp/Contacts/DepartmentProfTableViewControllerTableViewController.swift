@@ -68,21 +68,22 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
     var bsnlPhone = ""
     var LandlineorMobiledata = ""
     var bsnltocall = ""
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.navigationItem.backBarButtonItem?.image = UIImage(named: "back")
         if (searchController.active && searchController.searchBar.text != ""){
             self.navigationController?.navigationBar.hidden = false
             searchController.searchBar.hidden = false
         }
         
         searchController.searchResultsUpdater = self
-        searchController.searchBar.backgroundColor = UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1)
-        searchController.searchBar.tintColor = UIColor(red:248.0/255.0 , green: 150.0/255.0, blue: 34.0/255.0, alpha: 1)
-        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1)
-        searchController.searchBar.inputView?.tintColor =  UIColor(red:248.0/255.0 , green: 150.0/255.0, blue: 34.0/255.0, alpha: 1)
-        searchController.searchBar.inputView?.backgroundColor =  UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1)
+        searchController.searchBar.backgroundColor = UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
+        searchController.searchBar.tintColor = UIColor(red:255.0/255.0 , green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
+        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
+        searchController.searchBar.inputView?.tintColor =  UIColor(red:255.0/255.0 , green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
+        searchController.searchBar.inputView?.backgroundColor =  UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
         
         
         
@@ -108,7 +109,7 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
             
             
             
-            ProfContacts.append(ProfContactCell(namedata: profname, designationdata: profdesignation, officedata: profoffice, residencedata: profresidence, phoneBSNLdata: profphoneBSNL, emaildata: profemail, profilePicdata: profprofilePic))
+            ProfContacts.append(ProfContactCell(namedata: profname, designationdata: profdesignation, officedata: profoffice, residencedata: profresidence, phoneBSNLdata: profphoneBSNL, emaildata: profemail, profilePicdata: profprofilePic, department: DepartmentName))
             
             
         }
@@ -168,14 +169,14 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
     
     }
     override func viewDidAppear(animated: Bool) {
-         searchController.searchBar.tintColor = UIColor(red:248.0/255.0 , green: 150.0/255.0, blue: 34.0/255.0, alpha: 1)
-        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1)
+         searchController.searchBar.tintColor = UIColor(red:255.0/255.0 , green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
+        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
     }
 
     
     override func viewWillAppear(animated: Bool) {
-        searchController.searchBar.tintColor = UIColor(red:248.0/255.0 , green: 150.0/255.0, blue: 34.0/255.0, alpha: 1)
-        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 69.0/255.0, blue: 48.0/255.0, alpha: 1)
+        searchController.searchBar.tintColor = UIColor(red:255.0/255.0 , green: 255.0/255.0, blue: 255.0/255.0, alpha: 1)
+        searchController.searchBar.barTintColor = UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
 
       
 
@@ -247,25 +248,24 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
    
         
 //        // Check if internet is available before proceeding further
-        if Reachability.isConnectedToNetwork() {
-            
-            let url = "http://people.iitr.ernet.in/facultyphoto/" + contact.profilePic!
-            
-            cell.ProfPicWebView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
-            cell.ProfPicWebView.scalesPageToFit = true
-            cell.ProfPicWebView.contentMode = .ScaleAspectFit
-            cell.ProfPicWebView.hidden = false
-            cell.ProfImageView.hidden = true
-            
-      
-              }
-        else{
-            
-            cell.ProfPicWebView.hidden = true
+//        if Reachability.isConnectedToNetwork() {
+//            
+//            let url = "http://people.iitr.ernet.in/facultyphoto/" + contact.profilePic!
+//            
+//            cell.ProfPicWebView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+//            cell.ProfPicWebView.scalesPageToFit = true
+//            cell.ProfPicWebView.contentMode = .ScaleAspectFit
+//            cell.ProfPicWebView.hidden = false
+//            cell.ProfImageView.hidden = true
+//            
+//      
+//              }
+//        else{
+        
             cell.ProfImageView.hidden = false
-         cell.ProfImageView.image = UIImage(named: "ContactInfoThumbnail.png")
+         cell.ProfImageView.image = UIImage(named: "person.png")
             
-        }
+        
         if (contact.designation != nil)
         {
             cell.Profdesignation.text = contact.designation!
@@ -361,7 +361,7 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
             
             
         }
-        call.backgroundColor = UIColor(red: 248.0/255.0, green: 150.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        call.backgroundColor = UIColor(red: 0.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         let message = UITableViewRowAction(style: .Normal, title: "Message") { action, index in
             let messageViewontroller = MFMessageComposeViewController()
@@ -431,7 +431,7 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
 //            self.presentViewController(messageViewontroller, animated: true, completion: nil)
         }
         
-        message.backgroundColor = UIColor(red: 92.0/255.0, green: 69.0/255.0, blue: 48.0/255.0, alpha: 1.0)
+        message.backgroundColor = UIColor(red:92.0/255.0 , green: 59.0/255.0, blue: 181.0/255.0, alpha: 1)
         
         
         
@@ -477,7 +477,7 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
             
             
         }
-        mail.backgroundColor = UIColor(red: 248.0/255.0, green: 150.0/255.0, blue: 34.0/255.0, alpha: 1.0)
+        mail.backgroundColor = UIColor(red: 0.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         return [mail,message,call]
     }
@@ -539,6 +539,8 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
                 ContactView.designationData = contact.designation!
                 ContactView.emaildata = contact.email!
                 ContactView.imagrurldata = url
+                ContactView.departmentname = DepartmentName
+            
                 
                 
                 
@@ -551,40 +553,11 @@ class DepartmentProfTableViewController: UITableViewController , UIAlertViewDele
     
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        switch result.rawValue {
-        case MFMailComposeResultSent.rawValue:
-            print("sent")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultSaved.rawValue:
-            print("saved")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultFailed.rawValue:
-            print("failed")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultCancelled.rawValue:
-            print("cancelled")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        default:break
-            
-        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         
-        switch result.rawValue {
-        case MFMailComposeResultSent.rawValue:
-            print("sent")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultSaved.rawValue:
-            print("saved")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultFailed.rawValue:
-            print("failed")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MFMailComposeResultCancelled.rawValue:
-            print("cancelled")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        default:break
-        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

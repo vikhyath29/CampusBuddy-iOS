@@ -16,6 +16,8 @@
     NSArray *pageIds ;
     UIRefreshControl *refreshControl;
     NSMutableArray *navigationBarButtons;
+    
+    int checkIfAllPagesLoaded;
 }
 @property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary, *pageProfileDetails;
 @property (strong, nonatomic) NSArray *sortedNames;
@@ -220,14 +222,21 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
                                                 @"profPicURL" : result[@"picture"][@"data"][@"url"]
                                                 }
                                        forKey:result[@"name"]];
-                
+                NSLog(@"%@", result[@"name"]);
                 
             }
             else {
-                UIAlertController* alertpopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"There seems an error! Try again later" preferredStyle:UIAlertControllerStyleAlert ];
-                
-                [self presentViewController:alertpopup animated:YES completion:nil];
-                [self performSelector:@selector(dismissAlertController) withObject:self afterDelay:1.6];
+                UIAlertController* alertPopup = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"There seems an error! Try again later" preferredStyle:UIAlertControllerStyleAlert ];
+                [self presentViewController:alertPopup animated:YES completion:nil];
+
+                double delayInSeconds = 1.6;
+                dispatch_time_t popoutTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popoutTime, dispatch_get_main_queue(), ^{
+                    // code executed on main queues after delay
+                [alertPopup dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+                });
+
             }
             
         }]; //end of request
@@ -255,10 +264,7 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 
 }
 
-#pragma mark - dismiss AlertController
--(void) dismissAlertController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 
 #pragma mark-Segue
