@@ -1,7 +1,7 @@
 PODS:
   - Crashlytics (3.8.2):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.8)
+  - Fabric (1.6.9)
   - FMMosaicLayout (0.1.4)
   - GoogleMaps (2.1.0):
     - GoogleMaps/Maps (= 2.1.0)
@@ -21,11 +21,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
-  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
   FMMosaicLayout: c0febf6876c987c425d7e2176d034fa7a2c98cb5
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 6cbc546369268e639378fc9c3cebd70256fd8993
+PODFILE CHECKSUM: 28b7108646e912a6fc2a66875650b8d88251557d
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

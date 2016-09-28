@@ -38,22 +38,23 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
     
     @IBAction func RateUS(sender: AnyObject) {
         
         
         
+        
     }
     @IBAction func FbLink(sender: AnyObject) {
-        
+      UIApplication.sharedApplication().openURL(NSURL(string :"https://www.facebook.com/mdgiitr/")!)
         
     }
     
     @IBAction func GitLink(sender: AnyObject) {
         
-        
+        UIApplication.sharedApplication().openURL(NSURL(string :"https://github.com/sdsmdg")!)
     }
     
    
@@ -66,9 +67,7 @@ class SettingsTableViewController: UITableViewController {
         case 1:
             cell.textLabel?.text = "Open the Website"
         case 2:
-            cell.textLabel?.text = "Terms of Use"
-        case 3:
-            cell.textLabel?.text = "Privacy Policy"
+            cell.textLabel?.text = "Disclaimer"
             
         default:
             cell.textLabel?.text = ""
@@ -82,6 +81,44 @@ class SettingsTableViewController: UITableViewController {
 
     @IBAction func Done(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch  indexPath.row {
+        case 0:
+           UIApplication.sharedApplication().openURL(NSURL(string :"https://mdg.sdslabs.co/")!)
+        case 1:
+            UIApplication.sharedApplication().openURL(NSURL(string :"https://mdg.sdslabs.co/")!)
+        case 2:
+            let  Alert = UIAlertController(title: "Disclaimer", message:
+                "This is a test app made by a student's group and we don't take any responsibility for any information present in the app." + "\n" + "However, we welcome any feedback.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            
+            Alert.addAction(UIAlertAction(title: "Mail us", style: .Default , handler: { action in
+                UIApplication.sharedApplication().openURL(NSURL(string :"mailto:sdsmobilelabs@gmail.com")!)
+                
+            }))
+            
+            Alert.addAction(UIAlertAction(title: "Academic Calendar", style: .Default , handler: { action in
+                UIApplication.sharedApplication().openURL(NSURL(string :"http://www.iitr.ac.in/academics/pages/Academic_Calender.html")!)
+                
+            }))
+            Alert.addAction(UIAlertAction(title: "Telephone Directory", style: .Default , handler: { action in
+                UIApplication.sharedApplication().openURL(NSURL(string :"http://www.iitr.ac.in/Main/pages/Telephone+Telephone_Directory.html")!)
+                
+            }))
+            Alert.addAction(UIAlertAction(title: "Cancel", style: .Destructive , handler: { action in
+
+                
+            }))
+            
+            self.presentViewController(Alert, animated: true, completion: nil)
+        
+        
+        
+        default:
+            UIApplication.sharedApplication().openURL(NSURL(string :"https://mdg.sdslabs.co/")!)
+        }
     }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
