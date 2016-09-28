@@ -72,14 +72,6 @@ NSString *const kPostURL = @"link";
     
     //refreshControl
     refreshControl = [[UIRefreshControl alloc]init];
-    refreshControl.tintColor = [UIColor blueColor];
-    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing, Please Wait.."
-                                                                    attributes:@{
-                                                                                 NSFontAttributeName : [UIFont fontWithName:@"Arial" size:16.0],
-                                                                        NSForegroundColorAttributeName : [UIColor blueColor]
-                                                                                 }
-                                      ];
-    
     [self.fbtable addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     

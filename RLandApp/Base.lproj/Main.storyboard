@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8r2-EO-XoL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -211,7 +211,7 @@
         <!--The Tab Bar-->
         <scene sceneID="SxQ-lL-EDc">
             <objects>
-                <tabBarController title="The Tab Bar" automaticallyAdjustsScrollViewInsets="NO" id="OpP-YH-ag0" customClass="theTabBarViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="theTabBarViewController" title="The Tab Bar" automaticallyAdjustsScrollViewInsets="NO" id="OpP-YH-ag0" customClass="theTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AS7-k1-f7K">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -239,7 +239,7 @@
         <!--Show Page View Controller-->
         <scene sceneID="udf-w8-enu">
             <objects>
-                <viewController id="8r2-EO-XoL" customClass="ShowPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowPageViewController" id="8r2-EO-XoL" customClass="ShowPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdE-fs-oBq"/>
                         <viewControllerLayoutGuide type="bottom" id="kPV-QQ-TIN"/>

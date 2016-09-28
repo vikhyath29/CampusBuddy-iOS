@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate=self;
+    
+ //   [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
+
 }
 
 
