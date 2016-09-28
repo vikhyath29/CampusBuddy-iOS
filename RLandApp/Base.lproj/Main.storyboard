@@ -476,31 +476,6 @@
             </objects>
             <point key="canvasLocation" x="7282.5" y="1361"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="2uS-z2-isI">
-            <objects>
-                <viewController id="uxo-Pc-ybp" customClass="FBLoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5zi-oF-gBY"/>
-                        <viewControllerLayoutGuide type="bottom" id="4nd-Pc-w21"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jz6-RA-Co4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aJy-3Y-AsB">
-                        <barButtonItem key="rightBarButtonItem" title="Show" id="AAg-sK-DXB">
-                            <connections>
-                                <segue destination="Liq-Wi-H8n" kind="show" id="Kxs-2j-kCh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aC7-Ls-iVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4248" y="-658"/>
-        </scene>
         <!--Select Pages-->
         <scene sceneID="ZQ0-zw-Rwh">
             <objects>
@@ -573,7 +548,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o80-9k-GKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5037" y="-658"/>
+            <point key="canvasLocation" x="4443" y="-666"/>
         </scene>
         <!--Page Content View Controller-->
         <scene sceneID="5ao-wB-obt">
@@ -702,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGy-Na-6pY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5794.5" y="-658"/>
+            <point key="canvasLocation" x="5380.5" y="-666"/>
         </scene>
         <!--Maps-->
         <scene sceneID="MrU-ZL-lbX">
@@ -741,7 +716,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uxo-Pc-ybp" kind="relationship" relationship="rootViewController" id="zOp-Bw-kGA"/>
+                        <segue destination="Liq-Wi-H8n" kind="relationship" relationship="rootViewController" id="Bej-Yi-xix"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUB-5S-vrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
