@@ -213,8 +213,6 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 -(void) getPageProfilePictures {
     
     for(NSString *fbid in pageIds ) {
-  
-        
         FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]initWithGraphPath:[NSString stringWithFormat:@"/%@", fbid] parameters:@{ @"fields": @"picture.type(normal), name",} HTTPMethod:@"GET"];
         [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             

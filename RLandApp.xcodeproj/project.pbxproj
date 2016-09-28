@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F1032E2689F7DE5D1E30420 /* libPods-RLandAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 304BC2C6D4EAEE8149C5A5FD /* libPods-RLandAppTests.a */; };
+		436E96EF1D9BFFC2001C4420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436E96EE1D9BFFC2001C4420 /* Assets.xcassets */; };
 		439C24601D75DDAE00440456 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439C245E1D75DDAE00440456 /* Contacts.framework */; };
 		439C24611D75DDAE00440456 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439C245F1D75DDAE00440456 /* ContactsUI.framework */; };
 		6C72CDFF409E793F24409705 /* libPods-RLandAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B3E74C9B3DF41B5E87B36B /* libPods-RLandAppUITests.a */; };
@@ -17,7 +18,6 @@
 		C20D61A31C21BEE500F52991 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D61A21C21BEE500F52991 /* AppDelegate.m */; };
 		C20D61A91C21BEE500F52991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20D61A71C21BEE500F52991 /* Main.storyboard */; };
 		C20D61AC1C21BEE500F52991 /* RLandApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C20D61AA1C21BEE500F52991 /* RLandApp.xcdatamodeld */; };
-		C20D61AE1C21BEE500F52991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D61AD1C21BEE500F52991 /* Assets.xcassets */; };
 		C20D61B11C21BEE500F52991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C20D61AF1C21BEE500F52991 /* LaunchScreen.storyboard */; };
 		C20D61BC1C21BEE500F52991 /* RLandAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D61BB1C21BEE500F52991 /* RLandAppTests.m */; };
 		C20D61C71C21BEE600F52991 /* RLandAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D61C61C21BEE600F52991 /* RLandAppUITests.m */; };
@@ -102,6 +102,7 @@
 		3BEB460B5A5250F28F76995E /* Pods-RLandApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RLandApp/Pods-RLandApp.release.xcconfig"; sourceTree = "<group>"; };
 		42B3E74C9B3DF41B5E87B36B /* libPods-RLandAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RLandAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4315CAD031AB6B40C39ACA8C /* Pods-RLandAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RLandAppTests/Pods-RLandAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		436E96EE1D9BFFC2001C4420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		439C245E1D75DDAE00440456 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		439C245F1D75DDAE00440456 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		56A0D9446344F3541E8A3538 /* libPods-RLandAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RLandAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +118,6 @@
 		C20D61A21C21BEE500F52991 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C20D61A81C21BEE500F52991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C20D61AB1C21BEE500F52991 /* RLandApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RLandApp.xcdatamodel; sourceTree = "<group>"; };
-		C20D61AD1C21BEE500F52991 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RLandApp/Assets.xcassets; sourceTree = "<group>"; };
 		C20D61B01C21BEE500F52991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C20D61B21C21BEE500F52991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RLandApp/Info.plist; sourceTree = "<group>"; };
 		C20D61B71C21BEE500F52991 /* RLandAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RLandAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,19 +256,26 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		9B39846A3D8560E6FADB44AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C20D61921C21BEE400F52991 = {
 			isa = PBXGroup;
 			children = (
 				C20D619D1C21BEE500F52991 /* RLandApp */,
 				C20D61B21C21BEE500F52991 /* Info.plist */,
 				C276262A1D8BB56A00D01AAB /* RLandApp-Bridging-Header.h */,
-				C20D61AD1C21BEE500F52991 /* Assets.xcassets */,
 				C27625A91D8BABC200D01AAB /* Frameworks */,
 				2F0899A648476F571C8CDB19 /* libPods-RLandApp.a */,
 				304BC2C6D4EAEE8149C5A5FD /* libPods-RLandAppTests.a */,
 				56A0D9446344F3541E8A3538 /* libPods-RLandAppUITests.a */,
 				C20D61DE1C21C0CC00F52991 /* Not Used Much */,
 				F42E68FEB7EBC53C46202EFC /* Pods */,
+				9B39846A3D8560E6FADB44AD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,6 +293,7 @@
 		C20D619D1C21BEE500F52991 /* RLandApp */ = {
 			isa = PBXGroup;
 			children = (
+				436E96EE1D9BFFC2001C4420 /* Assets.xcassets */,
 				C20D61A11C21BEE500F52991 /* AppDelegate.h */,
 				C20D61A21C21BEE500F52991 /* AppDelegate.m */,
 				C20D61A71C21BEE500F52991 /* Main.storyboard */,
@@ -556,6 +564,7 @@
 				C20D61BF1C21BEE600F52991 /* Frameworks */,
 				C20D61C01C21BEE600F52991 /* Resources */,
 				E5B3B326DB4D9F790BC2275B /* [CP] Copy Pods Resources */,
+				42C91053A1D7AABDA6D60044 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -602,7 +611,7 @@
 				Base,
 			);
 			mainGroup = C20D61921C21BEE400F52991;
-			productRefGroup = C20D619C1C21BEE500F52991 /* Products */;
+			productRefGroup = 9B39846A3D8560E6FADB44AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -620,6 +629,7 @@
 			files = (
 				C27625BB1D8BAC7500D01AAB /* IITRLocationsInfo.json in Resources */,
 				C27625F51D8BAEB300D01AAB /* FBCustomWithPicTableViewCell.xib in Resources */,
+				436E96EF1D9BFFC2001C4420 /* Assets.xcassets in Resources */,
 				C27625F31D8BAEB300D01AAB /* FBCustomNoPicTableViewCell.xib in Resources */,
 				C2ECE3851D9AB2A200A9B505 /* FB-f-Logo__white_100.png in Resources */,
 				C20D61B11C21BEE500F52991 /* LaunchScreen.storyboard in Resources */,
@@ -630,7 +640,6 @@
 				C27625D01D8BAD5100D01AAB /* page4.png in Resources */,
 				C27625DA1D8BADCA00D01AAB /* animal-element-7.png in Resources */,
 				C27625CE1D8BAD5100D01AAB /* page2.png in Resources */,
-				C20D61AE1C21BEE500F52991 /* Assets.xcassets in Resources */,
 				C27625CD1D8BAD5100D01AAB /* page1.png in Resources */,
 				C27625CF1D8BAD5100D01AAB /* page3.png in Resources */,
 				C2ECE38C1D9AB2A200A9B505 /* ProfessorContactatIItR.json in Resources */,
@@ -672,7 +681,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3BB62AADE13D912AFA84017A /* [CP] Embed Pods Frameworks */ = {
@@ -688,6 +697,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RLandAppTests/Pods-RLandAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42C91053A1D7AABDA6D60044 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RLandAppUITests/Pods-RLandAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		547FB1FCD3C7455479605B22 /* [CP] Embed Pods Frameworks */ = {
@@ -732,7 +756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C27F6F4B1D80384000DF481A /* ShellScript */ = {
@@ -790,7 +814,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -981,7 +1005,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kush/Desktop/CampusBuddy-iOS-master/RLandApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1002,7 +1026,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kush/Desktop/CampusBuddy-iOS-master/RLandApp-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -5,7 +5,7 @@
 
 target 'RLandApp' do
 pod 'GoogleMaps'
-pod "FMMosaicLayout"
+pod 'FMMosaicLayout'
 pod 'SDWebImage', '~>3.8'
 pod 'Fabric'
 pod 'Crashlytics'
