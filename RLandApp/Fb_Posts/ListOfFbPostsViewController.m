@@ -63,12 +63,13 @@ NSString *const kPostURL = @"link";
    
     self.fbtable.tableHeaderView = nil;
     [self.fbtable setHidden:YES];
+    
     //for adjustable row height in tableview
     _fbtable.rowHeight = UITableViewAutomaticDimension;
     _fbtable.estimatedRowHeight = 300;
     
     [self sendRequestToFb];
-    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(showPosts) withObject:nil afterDelay:1.2];
     
     //refreshControl
     refreshControl = [[UIRefreshControl alloc]init];
@@ -76,7 +77,7 @@ NSString *const kPostURL = @"link";
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
     
-    //
+    //expanded Facebook Post View
     _expandedFbPostView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     _expandedFbPostView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.9];
     _expandedFbPostView.userInteractionEnabled = YES;

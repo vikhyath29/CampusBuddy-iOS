@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.delegate=self;
     
- //   [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
 
 }
 

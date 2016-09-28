@@ -32,6 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    FBSDKAccessToken *accessToken = [[FBSDKAccessToken alloc]initWithTokenString:@"772744622840259|63e7300f4f21c5f430ecb740b428a10e" permissions:nil declinedPermissions:nil appID:@"772744622840259"  userID:@"772744622840259" expirationDate:nil refreshDate:nil];
+    [FBSDKAccessToken setCurrentAccessToken:accessToken];
+    
+    
     self.selectedProfilesDictionary = [[NSMutableDictionary alloc]init];
     self.pageProfileDetails = [[NSMutableDictionary alloc]init];
     
@@ -63,7 +67,6 @@
                 @"171774543014513"];
     
     
-    [self getPageProfilePictures];
 
     // Don't use the following shit if you are creating cells using storyboard
     //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -77,7 +80,8 @@
     self.collectionView.allowsMultipleSelection = YES;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    [self performSelector:@selector(sortByName) withObject:nil afterDelay:1];
+    [self getPageProfilePictures];
+    [self performSelector:@selector(sortByName) withObject:nil afterDelay:1.5];
 
     navigationBarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
     [navigationBarButtons removeObject:self.getFeedButton];
@@ -92,9 +96,6 @@
 }
 
 
--(void) showPosts {
-    [self.collectionView reloadData];
-}
 #pragma mark - CollectionView delegate methods
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -121,7 +122,7 @@
     myImage.image = [UIImage imageNamed:@"checkmark.png"];
     [myImage sd_setImageWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] placeholderImage:[UIImage imageNamed:@"checkmark.png"]];
 
-    
+        
     
     
     if (cell.selected){
@@ -279,9 +280,6 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     }
     
 }
-//- (IBAction)refreshAction:(id)sender {
-//    [self viewDidLoad];
-//}
 
 
 -(void) refreshCollection {
