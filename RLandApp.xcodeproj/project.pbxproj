@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F1032E2689F7DE5D1E30420 /* libPods-RLandAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 304BC2C6D4EAEE8149C5A5FD /* libPods-RLandAppTests.a */; };
+		435D91DC1D9D06B000A8C683 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435D91DB1D9D06B000A8C683 /* Social.framework */; };
 		439C24601D75DDAE00440456 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439C245E1D75DDAE00440456 /* Contacts.framework */; };
 		439C24611D75DDAE00440456 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439C245F1D75DDAE00440456 /* ContactsUI.framework */; };
 		6C72CDFF409E793F24409705 /* libPods-RLandAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B3E74C9B3DF41B5E87B36B /* libPods-RLandAppUITests.a */; };
@@ -102,6 +103,7 @@
 		3BEB460B5A5250F28F76995E /* Pods-RLandApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RLandApp/Pods-RLandApp.release.xcconfig"; sourceTree = "<group>"; };
 		42B3E74C9B3DF41B5E87B36B /* libPods-RLandAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RLandAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4315CAD031AB6B40C39ACA8C /* Pods-RLandAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RLandAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RLandAppTests/Pods-RLandAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		435D91DB1D9D06B000A8C683 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		439C245E1D75DDAE00440456 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		439C245F1D75DDAE00440456 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		56A0D9446344F3541E8A3538 /* libPods-RLandAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RLandAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435D91DC1D9D06B000A8C683 /* Social.framework in Frameworks */,
 				439C24601D75DDAE00440456 /* Contacts.framework in Frameworks */,
 				439C24611D75DDAE00440456 /* ContactsUI.framework in Frameworks */,
 				C27625B01D8BABC200D01AAB /* FBSDKLoginKit.framework in Frameworks */,
@@ -344,6 +347,7 @@
 		C27625A91D8BABC200D01AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				435D91DB1D9D06B000A8C683 /* Social.framework */,
 				C27625AA1D8BABC200D01AAB /* Bolts.framework */,
 				C27625AB1D8BABC200D01AAB /* FBSDKCoreKit.framework */,
 				C27625AC1D8BABC200D01AAB /* FBSDKLoginKit.framework */,
