@@ -13,14 +13,24 @@
 
 @interface ChooseFbPageViewController ()
 {
-    NSArray *pageIds ;
     UIRefreshControl *refreshControl;
     NSMutableArray *navigationBarButtons;
     
     int checkIfAllPagesLoaded;
 }
-@property (strong, nonatomic)  NSMutableDictionary *selectedProfilesDictionary, *pageProfileDetails;
+
+
+
+/*
+    pageProfileDetails = @{@{pageId, url} : name}
+    sortedNames is used to sort pageProfileDetails by name
+*/
+@property (strong, nonatomic)  NSMutableDictionary *pageProfileDetails;
 @property (strong, nonatomic) NSArray *sortedNames;
+
+
+@property (strong, nonatomic) NSMutableDictionary *selectedMickey;
+
 @end
 
 /*To-Do:
@@ -35,36 +45,26 @@
     FBSDKAccessToken *accessToken = [[FBSDKAccessToken alloc]initWithTokenString:@"772744622840259|63e7300f4f21c5f430ecb740b428a10e" permissions:nil declinedPermissions:nil appID:@"772744622840259"  userID:@"772744622840259" expirationDate:nil refreshDate:nil];
     [FBSDKAccessToken setCurrentAccessToken:accessToken];
     
+
     
-    self.selectedProfilesDictionary = [[NSMutableDictionary alloc]init];
     self.pageProfileDetails = [[NSMutableDictionary alloc]init];
     
     
 
     
-    pageIds = @[@"272394492879208",
-                @"754869404569818",
-                @"418543801611643",
-                @"240482462650426",
-                @"231275190406200",
-                @"100641016663545",
-                @"217963184943488",
-                @"666376426759997",
-                @"567441813288417",
-                @"671125706342859",
-                @"146825225353259",
-                @"415004402015833",
-                @"353701311987",
-                @"198343570325312",
-                @"242919515859218",
-                @"537723156291580",
-                @"317158211638196",
-                @"1410660759172170",
-                @"206783812798277",
-                @"182484805131346",
-                @"292035034247",
-                @"257702554250168",
-                @"171774543014513"];
+    
+    _selectedMickey = [[NSMutableDictionary alloc]init];
+    NSArray *selectedpageIdsPersisted = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedFbProfileIds"];
+    for(NSString *selectedFbProfileId in selectedpageIdsPersisted) {
+        [_selectedMickey setObject:selectedFbProfileId forKey:selectedFbProfileId];
+        
+    }
+    
+   NSLog(@"%@", [_selectedMickey allValues]);
+    
+    
+    
+
     
     
 
@@ -92,7 +92,18 @@
     refreshControl.tintColor = [UIColor grayColor];
     [refreshControl addTarget:self action:@selector(refreshCollection) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:refreshControl];
+ 
+    for(NSInteger i; i<_sortedNames.count; ++i)
+    if([[_selectedMickey allKeys] containsObject:_sortedNames[i]])
+    {
+
+//        [self.collectionView ]
+//        [[self.collectionView delegate] collectionView:self.collectionView didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+
+    }
+
     
+
 }
 
 
@@ -105,38 +116,56 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return [pageIds count];
+    return [_pageProfileDetails count];
 }
+
+
+//http://stackoverflow.com/questions/18977527/how-do-i-display-the-standard-checkmark-on-a-uicollectionviewcell
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.alpha=0;
     
-    if(_sortedNames.count>indexPath.row) {
+    if(_sortedNames.count>indexPath.item) {
+        
         UILabel *myLabel = (UILabel *)[cell viewWithTag:144];
-        myLabel.text = _sortedNames[indexPath.row];
+        myLabel.text = _sortedNames[indexPath.item];
         
     UIImageView *myImage = (UIImageView *)[cell viewWithTag:143];
-        //todo: placeholder image
     myImage.image = [UIImage imageNamed:@"checkmark.png"];
-    [myImage sd_setImageWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.row]][@"profPicURL"]] placeholderImage:[UIImage imageNamed:@"checkmark.png"]];
+    [myImage sd_setImageWithURL:[NSURL URLWithString:_pageProfileDetails[_sortedNames[indexPath.item]][@"profPicURL"]] placeholderImage:[UIImage imageNamed:@"checkmark.png"]];
+
+//        if(indexPath.item==0) {
+//            cell.selected = TRUE;
+//            [self collectionView:collectionView myCustomSelectDeselectItemAtIndexPath:indexPath];
+//            
+////            [collectionView selectItemAtIndexPath:indexPath animated:TRUE scrollPosition:UICollectionViewScrollPositionNone];
+////            [self collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+//            
+//        }
 
         
+       // NSLog(@"Cell at %ld is %i", (long)indexPath.item, cell.isSelected);
+//        if([[_selectedMickey allKeys] containsObject:_sortedNames[indexPath.item]])
+//        {
+//            [collectionView selectItemAtIndexPath:indexPath animated:TRUE scrollPosition:UICollectionViewScrollPositionNone];
+//            [[collectionView delegate] collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+//            //  [self collectionView:self.collectionView myCustomSelectDeselectItemAtIndexPath:indexPath];
+//            
+//            
+//        }
+        
+        
+//    
+//    if (cell.selected){
+//        ((UIImageView *)[cell viewWithTag:142]).hidden = NO;
+//        myImage.alpha=0.3;     }
+//    else {
+//        ((UIImageView *)[cell viewWithTag:142]).hidden = YES;
+//        myImage.alpha=1.0;
+//    }
     
-    
-    if (cell.selected){
-        ((UIImageView *)[cell viewWithTag:142]).hidden = NO;
-        myImage.alpha=0.3;     }
-    else {
-        ((UIImageView *)[cell viewWithTag:142]).hidden = YES;
-        myImage.alpha=1.0;
-    }
-    
-    //    CGFloat randomBlue = drand48();
-    //    CGFloat randomGreen = drand48();
-    //    CGFloat randomRed = drand48();
-    //    cell.backgroundColor = [UIColor colorWithRed:randomRed green:randomGreen blue:randomBlue alpha:1.0];
     
     UInt64 millidelay = (arc4random()%600)/1000;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(millidelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -168,50 +197,82 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 - (FMMosaicCellSize)collectionView:(UICollectionView *)collectionView layout:(FMMosaicLayout *)collectionViewLayout
   mosaicCellSizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //return indexPath.item%7 ==0?FMMosaicCellSizeBig:FMMosaicCellSizeSmall;
     return FMMosaicCellSizeBig;
 }
 
 #pragma mark -selectItem delegate methods for collection view
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
-    
-    ((UIImageView *)[cell viewWithTag:142]).hidden=NO;
-    
-    ((UIImageView *)[cell viewWithTag:143]).alpha=0.3;
-    //can use highlightItemAtIndexPath..didn't try it. Maybe checkmark also gets highlighted and de-highlighted if we use this method
-    
-    /* a dictionary is used to keep track of item at the time of de-selection */
-    [_selectedProfilesDictionary setObject:pageIds[indexPath.item] forKey:pageIds[indexPath.item]];
-    
-    if([_selectedProfilesDictionary count] && ![navigationBarButtons containsObject:self.getFeedButton]) {
-        [navigationBarButtons addObject:self.getFeedButton];
-        [self.navigationItem setRightBarButtonItems:navigationBarButtons];
-    }
-    
-        
- 
-    
- }
+
+    [self collectionView:collectionView myCustomSelectDeselectItemAtIndexPath:indexPath];
+}
+
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    [self collectionView:collectionView myCustomSelectDeselectItemAtIndexPath:indexPath];
+}
+
+-(void) collectionView:(UICollectionView *)collectionView myCustomSelectDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
     
-    ((UIImageView *)[cell viewWithTag:142]).hidden=YES;
-    ((UIImageView *)[cell viewWithTag:143]).alpha=1;
+    if(cell.selected) {
+        ((UIImageView *)[cell viewWithTag:142]).hidden=NO;
+        ((UIImageView *)[cell viewWithTag:143]).alpha=0.3;
+        
+        
+        /* a dictionary is used to keep track of item at the time of de-selection */
+        NSString *selectedPagedId = _pageProfileDetails[_sortedNames[indexPath.item]][@"pageId"];
+        [_selectedMickey setObject:selectedPagedId forKey:_sortedNames[indexPath.item]];
+        
+        if([_selectedMickey count] && ![navigationBarButtons containsObject:self.getFeedButton]) {
+            [navigationBarButtons addObject:self.getFeedButton];
+            [self.navigationItem setRightBarButtonItems:navigationBarButtons];
+        }
+    }
     
-    [_selectedProfilesDictionary removeObjectForKey:pageIds[indexPath.item]];
-    
-    if(![_selectedProfilesDictionary count]) {
-    [navigationBarButtons removeObject:self.getFeedButton];
-    [self.navigationItem setRightBarButtonItems:navigationBarButtons];
+    else {
+        ((UIImageView *)[cell viewWithTag:142]).hidden=YES;
+        ((UIImageView *)[cell viewWithTag:143]).alpha=1;
+        
+        
+        [_selectedMickey removeObjectForKey:_sortedNames[indexPath.item]];
+        
+        if(![_selectedMickey count]) {
+            [navigationBarButtons removeObject:self.getFeedButton];
+            [self.navigationItem setRightBarButtonItems:navigationBarButtons];
+        }
     }
 }
 
+
+
 #pragma mark - Facebook Fetch
 -(void) getPageProfilePictures {
+    
+    NSArray * pageIds = @[    @"272394492879208",
+                              @"754869404569818",
+                              @"418543801611643",
+                              @"240482462650426",
+                              @"231275190406200",
+                              @"100641016663545",
+                              @"217963184943488",
+                              @"666376426759997",
+                              @"567441813288417",
+                              @"671125706342859",
+                              @"146825225353259",
+                              @"415004402015833",
+                              @"353701311987",
+                              @"198343570325312",
+                              @"242919515859218",
+                              @"537723156291580",
+                              @"317158211638196",
+                              @"1410660759172170",
+                              @"206783812798277",
+                              @"182484805131346",
+                              @"292035034247",
+                              @"257702554250168",
+                              @"171774543014513"];
     
     for(NSString *fbid in pageIds ) {
   
@@ -225,7 +286,6 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
                                                 @"profPicURL" : result[@"picture"][@"data"][@"url"]
                                                 }
                                        forKey:result[@"name"]];
-                NSLog(@"%@", result[@"name"]);
                 
             }
             else {
@@ -257,10 +317,14 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
 
 - (IBAction)showFeedAction:(id)sender {
     
-    [_selectedProfilesDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
-     {
-         NSLog(@"key: %@, value: %@", key, obj); 
-     }];
+//    [_selectedMickey enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
+//     {
+//         NSLog(@"key: %@, value: %@", key, obj); 
+//     }];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[_selectedMickey allKeys] forKey:@"selectedFbProfileIds"];
+    [userDefaults synchronize];
     
     
     [self performSegueWithIdentifier:@"goToPosts" sender:nil];
@@ -276,7 +340,9 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     if([segue.identifier isEqualToString:@"goToPosts"])
     {
         ListOfFbPostsViewController *destin = [segue destinationViewController];
-        destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
+//        destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
+        destin.selectedProfileIds = (NSArray *)[_selectedMickey allValues];
+
     }
     
 }

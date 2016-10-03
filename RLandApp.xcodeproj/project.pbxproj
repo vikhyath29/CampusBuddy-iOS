@@ -23,6 +23,7 @@
 		C20D61BC1C21BEE500F52991 /* RLandAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D61BB1C21BEE500F52991 /* RLandAppTests.m */; };
 		C20D61C71C21BEE600F52991 /* RLandAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C20D61C61C21BEE600F52991 /* RLandAppUITests.m */; };
 		C20D61E01C21C11300F52991 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20D61DF1C21C11300F52991 /* UIKit.framework */; };
+		C22A1D421D9F731C00270292 /* checkmark1.png in Resources */ = {isa = PBXBuildFile; fileRef = C22A1D411D9F731C00270292 /* checkmark1.png */; };
 		C27625AE1D8BABC200D01AAB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27625AA1D8BABC200D01AAB /* Bolts.framework */; };
 		C27625AF1D8BABC200D01AAB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27625AB1D8BABC200D01AAB /* FBSDKCoreKit.framework */; };
 		C27625B01D8BABC200D01AAB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27625AC1D8BABC200D01AAB /* FBSDKLoginKit.framework */; };
@@ -129,6 +130,7 @@
 		C20D61C61C21BEE600F52991 /* RLandAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLandAppUITests.m; sourceTree = "<group>"; };
 		C20D61C81C21BEE600F52991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C20D61DF1C21C11300F52991 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C22A1D411D9F731C00270292 /* checkmark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark1.png; sourceTree = "<group>"; };
 		C27625AA1D8BABC200D01AAB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C27625AB1D8BABC200D01AAB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C27625AC1D8BABC200D01AAB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				C2939B221D93A69300E0D903 /* FBLoginViewController.h */,
 				C2939B231D93A69300E0D903 /* FBLoginViewController.m */,
 				C27625E11D8BAEB300D01AAB /* checkmark.png */,
+				C22A1D411D9F731C00270292 /* checkmark1.png */,
 				C27625E21D8BAEB300D01AAB /* ChooseFbPageViewController.h */,
 				C27625E31D8BAEB300D01AAB /* ChooseFbPageViewController.m */,
 				C27625E61D8BAEB300D01AAB /* Fb_Cells */,
@@ -628,6 +631,7 @@
 				C2ECE3851D9AB2A200A9B505 /* FB-f-Logo__white_100.png in Resources */,
 				C20D61B11C21BEE500F52991 /* LaunchScreen.storyboard in Resources */,
 				C2ECE3871D9AB2A200A9B505 /* GitHub-Mark-Light-120px-plus.png in Resources */,
+				C22A1D421D9F731C00270292 /* checkmark1.png in Resources */,
 				C2ECE3891D9AB2A200A9B505 /* person.png in Resources */,
 				C27625DD1D8BADCA00D01AAB /* compass-point-7.png in Resources */,
 				C27625DC1D8BADCA00D01AAB /* calendar-7.png in Resources */,

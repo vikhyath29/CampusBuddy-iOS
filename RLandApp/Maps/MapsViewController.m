@@ -105,6 +105,7 @@
     for(int i=0; i<sortedArray.count; ++i) {
         [allDetailsArray addObject:[tempDictionary valueForKey:sortedArray[i]]];
     }
+    
     //Initializing the arrays and adding objects correspondingly
     locationNameArray = [[NSMutableArray alloc]init];
     LongitudeArray = [[NSMutableArray alloc]init];
@@ -137,6 +138,9 @@
     searchedLocationsDetailsArray = [[NSMutableArray alloc]init];
     selectedLocationNames = [[NSMutableArray alloc]init];
     _placesTableView.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.height/2);
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
 }
 
 
@@ -393,7 +397,7 @@ else {
 {//TO-DO: [Modify] can reduce the code
     
     //One Place Selection Switch
-    if(!_searchFeatureSwitch.on) {
+//    if(!_searchFeatureSwitch.on) {
         if (tableView == self.searchDisplayController.searchResultsTableView){
             
             [self addItemViewControllerdidFinishEnteringItem:[sortedArray indexOfObject:searchedLocationsDetailsArray[indexPath.row][@"Location"]] withIsTrackEnabled:NO];
@@ -404,43 +408,43 @@ else {
      //       [self addItemViewControllerdidFinishEnteringItem:indexPath.row withIsTrackEnabled:_searchFeatureSwitch.on];
         
         
-    }
+//    }
     
     //Two Places Selection Switch
-    else if(_searchFeatureSwitch.on) {
-        
-        if (tableView == self.searchDisplayController.searchResultsTableView){
-            
-            NSString *selectedLocationName = [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"];
-            
-            NSLog(@"You just pressed %@", selectedLocationName);
-            
-            [selectedLocationNames addObject:selectedLocationName];
-            [sortedDictionaryFinal valueForKey:selectedLocationName][@"isSelectionChecked"] = @YES;
-            
-            [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-
-            // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
-            
-            [self addItemViewControllerdidFinishEnteringItem:[sortedArray indexOfObject:searchedLocationsDetailsArray[indexPath.row][@"Location"]] withIsTrackEnabled:YES];
-           // NSLog(@"Number of selected rows are %i",[[tableView indexPathsForSelectedRows] count] );
-            
- 
-            if(selectedLocationNames.count==2 ) {
-//                NSLog(@"List of all selected names are");
-//                for(int i=0; i<selectedLocationNames.count; ++i)
-//                    NSLog(@"%@", [sortedDictionaryFinal valueForKey:selectedLocationNames[i]]);
-                
-                
-                [sortedDictionaryFinal valueForKey:selectedLocationNames[0]][@"isSelectionChecked"] = @NO;
-                [sortedDictionaryFinal valueForKey:selectedLocationNames[1]][@"isSelectionChecked"] = @NO;
-                [selectedLocationNames removeAllObjects];
-                
-            [self.searchDisplayController setActive:NO];
-                
-            }
-        }
-    }
+//    else if(_searchFeatureSwitch.on) {
+//        
+//        if (tableView == self.searchDisplayController.searchResultsTableView){
+//            
+//            NSString *selectedLocationName = [searchedLocationsDetailsArray objectAtIndex:indexPath.row][@"Location"];
+//            
+//            NSLog(@"You just pressed %@", selectedLocationName);
+//            
+//            [selectedLocationNames addObject:selectedLocationName];
+//            [sortedDictionaryFinal valueForKey:selectedLocationName][@"isSelectionChecked"] = @YES;
+//            
+//            [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+//
+//            // [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow].row also returns the row but this isn't needed here. The method is already providing in form of `indexPath`
+//            
+//            [self addItemViewControllerdidFinishEnteringItem:[sortedArray indexOfObject:searchedLocationsDetailsArray[indexPath.row][@"Location"]] withIsTrackEnabled:YES];
+//           // NSLog(@"Number of selected rows are %i",[[tableView indexPathsForSelectedRows] count] );
+//            
+// 
+//            if(selectedLocationNames.count==2 ) {
+////                NSLog(@"List of all selected names are");
+////                for(int i=0; i<selectedLocationNames.count; ++i)
+////                    NSLog(@"%@", [sortedDictionaryFinal valueForKey:selectedLocationNames[i]]);
+//                
+//                
+//                [sortedDictionaryFinal valueForKey:selectedLocationNames[0]][@"isSelectionChecked"] = @NO;
+//                [sortedDictionaryFinal valueForKey:selectedLocationNames[1]][@"isSelectionChecked"] = @NO;
+//                [selectedLocationNames removeAllObjects];
+//                
+//            [self.searchDisplayController setActive:NO];
+//                
+//            }
+//        }
+//    }
 }
 
 //-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {

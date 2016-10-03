@@ -243,13 +243,13 @@ NSString *const kPostURL = @"link";
 
 
     
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    DetailFbPostViewController *dpvc = [[DetailFbPostViewController alloc]init];
-    dpvc.postURLString = _sortedPosts[indexPath.row][kPostInfo][kPostURL];
-    [self.navigationController pushViewController:dpvc animated:YES];
-}
+//-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    DetailFbPostViewController *dpvc = [[DetailFbPostViewController alloc]init];
+//    dpvc.postURLString = _sortedPosts[indexPath.row][kPostInfo][kPostURL];
+//    [self.navigationController pushViewController:dpvc animated:YES];
+//}
 
 - (IBAction)scrollToTopAction:(id)sender {
     [self.fbtable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
