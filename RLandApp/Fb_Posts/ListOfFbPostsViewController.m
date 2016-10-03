@@ -12,6 +12,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 
+
+
 @interface ListOfFbPostsViewController ()
 {
     int numberOfPosts;
@@ -23,9 +25,9 @@
 @property (nonatomic) NSMutableDictionary *unsortedPosts;
 @property (weak, nonatomic) IBOutlet UITableView *fbtable;
 
-@property (strong, nonatomic) UIImageView *tappedImageView;
 @property (strong, nonatomic) UIView *expandedFbPostView;
-
+@property (strong, nonatomic) UIImageView *tappedImageView;
+@property (strong, nonatomic) UILabel *fbTextLabel;
 
 @end
 
@@ -90,8 +92,18 @@ NSString *const kPostURL = @"link";
 
     _tappedImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"checkmark.png"]];
     [_expandedFbPostView addSubview:_tappedImageView];
-    _tappedImageView.frame = CGRectMake(0, _tappedImageView.superview.frame.size.height*1/16, _tappedImageView.superview.frame.size.width, _tappedImageView.superview.frame.size.height*3/4);
+    _tappedImageView.frame = CGRectMake(0, _tappedImageView.superview.frame.size.height*1/16, _tappedImageView.superview.frame.size.width, _tappedImageView.superview.frame.size.height*10/16);
+
     
+    
+    _fbTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height*11/16, self.view.frame.size.width, self.view.frame.size.height*(4/16 + 1/32))];
+    _fbTextLabel.numberOfLines =0;
+    _fbTextLabel.text = @"...";
+    _fbTextLabel.textColor = [UIColor whiteColor];
+    [_expandedFbPostView addSubview:_fbTextLabel];
+    
+    
+    //no need of text view
     _expandedFbPostView.hidden = YES;
 }
 
@@ -206,6 +218,8 @@ NSString *const kPostURL = @"link";
     //Handling Tap
     cellWithPic.imageVie.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showExpandedFbPost:)];
+    cellWithPic.textLabe.tag = indexPath.row + 2;
+    cellWithPic.imageVie.tag = cellWithPic.textLabe.tag + 1000;
     tapped.numberOfTapsRequired = 1;
     [cellWithPic.imageVie addGestureRecognizer:tapped];
     
@@ -310,8 +324,10 @@ NSString *const kPostURL = @"link";
 
 -(void) showExpandedFbPost:(UITapGestureRecognizer *)sender {
     self.navigationController.navigationBarHidden = YES;
-    //    _tappedImageView = (UIImageView *)sender.view;
+    
     _tappedImageView.image =  [(UIImageView *)sender.view image];
+    _fbTextLabel.text = [(UILabel *)[self.view viewWithTag:(sender.view.tag-1000)] text];
+    
     _expandedFbPostView.hidden = NO;
 }
 

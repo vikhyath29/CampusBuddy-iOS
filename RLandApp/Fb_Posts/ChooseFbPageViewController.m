@@ -55,12 +55,10 @@
     
     _selectedMickey = [[NSMutableDictionary alloc]init];
     NSArray *selectedpageIdsPersisted = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedFbProfileIds"];
-    for(NSString *selectedFbProfileId in selectedpageIdsPersisted) {
+    for(NSString *selectedFbProfileId in selectedpageIdsPersisted)
         [_selectedMickey setObject:selectedFbProfileId forKey:selectedFbProfileId];
-        
-    }
     
-   NSLog(@"%@", [_selectedMickey allValues]);
+    NSLog(@"%@", [_selectedMickey allValues]);
     
     
     
@@ -229,7 +227,9 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
             [navigationBarButtons addObject:self.getFeedButton];
             [self.navigationItem setRightBarButtonItems:navigationBarButtons];
         }
+  
     }
+    
     
     else {
         ((UIImageView *)[cell viewWithTag:142]).hidden=YES;
@@ -340,7 +340,6 @@ interitemSpacingForSectionAtIndex:(NSInteger)section
     if([segue.identifier isEqualToString:@"goToPosts"])
     {
         ListOfFbPostsViewController *destin = [segue destinationViewController];
-//        destin.selectedProfileIds = (NSArray *)[_selectedProfilesDictionary allValues];
         destin.selectedProfileIds = (NSArray *)[_selectedMickey allValues];
 
     }
