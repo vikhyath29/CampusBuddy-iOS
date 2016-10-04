@@ -744,10 +744,10 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Zx5-bZ-8JT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="Zx5-bZ-8JT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.36078431370000003" green="0.23137254900000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1056,7 +1056,7 @@
             </objects>
             <point key="canvasLocation" x="4033.5" y="2492"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--About-->
         <scene sceneID="EDd-JV-ejT">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" extendedLayoutIncludesOpaqueBars="YES" id="A0Y-3x-32f" customClass="SettingsTableViewController" customModule="RLandApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -1284,7 +1284,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ya4-7o-dEZ"/>
+                    <navigationItem key="navigationItem" title="About" id="ya4-7o-dEZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcd-SD-xfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1298,7 +1298,7 @@
                     <tabBarItem key="tabBarItem" title="About" image="about" id="Oa7-sY-fmo"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EI4-9F-uCS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" translucent="NO" id="EI4-9F-uCS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.36078431370000003" green="0.23137254900000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
