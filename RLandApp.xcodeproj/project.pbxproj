@@ -989,7 +989,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kush/Desktop/MyLibrary/RLand/RLandApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1010,7 +1010,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdsmdg.ios.campusBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "~/Desktop/RLand/RLandApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/kush/Desktop/MyLibrary/RLand/RLandApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
