@@ -18,17 +18,17 @@ extension DepartmentsTableViewController: UISearchResultsUpdating {
 
 class DepartmentsTableViewController: UITableViewController , UIAlertViewDelegate,MFMailComposeViewControllerDelegate , MFMessageComposeViewControllerDelegate {
     
-    var DepartmentsArray :NSMutableArray = []
-    let searchController = UISearchController(searchResultsController: nil)
-    var Departments = [DepartmentCell]()
-    var Professors = [ProfContactCell]()
+    var DepartmentsArray :NSMutableArray = [] // Stores the Deparments from json
+    let searchController = UISearchController(searchResultsController: nil) // SearchController
+    var Departments = [DepartmentCell]()  // local department array of departmentcell type
+    var Professors = [ProfContactCell]() // Array to store Professor Details
     var filterdepartments = [DepartmentCell]()
-    var filterProfessors = [ProfContactCell]()
+    var filterProfessors = [ProfContactCell]() // searched Professors
     var resdoffstdcode = "0133228 " // std code for roorkee and starting landline
     let std_code_bsnl = "01332"  //std code for roorkee
-    var LandlineorMobiledata = ""
-    var bsnlPhone = ""
-    var bsnltocall = ""
+    var LandlineorMobiledata = "" // local var to store bsnl keyvalue
+    var bsnlPhone = "" // local var to store bsnl keyvalue when it is landline with std code
+    var bsnltocall = ""// local var to store when it is mobile number
     
     
     @IBOutlet var Switch : UISegmentedControl!
@@ -125,6 +125,7 @@ class DepartmentsTableViewController: UITableViewController , UIAlertViewDelegat
         filterProfessors = Professors.filter {
             Professor in
             return Professor.name!.lowercaseString.containsString(searchText.lowercaseString) || Professor.profdepartment!.lowercaseString.containsString(searchText.lowercaseString)
+            
         }
         self.tableView.reloadData()
         
