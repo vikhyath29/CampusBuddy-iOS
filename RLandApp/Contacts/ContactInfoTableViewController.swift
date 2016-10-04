@@ -64,7 +64,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                 bsnltocall = std_code_bsnl + LandlineorMobiledata
             }
             
-            cells.append((resdoffstdcode + LandlineorMobiledata).removeWhitespace())
+            cells.append((bsnltocall).removeWhitespace())
             
         }
         cells.append("Send Message")
@@ -171,7 +171,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"
@@ -261,7 +261,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"
@@ -283,7 +283,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"
@@ -375,7 +375,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"
@@ -397,7 +397,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"
@@ -420,7 +420,7 @@ class ContactInfoTableViewController: UITableViewController,CNContactViewControl
                     cell.textLabel?.text = "Office"
                 case (resdoffstdcode + residancemobiledata).removeWhitespace():
                     cell.textLabel?.text = "Residance"
-                case (resdoffstdcode + LandlineorMobiledata).removeWhitespace():
+                case (bsnltocall).removeWhitespace():
                     cell.textLabel?.text = "Phone"
                 default :
                     cell.textLabel?.text = "Office"

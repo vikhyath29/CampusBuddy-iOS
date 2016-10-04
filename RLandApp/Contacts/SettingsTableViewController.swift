@@ -163,20 +163,10 @@ class SettingsTableViewController: UITableViewController, MFMessageComposeViewCo
     }
     
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        switch (result.rawValue) {
-            
-        case MessageComposeResultSent.rawValue:
-            print("Mesaage was Sent")
+       
+      
             self.dismissViewControllerAnimated(true, completion: nil)
-        case MessageComposeResultFailed.rawValue:
-            print("Mesaage was Failed")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        case MessageComposeResultCancelled.rawValue:
-            print("Mesaage was Cancelled")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        default:
-            break
-        }
+      
     }
     /*
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
